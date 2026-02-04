@@ -6,6 +6,11 @@ A continuación se detallan las modificaciones acordadas para implementar en la 
 
 ## TODO
 
+### Paleta de colores
+- Incorporar el color celeste del logo dentro de la paleta general del sitio para reforzar la identidad visual.
+
+### Sección About Us
+- Modificar la disposición de las tarjetas para mejorar la jerarquía visual y la lectura del contenido.
 
 
 ## Funcionalidades y estructura
@@ -21,8 +26,6 @@ A continuación se detallan las modificaciones acordadas para implementar en la 
 - Incorporar una sección específica de promociones.
 - Agregar un botón de llamada a la acción que lleve directamente a WhatsApp.
 
-### Sección About Us
-- Modificar la disposición de las tarjetas para mejorar la jerarquía visual y la lectura del contenido.
 
 ### Nueva sección: Excursiones
 - Crear una nueva sección destinada a mostrar las excursiones y actividades disponibles.
@@ -38,10 +41,3 @@ A continuación se detallan las modificaciones acordadas para implementar en la 
 ### Traducción completa al inglés
 - Traducir todo el contenido del sitio web al idioma inglés.
 - Mantener coherencia, claridad y un tono adecuado para público internacional.
-
----
-
-## Diseño
-
-### Paleta de colores
-- Incorporar el color celeste del logo dentro de la paleta general del sitio para reforzar la identidad visual.

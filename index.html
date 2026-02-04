@@ -144,12 +144,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--color-orange);
+            background: var(--color-sky);
             transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--color-orange);
+            color: var(--color-sky);
         }
 
         .nav-links a:hover::after {
@@ -198,7 +198,7 @@
 
         .lang-btn.active {
             opacity: 1;
-            color: var(--color-orange);
+            color: var(--color-sky);
         }
 
         .lang-divider {
@@ -381,13 +381,27 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .section-title h2 {
             font-size: 2.8rem;
             color: var(--color-green);
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--color-sky);
+            border-radius: 2px;
         }
 
         .section-title p {
@@ -399,40 +413,124 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* Tarjeta principal destacada */
+        .about-card.featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: center;
+            text-align: left;
+            padding: 0;
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-top: none;
+            border-left: 5px solid var(--color-sky);
+        }
+
+        .about-card.featured .about-image {
+            height: 100%;
+            min-height: 350px;
+        }
+
+        .about-card.featured .about-image img {
+            height: 100%;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .about-card.featured .about-text {
+            padding: 40px 40px 40px 0;
+        }
+
+        .about-card.featured h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-card.featured p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Contenedor de tarjetas secundarias */
+        .about-secondary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
         .about-card {
-            text-align: center;
-            padding: 40px 30px;
+            text-align: left;
+            padding: 0;
             background: var(--color-white);
-            border-radius: 15px;
+            border-radius: 20px;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            position: relative;
         }
 
         .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
         }
 
-        .about-image img {
+        .about-card .about-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card .about-image img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 15px;
+            border-radius: 0;
+            margin-bottom: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .about-card:hover .about-image img {
+            transform: scale(1.05);
+        }
+
+        .about-card .about-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 45px;
+            height: 45px;
+            background: var(--color-sky);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .about-card .about-text {
+            padding: 25px 30px 30px;
         }
 
         .about-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--color-dark);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .about-card p {
             color: #666;
             font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         /* Rooms Section */
@@ -498,7 +596,7 @@
         }
 
         .room-features i {
-            color: var(--color-green);
+            color: var(--color-sky);
         }
 
         .room-price {
@@ -574,7 +672,7 @@
 
         .service-item i {
             font-size: 2.5rem;
-            color: var(--color-sand);
+            color: var(--color-sky);
             margin-bottom: 20px;
         }
 
@@ -626,7 +724,7 @@
 
         .location-item i {
             font-size: 1.5rem;
-            color: var(--color-orange);
+            color: var(--color-sky);
             margin-top: 5px;
         }
 
@@ -660,7 +758,7 @@
 
         /* Rating Badge */
         .rating-badge {
-            background: var(--color-orange);
+            background: var(--color-sky);
             color: var(--color-white);
             padding: 15px 25px;
             border-radius: 10px;
@@ -820,13 +918,13 @@
         }
 
         .social-links a:hover {
-            background: var(--color-orange);
+            background: var(--color-sky);
         }
 
         .footer-links h4 {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            color: var(--color-sand);
+            color: var(--color-sky);
         }
 
         .footer-links ul {
@@ -845,7 +943,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--color-orange);
+            color: var(--color-sky);
         }
 
         .footer-bottom {
@@ -929,7 +1027,7 @@
         }
 
         .mobile-menu .nav-links a:hover {
-            color: var(--color-orange);
+            color: var(--color-sky);
         }
 
         .mobile-menu .lang-selector {
@@ -957,7 +1055,7 @@
         }
 
         .mobile-menu-close:hover {
-            color: var(--color-orange);
+            color: var(--color-sky);
         }
 
         .menu-toggle.active i::before {
@@ -982,8 +1080,20 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .about-grid, .rooms-grid {
+            .rooms-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-card.featured {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card.featured .about-image {
+                min-height: 280px;
+            }
+
+            .about-card.featured .about-text {
+                padding: 30px;
             }
 
             .services-grid {
@@ -1058,8 +1168,25 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-grid, .rooms-grid, .services-grid {
+            .rooms-grid, .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-secondary {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card.featured .about-text {
+                padding: 25px 20px;
+                text-align: center;
+            }
+
+            .about-card.featured h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-card .about-text {
+                text-align: center;
             }
 
             .section-title h2 {
@@ -1233,26 +1360,39 @@
                 <p>Descubrí la magia de la Patagonia en nuestro acogedor hostel, a minutos del Glaciar Perito Moreno</p>
             </div>
             <div class="about-grid">
-                <div class="about-card">
+                <!-- Tarjeta principal destacada -->
+                <div class="about-card featured">
                     <div class="about-image">
-                        <img src="img/9.webp" alt="Ubicación Privilegiada">                    
+                        <img src="img/9.webp" alt="Ubicación Privilegiada">
                     </div>
-                    <h3>Ubicación Privilegiada</h3>
-                    <p>A solo minutos del centro de El Calafate y cerca de las principales atracciones turísticas de la región.</p>
+                    <div class="about-text">
+                        <h3>Ubicación Privilegiada</h3>
+                        <p>Estamos ubicados a solo minutos del centro de El Calafate, con fácil acceso a las principales atracciones turísticas de la región. El Glaciar Perito Moreno, el Lago Argentino y los mejores restaurantes están a tu alcance.</p>
+                    </div>
                 </div>
-                <div class="about-card">
-                    <div class="about-image">
-                        <img src="img/3.webp" alt="Ubicación Privilegiada">                    
+
+                <!-- Tarjetas secundarias -->
+                <div class="about-secondary">
+                    <div class="about-card">
+                        <div class="about-image">
+                            <span class="about-number">1</span>
+                            <img src="img/3.webp" alt="Atención Personalizada">
+                        </div>
+                        <div class="about-text">
+                            <h3>Atención Personalizada</h3>
+                            <p>Nuestro equipo te ayudará a planificar excursiones y vivir experiencias únicas en la Patagonia.</p>
+                        </div>
                     </div>
-                    <h3>Atención Personalizada</h3>
-                    <p>Nuestro equipo te ayudará a planificar excursiones y vivir experiencias únicas en la Patagonia.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-image">
-                        <img src="img/2.webp" alt="Ubicación Privilegiada">                    
+                    <div class="about-card">
+                        <div class="about-image">
+                            <span class="about-number">2</span>
+                            <img src="img/2.webp" alt="Ambiente Hogareño">
+                        </div>
+                        <div class="about-text">
+                            <h3>Ambiente Hogareño</h3>
+                            <p>Espacios cálidos y acogedores para que te sientas como en casa durante tu estadía.</p>
+                        </div>
                     </div>
-                    <h3>Ambiente Hogareño</h3>
-                    <p>Espacios cálidos y acogedores para que te sientas como en casa durante tu estadía.</p>
                 </div>
             </div>
         </div>
