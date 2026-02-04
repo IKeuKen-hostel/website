@@ -788,70 +788,341 @@
         }
 
         /* Gallery Section */
+        /* Gallery Carousel */
         .gallery {
             padding: 100px 0;
             background: var(--color-white);
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 200px);
-            gap: 15px;
-        }
-
-        .gallery-item {
-            background: linear-gradient(135deg, var(--color-sky), var(--color-sand));
-            border-radius: 10px;
-            overflow: hidden;
+        .carousel-container {
             position: relative;
-            cursor: pointer;
-            transition: transform 0.3s;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
-        .gallery-item img {
+        .carousel-main {
+            position: relative;
+            border-radius: 20px;
+            overflow: visible;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .carousel-main .carousel-slide {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: none;
+            position: relative;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--color-white);
+        }
+
+        .carousel-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .carousel-caption p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Navigation Arrows */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--color-white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--color-dark);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-sky);
+            color: var(--color-white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: -25px;
+        }
+
+        .carousel-btn.next {
+            right: -25px;
+        }
+
+        /* Dots Indicator */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-sand);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .carousel-dot:hover {
+            opacity: 0.8;
+        }
+
+        .carousel-dot.active {
+            background: var(--color-sky);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* Thumbnails */
+        .carousel-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .carousel-thumb {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .carousel-thumb:hover {
+            opacity: 0.9;
+        }
+
+        .carousel-thumb.active {
+            opacity: 1;
+            border-color: var(--color-sky);
+            transform: scale(1.05);
+        }
+
+        .carousel-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.02);
+        /* Counter */
+        .carousel-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 10;
         }
 
-        .gallery-item:first-child {
-            grid-column: span 2;
-            grid-row: span 2;
+        /* Promotions Section */
+        .promotions {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--color-sky) 0%, #5a9fd4 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .gallery-item::after {
+        .promotions::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.3);
-            opacity: 0;
-            transition: opacity 0.3s;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
         }
 
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        .gallery-item i {
+        .promotions::after {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2rem;
-            color: var(--color-white);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.3s;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
         }
 
-        .gallery-item:hover i {
-            opacity: 1;
+        .promotions .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .promotions .section-title h2 {
+            color: var(--color-white);
+        }
+
+        .promotions .section-title h2::after {
+            background: var(--color-white);
+        }
+
+        .promotions .section-title p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .promo-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .promo-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--color-orange);
+            color: var(--color-white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .promo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-sky), #5a9fd4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .promo-icon i {
+            font-size: 1.8rem;
+            color: var(--color-white);
+        }
+
+        .promo-card h3 {
+            font-size: 1.3rem;
+            color: var(--color-dark);
+            margin-bottom: 12px;
+        }
+
+        .promo-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .promo-price {
+            margin-bottom: 20px;
+        }
+
+        .promo-price .old-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .promo-price .new-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-orange);
+        }
+
+        .promo-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: var(--color-white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.2rem;
         }
 
         /* CTA Section */
@@ -1100,6 +1371,16 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .promo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .promo-card:last-child {
+                grid-column: span 2;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
             .location-content {
                 grid-template-columns: 1fr;
             }
@@ -1113,16 +1394,25 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .carousel-container {
+                padding: 0 35px;
             }
 
-            .gallery-item {
-                height: 180px;
+            .carousel-slide img {
+                height: 400px;
             }
 
-            .gallery-item:first-child {
-                height: 375px;
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .carousel-btn.prev {
+                left: -22px;
+            }
+
+            .carousel-btn.next {
+                right: -22px;
             }
         }
 
@@ -1172,6 +1462,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-card:last-child {
+                grid-column: span 1;
+                max-width: none;
+            }
+
             .about-secondary {
                 grid-template-columns: 1fr;
             }
@@ -1202,18 +1501,43 @@
                 justify-content: center;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
+            .carousel-container {
+                padding: 0 30px;
             }
 
-            .gallery-item:first-child {
-                grid-column: span 1;
-                grid-row: span 1;
+            .carousel-slide img {
+                height: 300px;
             }
 
-            .gallery-item {
-                height: 200px;
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .carousel-btn.prev {
+                left: -20px;
+            }
+
+            .carousel-btn.next {
+                right: -20px;
+            }
+
+            .carousel-caption {
+                padding: 20px;
+            }
+
+            .carousel-caption h4 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-thumbnails {
+                gap: 8px;
+            }
+
+            .carousel-thumb {
+                width: 60px;
+                height: 45px;
             }
 
             .location-map {
@@ -1287,6 +1611,7 @@
                     <li><a href="#about">El Lodge</a></li>
                     <li><a href="#rooms">Habitaciones</a></li>
                     <li><a href="#services">Servicios</a></li>
+                    <li><a href="#promotions">Promos</a></li>
                     <li><a href="#gallery">Galería</a></li>
                     <li><a href="#location">Ubicación</a></li>
                 </ul>
@@ -1319,6 +1644,7 @@
             <li><a href="#about">El Lodge</a></li>
             <li><a href="#rooms">Habitaciones</a></li>
             <li><a href="#services">Servicios</a></li>
+            <li><a href="#promotions">Promos</a></li>
             <li><a href="#gallery">Galería</a></li>
             <li><a href="#location">Ubicación</a></li>
         </ul>
@@ -1513,6 +1839,62 @@
         </div>
     </section>
 
+    <!-- Promotions Section -->
+    <section id="promotions" class="promotions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Promociones Especiales</h2>
+                <p>Aprovechá nuestras ofertas exclusivas para tu estadía en El Calafate</p>
+            </div>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <span class="promo-badge">-20%</span>
+                    <div class="promo-icon">
+                        <i class="fas fa-calendar-week"></i>
+                    </div>
+                    <h3>Estadía Extendida</h3>
+                    <p>Reservá 5 noches o más y obtené un 20% de descuento en tu estadía completa.</p>
+                    <div class="promo-price">
+                        <span class="old-price">$225</span>
+                        <span class="new-price">$180</span>
+                        <span>/ 5 noches</span>
+                    </div>
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%20Estad%C3%ADa%20Extendida%20(5%20noches%20con%2020%25%20de%20descuento)" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
+                </div>
+                <div class="promo-card">
+                    <span class="promo-badge">2x1</span>
+                    <div class="promo-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3>Aventura Patagónica</h3>
+                    <p>Reservá tu habitación y llevate una excursión al Glaciar Perito Moreno 2x1.</p>
+                    <div class="promo-price">
+                        <span class="new-price">Consultar</span>
+                    </div>
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%20Aventura%20Patag%C3%B3nica%20(excursi%C3%B3n%202x1)" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
+                </div>
+                <div class="promo-card">
+                    <span class="promo-badge">GRATIS</span>
+                    <div class="promo-icon">
+                        <i class="fas fa-shuttle-van"></i>
+                    </div>
+                    <h3>Transfer Incluido</h3>
+                    <p>Reservá 3 noches o más y te regalamos el transfer desde el aeropuerto.</p>
+                    <div class="promo-price">
+                        <span class="new-price">Transfer gratis</span>
+                    </div>
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%20Transfer%20Incluido%20(3%20noches%20o%20m%C3%A1s)" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="container">
@@ -1520,21 +1902,82 @@
                 <h2>Galería</h2>
                 <p>Conocé nuestros espacios y la belleza de El Calafate</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="img/12.webp" alt="">
+            <div class="carousel-container">
+                <div class="carousel-main">
+                    <span class="carousel-counter">1 / 5</span>
+
+                    <div class="carousel-slide active">
+                        <img src="img/12.webp" alt="Vista del hostel">
+                        <div class="carousel-caption">
+                            <h4>Nuestro Hostel</h4>
+                            <p>Un espacio acogedor en el corazón de El Calafate</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/13.webp" alt="Áreas comunes">
+                        <div class="carousel-caption">
+                            <h4>Áreas Comunes</h4>
+                            <p>Espacios para compartir y conocer otros viajeros</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/11.webp" alt="Habitaciones">
+                        <div class="carousel-caption">
+                            <h4>Habitaciones</h4>
+                            <p>Comodidad y calidez para tu descanso</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/8.webp" alt="Vistas panorámicas">
+                        <div class="carousel-caption">
+                            <h4>Vistas Panorámicas</h4>
+                            <p>La belleza de la Patagonia desde nuestras instalaciones</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/1.webp" alt="Experiencias únicas">
+                        <div class="carousel-caption">
+                            <h4>Experiencias Únicas</h4>
+                            <p>Momentos inolvidables en El Calafate</p>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev" aria-label="Anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" aria-label="Siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="gallery-item">
-                    <img src="img/13.webp" alt="">
+
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" data-slide="0"></button>
+                    <button class="carousel-dot" data-slide="1"></button>
+                    <button class="carousel-dot" data-slide="2"></button>
+                    <button class="carousel-dot" data-slide="3"></button>
+                    <button class="carousel-dot" data-slide="4"></button>
                 </div>
-                <div class="gallery-item">
-                    <img src="img/11.webp" alt="">
-                </div>
-                <div class="gallery-item">
-                    <img src="img/8.webp" alt="">
-                </div>
-                <div class="gallery-item">
-                    <img src="img/1.webp" alt="">
+
+                <div class="carousel-thumbnails">
+                    <div class="carousel-thumb active" data-slide="0">
+                        <img src="img/12.webp" alt="Thumbnail 1">
+                    </div>
+                    <div class="carousel-thumb" data-slide="1">
+                        <img src="img/13.webp" alt="Thumbnail 2">
+                    </div>
+                    <div class="carousel-thumb" data-slide="2">
+                        <img src="img/11.webp" alt="Thumbnail 3">
+                    </div>
+                    <div class="carousel-thumb" data-slide="3">
+                        <img src="img/8.webp" alt="Thumbnail 4">
+                    </div>
+                    <div class="carousel-thumb" data-slide="4">
+                        <img src="img/1.webp" alt="Thumbnail 5">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1598,18 +2041,18 @@
             <h2>¿Listo para tu aventura patagónica?</h2>
             <p>Reservá ahora y viví una experiencia inolvidable en El Calafate</p>
             <div class="booking-bar">
-                <form class="booking-form">
+                <form class="booking-form" id="bookingForm">
                     <div class="form-group">
                         <label><i class="fas fa-calendar"></i> Check-in</label>
-                        <input type="date" required>
+                        <input type="date" id="checkin" required>
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-calendar"></i> Check-out</label>
-                        <input type="date" required>
+                        <input type="date" id="checkout" required>
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-users"></i> Huéspedes</label>
-                        <select>
+                        <select id="guests">
                             <option>1 Adulto</option>
                             <option>2 Adultos</option>
                             <option>3 Adultos</option>
@@ -1618,7 +2061,7 @@
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-bed"></i> Habitación</label>
-                        <select>
+                        <select id="roomType">
                             <option>Cualquier tipo</option>
                             <option>Habitación Privada</option>
                             <option>Habitación Compartida</option>
@@ -1626,7 +2069,7 @@
                         </select>
                     </div>
                     <button type="submit" class="btn-buscar">
-                        <i class="fas fa-search"></i> Buscar
+                        <i class="fab fa-whatsapp"></i> Consultar
                     </button>
                 </form>
             </div>
@@ -1726,6 +2169,185 @@
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
             });
+        });
+
+        // Gallery Carousel
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const thumbs = document.querySelectorAll('.carousel-thumb');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        const counter = document.querySelector('.carousel-counter');
+        let currentSlide = 0;
+        let autoPlayInterval = null;
+        const autoPlayDelay = 7000; // 7 segundos entre slides
+
+        function showSlide(index) {
+            // Handle wrap-around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentSlide = index;
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) dot.classList.add('active');
+            });
+
+            // Update thumbnails
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.remove('active');
+                if (i === index) thumb.classList.add('active');
+            });
+
+            // Update counter
+            counter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoPlay();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                resetAutoPlay();
+            });
+        });
+
+        thumbs.forEach((thumb, i) => {
+            thumb.addEventListener('click', () => {
+                showSlide(i);
+                resetAutoPlay();
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetAutoPlay();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetAutoPlay();
+            }
+        });
+
+        // Auto-play
+        function startAutoPlay() {
+            // Limpiar cualquier intervalo existente antes de crear uno nuevo
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+            autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        function resetAutoPlay() {
+            stopAutoPlay();
+            startAutoPlay();
+        }
+
+        // Start auto-play
+        startAutoPlay();
+
+        // Pause on hover
+        const carouselMain = document.querySelector('.carousel-main');
+        carouselMain.addEventListener('mouseenter', stopAutoPlay);
+        carouselMain.addEventListener('mouseleave', startAutoPlay);
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carouselMain.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselMain.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+                resetAutoPlay();
+            }
+        }
+
+        // Booking Form - WhatsApp Redirect
+        const bookingForm = document.getElementById('bookingForm');
+        const whatsappNumber = '5492966266581';
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guests = document.getElementById('guests').value;
+            const roomType = document.getElementById('roomType').value;
+
+            // Formatear fechas para mejor lectura
+            const formatDate = (dateStr) => {
+                if (!dateStr) return '';
+                const date = new Date(dateStr + 'T00:00:00');
+                return date.toLocaleDateString('es-AR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            };
+
+            // Construir mensaje
+            let message = `¡Hola! Me gustaría hacer una consulta de disponibilidad:\n\n`;
+            message += `Check-in: ${formatDate(checkin)}\n`;
+            message += `Check-out: ${formatDate(checkout)}\n`;
+            message += `Huéspedes: ${guests}\n`;
+            message += `Tipo de habitación: ${roomType}\n\n`;
+            message += `¡Gracias!`;
+
+            // Codificar mensaje para URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Abrir WhatsApp
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
         });
     </script>
 </body>
