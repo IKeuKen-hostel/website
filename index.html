@@ -999,6 +999,184 @@
             z-index: 10;
         }
 
+        /* Excursiones Section */
+        .excursiones {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .accordion-trigger:hover {
+            background: #f9fbfd;
+        }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .accordion-title > i {
+            font-size: 1.4rem;
+            color: var(--color-sky);
+            width: 30px;
+            text-align: center;
+        }
+
+        .accordion-duration {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #999;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .accordion-duration i {
+            font-size: 0.75rem;
+            color: var(--color-orange);
+        }
+
+        .accordion-arrow {
+            font-size: 0.85rem;
+            color: #aaa;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #fff;
+        }
+
+        .accordion-content > * {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .accordion-content > p {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+            padding-top: 5px;
+            padding-bottom: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .excursion-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-bottom: 12px;
+        }
+
+        .excursion-features span {
+            font-size: 0.82rem;
+            color: var(--color-dark);
+            background: #f0f7ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .excursion-features span i {
+            color: var(--color-sky);
+            font-size: 0.8rem;
+        }
+
+        .excursion-notas {
+            list-style: none;
+            padding-bottom: 15px;
+            margin: 0;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .excursion-notas li::before {
+            content: "\2022  ";
+            color: var(--color-orange);
+        }
+
+        .accordion-content .btn-whatsapp {
+            display: block;
+            text-align: center;
+            font-size: 0.88rem;
+            padding: 12px 20px;
+            margin: 0 25px 20px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .traslados-box {
+            margin-top: 40px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-dark));
+            color: var(--color-white);
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .traslados-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .traslados-box p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .traslados-box .btn-whatsapp {
+            display: inline-flex;
+            background: #25D366;
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+
         /* Promotions Section */
         .promotions {
             padding: 100px 0;
@@ -1386,6 +1564,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+
             .about-card.featured {
                 grid-template-columns: 1fr;
             }
@@ -1618,6 +1797,7 @@
                     <li><a href="#about">El Lodge</a></li>
                     <li><a href="#rooms">Habitaciones</a></li>
                     <li><a href="#services">Servicios</a></li>
+                    <li><a href="#excursiones">Excursiones</a></li>
                     <li><a href="#promotions">Promos</a></li>
                     <li><a href="#gallery">Galería</a></li>
                     <li><a href="#location">Ubicación</a></li>
@@ -1651,6 +1831,7 @@
             <li><a href="#about">El Lodge</a></li>
             <li><a href="#rooms">Habitaciones</a></li>
             <li><a href="#services">Servicios</a></li>
+            <li><a href="#excursiones">Excursiones</a></li>
             <li><a href="#promotions">Promos</a></li>
             <li><a href="#gallery">Galería</a></li>
             <li><a href="#location">Ubicación</a></li>
@@ -1858,6 +2039,147 @@
                     <h4>Transfer</h4>
                     <p>Servicio de traslado al aeropuerto</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excursiones Section -->
+    <section id="excursiones" class="excursiones">
+        <div class="container">
+            <div class="section-title">
+                <h2>Excursiones</h2>
+                <p>Viví las mejores experiencias de la Patagonia desde nuestro hostel</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Pasarelas y Miradores</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 7 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Recorré las pasarelas frente al glaciar Perito Moreno y disfrutá de vistas panorámicas inigualables de sus gigantescos muros de hielo. Ideal para fotos y avistaje de rupturas, es una experiencia accesible para toda la familia.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-shuttle-van"></i> Traslado privado</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye guía</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20Pasarelas%20y%20Miradores" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá tu visita a las pasarelas
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-ship"></i>
+                            <span>Safari Náutico + Pasarelas</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 7 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Optimizá tu tiempo con un tour que combina navegación y recorrido por las pasarelas, garantizando las mejores vistas del glaciar desde distintos ángulos en una sola salida. Ideal para quienes quieren una experiencia completa.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-shuttle-van"></i> Traslado privado</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye guía</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20Safari%20N%C3%A1utico%20%2B%20Pasarelas" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá el paquete combinado
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-hiking"></i>
+                            <span>Mini-Trekking sobre Hielo</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 10 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Viví la experiencia de caminar sobre el glaciar con guías expertos y equipo técnico; explorarás grietas y formaciones de hielo en una caminata segura y emocionante. Ideal para quienes buscan contacto directo con el hielo.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-hard-hat"></i> Incluye equipo</span>
+                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>Requiere buena condición física básica</li>
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20el%20Mini-Trekking%20sobre%20hielo" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá el mini-trekking
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-mountain"></i>
+                            <span>Big Ice</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 12 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Para aventureros, el Big Ice ofrece una travesía más intensa y técnica sobre el glaciar, explorando sectores remotos de hielo azul con guías especializados. Jornada completa pensada para experiencias únicas y desafiantes.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-hard-hat"></i> Incluye equipo</span>
+                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>Nivel avanzado</li>
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20disponibilidad%20Big%20Ice" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Consultá disponibilidad Big Ice
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-flag"></i>
+                            <span>Laguna de los Tres (Fitz Roy)</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 14 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La clásica caminata hacia la Laguna de los Tres ofrece vistas emblemáticas del cerro Fitz Roy y una postal inolvidable en el mirador frente a la laguna. Excursión exigente pero extremadamente gratificante para amantes del trekking.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                            <span><i class="fas fa-utensils"></i> Incluye vianda</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>Nivel exigente, recomendable para senderistas</li>
+                            <li>No incluye entrada al parque</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20a%20Laguna%20de%20los%20Tres%20(Fitz%20Roy)" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá la excursión a Laguna de los Tres
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="traslados-box">
+                <h3><i class="fas fa-shuttle-van"></i> Traslados</h3>
+                <p>Consultá por traslados al Aeropuerto y a El Chaltén</p>
+                <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20traslados" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Consultar traslados
+                </a>
             </div>
         </div>
     </section>
@@ -2125,7 +2447,8 @@
                 <div class="footer-links">
                     <h4>Información</h4>
                     <ul>
-                        <li><a href="#">Promociones</a></li>
+                        <li><a href="#excursiones">Excursiones</a></li>
+                        <li><a href="#promotions">Promociones</a></li>
                         <li><a href="#">Términos y condiciones</a></li>
                         <li><a href="#">Política de privacidad</a></li>
                         <li><a href="#">FAQ</a></li>
@@ -2371,6 +2694,26 @@
             // Abrir WhatsApp
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             window.open(whatsappUrl, '_blank');
+        });
+        // Accordion
+        document.querySelectorAll('.accordion-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const content = item.querySelector('.accordion-content');
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null;
+                });
+
+                // Open clicked if it was closed
+                if (!isActive) {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
         });
     </script>
 </body>
