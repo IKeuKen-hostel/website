@@ -1,5 +1,22 @@
 ## DONE
 
+## Numero de telefono
+
+0296615266581
+
+### Seccion de ubicación
+
+agregar las siguientes distancias:
+
+Parque Manuel Belgrano — 100 mts
+Hipermecado La Anonima — 100 mts
+Centro de Calafate — 500 mts
+Anfiteatro — 400 mts
+Farmacia — 300 mts
+Panadería — 300 mts
+Centro de Informes — 400 mts
+Centro de Salud — 400 mts
+
 ### Seccion Promociones.
 
 * 20% descuento Solo Residentes Nacionales (todo el año) con Transferencia , efectivo.
@@ -84,19 +101,6 @@ consulta por traslados al Aeropuero, y al Chalten
 * Botón "Ver más" - estaba con "?" en el todo, lo dejé como está. Necesitás definir a dónde debería llevar (WhatsApp, modal con más info, etc.)
 
 
-### Seccion de ubicación
-
-agregar las siguientes distancias:
-
-Parque Manuel Belgrano — 100 mts
-Hipermecado La Anonima — 100 mts
-Centro de Calafate — 500 mts
-Anfiteatro — 400 mts
-Farmacia — 300 mts
-Panadería — 300 mts
-Centro de Informes — 400 mts
-Centro de Salud — 400 mts
-
 ---
 
 ## Contenido y traducciones
@@ -104,7 +108,3 @@ Centro de Salud — 400 mts
 ### Traducción completa al inglés
 - Traducir todo el contenido del sitio web al idioma inglés.
 - Mantener coherencia, claridad y un tono adecuado para público internacional.
-
-## Numero de telefono
-
-0296615266581
