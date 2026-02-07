@@ -541,7 +541,7 @@
 
         .rooms-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
 
@@ -599,25 +599,11 @@
             color: var(--color-sky);
         }
 
-        .room-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .room-cta {
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid #eee;
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-orange);
-        }
-
-        .price span {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #666;
+            text-align: center;
         }
 
         .btn-ver {
@@ -1734,7 +1720,7 @@
             <div class="rooms-grid">
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="img/5.webp" alt="">
+                        <img src="img/5.webp" alt="Habitación Privada Doble">
                     </div>
                     <div class="room-content">
                         <h3>Habitación Privada Doble</h3>
@@ -1743,42 +1729,58 @@
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                             <span><i class="fas fa-snowflake"></i> Calefacción</span>
                         </div>
-                        <div class="room-price">
-                            <div class="price">$45 <span>/ noche</span></div>
+                        <div class="room-cta">
                             <a href="#" class="btn-ver">Ver más</a>
                         </div>
                     </div>
                 </div>
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="img/4.webp" alt="">
+                        <img src="img/5.webp" alt="Habitación Triple">
+                    </div>
+                    <div class="room-content">
+                        <h3>Habitación Triple</h3>
+                        <div class="room-features">
+                            <span><i class="fas fa-users"></i> 3 personas</span>
+                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span><i class="fas fa-snowflake"></i> Calefacción</span>
+                        </div>
+                        <div class="room-cta">
+                            <a href="#" class="btn-ver">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="img/4.webp" alt="Habitación Compartida">
                     </div>
                     <div class="room-content">
                         <h3>Habitación Compartida</h3>
                         <div class="room-features">
-                            <span><i class="fas fa-user"></i> 1 persona</span>
+                            <span><i class="fas fa-users"></i> Máximo 4 personas</span>
+                            <span><i class="fas fa-lock"></i> Lockers</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-lock"></i> Locker</span>
+                            <span><i class="fas fa-plug"></i> Enchufes en cada cama</span>
+                            <span><i class="fas fa-th-large"></i> Repisa en cada cama</span>
                         </div>
-                        <div class="room-price">
-                            <div class="price">$20 <span>/ noche</span></div>
+                        <div class="room-cta">
                             <a href="#" class="btn-ver">Ver más</a>
                         </div>
                     </div>
                 </div>
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="img/7.webp" alt="">
+                        <img src="img/7.webp" alt="Suite Familiar">
                     </div>
                     <div class="room-content">
                         <h3>Suite Familiar</h3>
                         <div class="room-features">
-                            <span><i class="fas fa-users"></i> 4 personas</span>
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span><i class="fas fa-users"></i> Máximo 3 personas</span>
                             <span><i class="fas fa-bath"></i> Baño privado</span>
+                            <span><i class="fas fa-utensils"></i> Cocina privada</span>
+                            <span><i class="fas fa-wifi"></i> WiFi</span>
                         </div>
-                        <div class="room-price">
-                            <div class="price">$85 <span>/ noche</span></div>
+                        <div class="room-cta">
                             <a href="#" class="btn-ver">Ver más</a>
                         </div>
                     </div>
