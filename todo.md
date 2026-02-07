@@ -92,16 +92,11 @@ Transferencia, Tarjeta en garantia.
 - Incorporar una sección específica de promociones.
 - Agregar un botón de llamada a la acción que lleve directamente a WhatsApp.
 
+### Seccion "habitaciones" 
+* implementar Carrusel de fotos en cada habitación - fotos de cada hab en la carpeta img/habitaciones/
+* Botón "Ver más" -> cambiar a "consultar" que lleve al formulario de reserva con la habitación seleccionada
 
 ## TODO
-
-## Funcionalidades y estructura
-
-### Seccion "habitaciones" 
-* Carrusel de fotos en cada habitación - requiere definir qué imágenes usar para cada habitación
-* Botón "Ver más" - estaba con "?" en el todo, lo dejé como está. Necesitás definir a dónde debería llevar (WhatsApp, modal con más info, etc.)
-
----
 
 ## Contenido y traducciones
 
