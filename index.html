@@ -1,0 +1,2943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Keu Ken Hostel | El Calafate, Patagonia</title>
+    <meta name="description" content="Descubrí nuestro hostel en El Calafate. Comodidad, calidez y experiencias únicas en la Patagonia Argentina.">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-sky: #7CB9E8;
+            --color-orange: #D2691E;
+            --color-green: #5B7744;
+            --color-sand: #C4A57B;
+            --color-dark: #2C3E2D;
+            --color-light: #F8F6F3;
+            --color-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: transparent;
+            box-shadow: none;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: var(--color-white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        header.scrolled nav {
+            padding: 10px 0;
+        }
+
+        header.scrolled .logo img {
+            height: 45px;
+        }
+
+        header.scrolled .nav-links a,
+        header.scrolled .lang-btn,
+        header.scrolled .lang-divider {
+            color: var(--color-dark);
+        }
+
+        nav {
+            padding: 20px 0;
+            transition: padding 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            transition: height 0.3s ease;
+        }
+
+        /* Nav links - white on hero, dark when scrolled */
+        header:not(.scrolled) .nav-links a {
+            color: var(--color-white);
+        }
+
+        header:not(.scrolled) .lang-btn {
+            color: var(--color-white);
+        }
+
+        header:not(.scrolled) .lang-divider {
+            color: var(--color-white);
+        }
+
+        header:not(.scrolled) .btn-reservar {
+            background: var(--color-white);
+            color: var(--color-orange);
+        }
+
+        header:not(.scrolled) .menu-toggle {
+            color: var(--color-white);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sky);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-sky);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-reservar {
+            background: var(--color-orange);
+            color: var(--color-white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-reservar:hover {
+            background: var(--color-green);
+            transform: translateY(-2px);
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-right: 15px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            opacity: 0.6;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+            color: var(--color-sky);
+        }
+
+        .lang-divider {
+            color: var(--color-dark);
+            opacity: 0.3;
+            font-size: 0.85rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('img/portada/1.webp');
+            background-size: cover;
+            background-position: center;
+            animation: zoomInOut 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--color-orange);
+            color: var(--color-white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-sand);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--color-white);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-green);
+        }
+
+        /* Booking Bar */
+        .booking-bar {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr auto;
+            gap: 20px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-green);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group input, .form-group select {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--color-sky);
+        }
+
+        .btn-buscar {
+            background: var(--color-orange);
+            color: var(--color-white);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-buscar:hover {
+            background: var(--color-green);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--color-green);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--color-sky);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* Tarjeta principal destacada */
+        .about-card.featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+            padding: 0;
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-top: none;
+            border-left: 5px solid var(--color-sky);
+        }
+
+        .about-card.featured .about-image {
+            height: 100%;
+            min-height: 350px;
+        }
+
+        .about-card.featured .about-image img {
+            height: 100%;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .about-card.featured .about-text {
+            padding: 40px 40px 40px 0;
+        }
+
+        .about-card.featured h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-card.featured p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Contenedor de tarjetas secundarias */
+        .about-secondary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .about-card {
+            text-align: left;
+            padding: 0;
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .about-card .about-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card .about-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0;
+            margin-bottom: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .about-card:hover .about-image img {
+            transform: scale(1.05);
+        }
+
+        .about-card .about-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 45px;
+            height: 45px;
+            background: var(--color-sky);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .about-card .about-text {
+            padding: 25px 30px 30px;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            color: var(--color-dark);
+            margin-bottom: 12px;
+        }
+
+        .about-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Rooms Section */
+        .rooms {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .rooms-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .room-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 350px;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .room-card.reverse .room-carousel {
+            order: 2;
+        }
+
+        .room-card.reverse .room-content {
+            order: 1;
+        }
+
+        .room-carousel {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .room-slide {
+            display: none;
+            height: 100%;
+        }
+
+        .room-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .room-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .room-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.85);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--color-dark);
+            transition: all 0.3s;
+            z-index: 5;
+            opacity: 0;
+        }
+
+        .room-card:hover .room-carousel-btn {
+            opacity: 1;
+        }
+
+        .room-carousel-btn:hover {
+            background: var(--color-sky);
+            color: var(--color-white);
+        }
+
+        .room-carousel-btn.prev {
+            left: 8px;
+        }
+
+        .room-carousel-btn.next {
+            right: 8px;
+        }
+
+        .room-carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            z-index: 5;
+        }
+
+        .room-carousel-dots .room-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .room-carousel-dots .room-dot.active {
+            background: var(--color-white);
+            transform: scale(1.3);
+        }
+
+        .room-content {
+            padding: 30px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .room-content h3 {
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            margin: 0;
+        }
+
+        .room-description {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .room-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .room-features span {
+            font-size: 0.8rem;
+            color: #555;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .room-features i {
+            color: var(--color-sky);
+            font-size: 0.8rem;
+        }
+
+        .room-cta {
+            margin-top: auto;
+            text-align: left;
+        }
+
+        .btn-ver {
+            background: var(--color-green);
+            color: var(--color-white);
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-ver:hover {
+            background: var(--color-orange);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--color-green) 0%, var(--color-dark) 100%);
+            color: var(--color-white);
+        }
+
+        .services .section-title h2 {
+            color: var(--color-white);
+        }
+
+        .services .section-title p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .service-item i {
+            font-size: 2.5rem;
+            color: var(--color-sky);
+            margin-bottom: 20px;
+        }
+
+        .service-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 100px 0;
+        }
+
+        .location-map-full {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .location-map-full iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .location > .container > .rating-badge {
+            display: flex;
+            margin: 0 auto 30px;
+            width: fit-content;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .location-col h3 {
+            font-size: 1.15rem;
+            color: var(--color-green);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-col h3 i {
+            color: var(--color-sky);
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .location-item i {
+            font-size: 1.2rem;
+            color: var(--color-sky);
+            margin-top: 3px;
+        }
+
+        .location-item h4 {
+            font-size: 0.95rem;
+            color: var(--color-dark);
+            margin-bottom: 3px;
+        }
+
+        .location-item p {
+            font-size: 0.88rem;
+            margin-bottom: 0;
+            color: #666;
+        }
+
+        .distances-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .distances-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #555;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .distances-list li:last-child {
+            border-bottom: none;
+        }
+
+        .distances-list li i {
+            color: var(--color-sky);
+            font-size: 0.9rem;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .distances-list li span {
+            margin-left: auto;
+            font-weight: 600;
+            color: var(--color-orange);
+            white-space: nowrap;
+        }
+
+
+        /* Rating Badge */
+        .rating-badge {
+            background: var(--color-sky);
+            color: var(--color-white);
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .rating-score {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .rating-text {
+            text-align: left;
+        }
+
+        .rating-text strong {
+            display: block;
+            font-size: 1rem;
+        }
+
+        .rating-text span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Section */
+        /* Gallery Carousel */
+        .gallery {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .carousel-main {
+            position: relative;
+            border-radius: 20px;
+            overflow: visible;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .carousel-main .carousel-slide {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: none;
+            position: relative;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--color-white);
+        }
+
+        .carousel-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .carousel-caption p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Navigation Arrows */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--color-white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--color-dark);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-sky);
+            color: var(--color-white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: -25px;
+        }
+
+        .carousel-btn.next {
+            right: -25px;
+        }
+
+        /* Dots Indicator */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-sand);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .carousel-dot:hover {
+            opacity: 0.8;
+        }
+
+        .carousel-dot.active {
+            background: var(--color-sky);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* Thumbnails */
+        .carousel-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .carousel-thumb {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .carousel-thumb:hover {
+            opacity: 0.9;
+        }
+
+        .carousel-thumb.active {
+            opacity: 1;
+            border-color: var(--color-sky);
+            transform: scale(1.05);
+        }
+
+        .carousel-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Counter */
+        .carousel-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        /* Excursiones Section */
+        .excursiones {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .accordion-trigger:hover {
+            background: #f9fbfd;
+        }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .accordion-title > i {
+            font-size: 1.4rem;
+            color: var(--color-sky);
+            width: 30px;
+            text-align: center;
+        }
+
+        .accordion-duration {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #999;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .accordion-duration i {
+            font-size: 0.75rem;
+            color: var(--color-orange);
+        }
+
+        .accordion-arrow {
+            font-size: 0.85rem;
+            color: #aaa;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #fff;
+        }
+
+        .accordion-content > * {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .accordion-content > p {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+            padding-top: 5px;
+            padding-bottom: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .excursion-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-bottom: 12px;
+        }
+
+        .excursion-features span {
+            font-size: 0.82rem;
+            color: var(--color-dark);
+            background: #f0f7ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .excursion-features span i {
+            color: var(--color-sky);
+            font-size: 0.8rem;
+        }
+
+        .excursion-notas {
+            list-style: none;
+            padding-bottom: 15px;
+            margin: 0;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .excursion-notas li::before {
+            content: "\2022  ";
+            color: var(--color-orange);
+        }
+
+        .accordion-content .btn-whatsapp {
+            display: block;
+            text-align: center;
+            font-size: 0.88rem;
+            padding: 12px 20px;
+            margin: 0 25px 20px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .traslados-box {
+            margin-top: 40px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-dark));
+            color: var(--color-white);
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .traslados-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .traslados-box p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .traslados-box .btn-whatsapp {
+            display: inline-flex;
+            background: #25D366;
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+
+        /* Promotions Section */
+        .promotions {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--color-sky) 0%, #5a9fd4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promotions::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .promotions::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .promotions .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .promotions .section-title h2 {
+            color: var(--color-white);
+        }
+
+        .promotions .section-title h2::after {
+            background: var(--color-white);
+        }
+
+        .promotions .section-title p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .promo-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .promo-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--color-orange);
+            color: var(--color-white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .promo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-sky), #5a9fd4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .promo-icon i {
+            font-size: 1.8rem;
+            color: var(--color-white);
+        }
+
+        .promo-card h3 {
+            font-size: 1.3rem;
+            color: var(--color-dark);
+            margin-bottom: 12px;
+        }
+
+        .promo-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .promo-price {
+            margin-bottom: 20px;
+        }
+
+        .promo-price .old-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .promo-price .new-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-orange);
+        }
+
+        .promo-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: var(--color-white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: var(--color-sand);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            color: var(--color-dark);
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-dark);
+            color: var(--color-white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--color-sky);
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--color-sky);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-sky);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--color-white);
+            box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 100px 40px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+        }
+
+        .mobile-menu .nav-links li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-menu .nav-links a {
+            display: block;
+            padding: 15px 0;
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu .nav-links a:hover {
+            color: var(--color-sky);
+        }
+
+        .mobile-menu .lang-selector {
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .mobile-menu .btn-reservar {
+            margin-top: 30px;
+            text-align: center;
+            display: block;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1003;
+        }
+
+        .mobile-menu-close:hover {
+            color: var(--color-sky);
+        }
+
+        .menu-toggle.active i::before {
+            content: "\f00d";
+        }
+
+        .menu-toggle.active {
+            color: var(--color-dark) !important;
+            position: fixed;
+            right: 20px;
+            top: 25px;
+            z-index: 1002;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .booking-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .room-card {
+                grid-template-columns: 1fr 1fr;
+                height: 300px;
+            }
+
+            .room-content h3 {
+                font-size: 1.5rem;
+            }
+
+
+            .about-card.featured {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card.featured .about-image {
+                min-height: 280px;
+            }
+
+            .about-card.featured .about-text {
+                padding: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .promo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .location-map-full {
+                height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .carousel-container {
+                padding: 0 35px;
+            }
+
+            .carousel-slide img {
+                height: 400px;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .carousel-btn.prev {
+                left: -22px;
+            }
+
+            .carousel-btn.next {
+                right: -22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero::before {
+                background-position: center center;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary {
+                width: auto;
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+
+            .rooms-grid {
+                gap: 30px;
+            }
+
+            .room-card {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .room-card.reverse .room-carousel {
+                order: 0;
+            }
+
+            .room-card.reverse .room-content {
+                order: 0;
+            }
+
+            .room-carousel {
+                height: 250px;
+            }
+
+            .room-content {
+                padding: 25px;
+            }
+
+            .room-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-secondary {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card.featured .about-text {
+                padding: 25px 20px;
+                text-align: center;
+            }
+
+            .about-card.featured h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-card .about-text {
+                text-align: center;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .carousel-container {
+                padding: 0 30px;
+            }
+
+            .carousel-slide img {
+                height: 300px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .carousel-btn.prev {
+                left: -20px;
+            }
+
+            .carousel-btn.next {
+                right: -20px;
+            }
+
+            .carousel-caption {
+                padding: 20px;
+            }
+
+            .carousel-caption h4 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-thumbnails {
+                gap: 8px;
+            }
+
+            .carousel-thumb {
+                width: 60px;
+                height: 45px;
+            }
+
+            .location-map-full {
+                height: 250px;
+                margin-bottom: 30px;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .location-item i {
+                margin-top: 0;
+            }
+
+            .rating-badge {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .lang-selector {
+                display: none;
+            }
+
+            .btn-reservar {
+                display: none;
+            }
+
+            header .container {
+                padding: 0 15px;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta p {
+                font-size: 1rem;
+            }
+
+            .booking-bar {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="img/logo.png" alt="I Keu Ken Hostel">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">El Lodge</a></li>
+                    <li><a href="#rooms">Habitaciones</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#excursiones">Excursiones</a></li>
+                    <li><a href="#promotions">Promos</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#location">Ubicación</a></li>
+                </ul>
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="es">
+                        <span>ES</span>
+                    </button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">
+                        <span>EN</span>
+                    </button>
+                </div>
+                <a href="#booking" class="btn-reservar">
+                    <i class="fas fa-calendar-check"></i> Reservar
+                </a>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">El Lodge</a></li>
+            <li><a href="#rooms">Habitaciones</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#excursiones">Excursiones</a></li>
+            <li><a href="#promotions">Promos</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <li><a href="#location">Ubicación</a></li>
+        </ul>
+        <div class="lang-selector">
+            <button class="lang-btn active" data-lang="es">
+                <span>ES</span>
+            </button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="en">
+                <span>EN</span>
+            </button>
+        </div>
+        <a href="#booking" class="btn-reservar">
+            <i class="fas fa-calendar-check"></i> Reservar
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>I KEU KEN HOSTEL</h1>
+            <p>Comodidad, calidez y experiencias únicas en la Patagonia</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn-primary">
+                    <i class="fas fa-calendar-alt"></i> Reservar Ahora
+                </a>
+                <a href="#about" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> Conocer Más
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bienvenidos a I Keu Ken</h2>
+                <p>Descubrí la magia de la Patagonia en nuestro acogedor hostel, a minutos del Glaciar Perito Moreno</p>
+            </div>
+            <div class="about-grid">
+                <!-- Tarjeta principal destacada -->
+                <div class="about-card featured">
+                    <div class="about-image">
+                        <img src="img/9.webp" alt="Ubicación Privilegiada">
+                    </div>
+                    <div class="about-text">
+                        <h3>Ubicación Privilegiada</h3>
+                        <p>Estamos ubicados a solo minutos del centro de El Calafate, con fácil acceso a las principales atracciones turísticas de la región. El Glaciar Perito Moreno, el Lago Argentino y los mejores restaurantes están a tu alcance.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjetas secundarias -->
+                <div class="about-secondary">
+                    <div class="about-card">
+                        <div class="about-image">
+                            <span class="about-number">1</span>
+                            <img src="img/3.webp" alt="Atención Personalizada">
+                        </div>
+                        <div class="about-text">
+                            <h3>Atención Personalizada</h3>
+                            <p>Nuestro equipo te ayudará a planificar excursiones y vivir experiencias únicas en la Patagonia.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-image">
+                            <span class="about-number">2</span>
+                            <img src="img/2.webp" alt="Ambiente Hogareño">
+                        </div>
+                        <div class="about-text">
+                            <h3>Ambiente Hogareño</h3>
+                            <p>Espacios cálidos y acogedores para que te sientas como en casa durante tu estadía.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="rooms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Habitaciones</h2>
+                <p>Espacios diseñados para tu comodidad y descanso</p>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/privada/94.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/115.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/116.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/117.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/120.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/122.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/123.webp" alt="Habitación Privada Doble"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Habitación Privada Doble</h3>
+                        <p class="room-description">Espacio íntimo y confortable, ideal para parejas o quienes buscan privacidad.</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-user-friends"></i> 2 personas</span>
+                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span><i class="fas fa-snowflake"></i> Calefacción</span>
+                        </div>
+                        <div class="room-cta">
+                            <a href="#booking" class="btn-ver" data-room="Habitación Privada Doble"><i class="fab fa-whatsapp"></i> Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card reverse">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/triple/56.webp" alt="Habitación Triple"></div>
+                        <div class="room-slide"><img src="img/habitaciones/triple/57.webp" alt="Habitación Triple"></div>
+                        <div class="room-slide"><img src="img/habitaciones/triple/58.webp" alt="Habitación Triple"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Habitación Triple</h3>
+                        <p class="room-description">Perfecta para amigos o familias pequeñas que viajan juntos.</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-users"></i> 3 personas</span>
+                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span><i class="fas fa-snowflake"></i> Calefacción</span>
+                        </div>
+                        <div class="room-cta">
+                            <a href="#booking" class="btn-ver" data-room="Habitación Triple"><i class="fab fa-whatsapp"></i> Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/compartida/102.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/104.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/105.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/106.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/107.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/108.webp" alt="Habitación Compartida"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Habitación Compartida</h3>
+                        <p class="room-description">La opción ideal para viajeros que buscan conocer gente nueva.</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-users"></i> Máx. 4 personas</span>
+                            <span><i class="fas fa-lock"></i> Lockers</span>
+                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span><i class="fas fa-plug"></i> Enchufes</span>
+                            <span><i class="fas fa-th-large"></i> Repisas</span>
+                        </div>
+                        <div class="room-cta">
+                            <a href="#booking" class="btn-ver" data-room="Habitación Compartida"><i class="fab fa-whatsapp"></i> Consultar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card reverse">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/familiar/119.webp" alt="Suite Familiar"></div>
+                        <div class="room-slide"><img src="img/habitaciones/familiar/121.webp" alt="Suite Familiar"></div>
+                        <div class="room-slide"><img src="img/habitaciones/familiar/124.webp" alt="Suite Familiar"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Suite Familiar</h3>
+                        <p class="room-description">Comodidad total con baño y cocina privada para una estadía independiente.</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-users"></i> Máx. 3 personas</span>
+                            <span><i class="fas fa-bath"></i> Baño privado</span>
+                            <span><i class="fas fa-utensils"></i> Cocina privada</span>
+                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                        </div>
+                        <div class="room-cta">
+                            <a href="#booking" class="btn-ver" data-room="Suite Familiar"><i class="fab fa-whatsapp"></i> Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Servicios & Amenities</h2>
+                <p>Todo lo que necesitás para una estadía perfecta</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-wifi"></i>
+                    <h4>WiFi Gratis</h4>
+                    <p>Conexión de alta velocidad en todo el hostel</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Cocina Equipada</h4>
+                    <p>Cocina compartida con todo lo necesario</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-coffee"></i>
+                    <h4>Desayuno</h4>
+                    <p>Desayuno incluido con productos locales</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-fire"></i>
+                    <h4>Calefacción</h4>
+                    <p>Todas las áreas climatizadas</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-hiking"></i>
+                    <h4>Excursiones</h4>
+                    <p>Organizamos tus tours y aventuras</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-parking"></i>
+                    <h4>Estacionamiento</h4>
+                    <p>Parking gratuito para huéspedes</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-suitcase"></i>
+                    <h4>Guardaequipaje</h4>
+                    <p>Guardá tu equipaje con seguridad</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shuttle-van"></i>
+                    <h4>Transfer</h4>
+                    <p>Servicio de traslado al aeropuerto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excursiones Section -->
+    <section id="excursiones" class="excursiones">
+        <div class="container">
+            <div class="section-title">
+                <h2>Excursiones</h2>
+                <p>Viví las mejores experiencias de la Patagonia desde nuestro hostel</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-binoculars"></i>
+                            <span>Pasarelas y Miradores</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 7 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Recorré las pasarelas frente al glaciar Perito Moreno y disfrutá de vistas panorámicas inigualables de sus gigantescos muros de hielo. Ideal para fotos y avistaje de rupturas, es una experiencia accesible para toda la familia.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-shuttle-van"></i> Traslado privado</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye guía</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20Pasarelas%20y%20Miradores" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá tu visita a las pasarelas
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-ship"></i>
+                            <span>Safari Náutico + Pasarelas</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 7 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Optimizá tu tiempo con un tour que combina navegación y recorrido por las pasarelas, garantizando las mejores vistas del glaciar desde distintos ángulos en una sola salida. Ideal para quienes quieren una experiencia completa.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-shuttle-van"></i> Traslado privado</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye guía</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20Safari%20N%C3%A1utico%20%2B%20Pasarelas" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá el paquete combinado
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-hiking"></i>
+                            <span>Mini-Trekking sobre Hielo</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 10 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Viví la experiencia de caminar sobre el glaciar con guías expertos y equipo técnico; explorarás grietas y formaciones de hielo en una caminata segura y emocionante. Ideal para quienes buscan contacto directo con el hielo.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-hard-hat"></i> Incluye equipo</span>
+                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>Requiere buena condición física básica</li>
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20el%20Mini-Trekking%20sobre%20hielo" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá el mini-trekking
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-mountain"></i>
+                            <span>Big Ice</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 12 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Para aventureros, el Big Ice ofrece una travesía más intensa y técnica sobre el glaciar, explorando sectores remotos de hielo azul con guías especializados. Jornada completa pensada para experiencias únicas y desafiantes.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-hard-hat"></i> Incluye equipo</span>
+                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>Nivel avanzado</li>
+                            <li>No incluye entrada al parque</li>
+                            <li>No incluye vianda</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20disponibilidad%20Big%20Ice" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Consultá disponibilidad Big Ice
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">
+                        <div class="accordion-title">
+                            <i class="fas fa-flag"></i>
+                            <span>Laguna de los Tres (Fitz Roy)</span>
+                            <span class="accordion-duration"><i class="fas fa-clock"></i> 14 hs</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La clásica caminata hacia la Laguna de los Tres ofrece vistas emblemáticas del cerro Fitz Roy y una postal inolvidable en el mirador frente a la laguna. Excursión exigente pero extremadamente gratificante para amantes del trekking.</p>
+                        <div class="excursion-features">
+                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                            <span><i class="fas fa-utensils"></i> Incluye vianda</span>
+                        </div>
+                        <ul class="excursion-notas">
+                            <li>Nivel exigente, recomendable para senderistas</li>
+                            <li>No incluye entrada al parque</li>
+                        </ul>
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20a%20Laguna%20de%20los%20Tres%20(Fitz%20Roy)" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Reservá la excursión a Laguna de los Tres
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="traslados-box">
+                <h3><i class="fas fa-shuttle-van"></i> Traslados</h3>
+                <p>Consultá por traslados al Aeropuerto y a El Chaltén</p>
+                <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20traslados" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Consultar traslados
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promotions" class="promotions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Promociones Especiales</h2>
+                <p>Aprovechá nuestras ofertas exclusivas para tu estadía en El Calafate</p>
+            </div>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <span class="promo-badge">-20%</span>
+                    <div class="promo-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Residentes Nacionales</h3>
+                    <p>20% de descuento para residentes nacionales durante todo el año. Pagando con transferencia o efectivo.</p>
+                    <div class="promo-price">
+                        <span class="new-price">Todo el año</span>
+                    </div>
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%20para%20Residentes%20Nacionales%20(20%25%20de%20descuento)" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
+                </div>
+                <div class="promo-card">
+                    <span class="promo-badge">4x3</span>
+                    <div class="promo-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Reserva Anticipada</h3>
+                    <p>Pagá 3 noches y quedate 4. Abonando con transferencia o tarjeta en garantía.</p>
+                    <div class="promo-price">
+                        <span class="new-price">1 noche gratis</span>
+                    </div>
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%204x3%20Reserva%20Anticipada" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galería</h2>
+                <p>Conocé nuestros espacios y la belleza de El Calafate</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-main">
+                    <span class="carousel-counter">1 / 5</span>
+
+                    <div class="carousel-slide active">
+                        <img src="img/12.webp" alt="Vista del hostel">
+                        <div class="carousel-caption">
+                            <h4>Nuestro Hostel</h4>
+                            <p>Un espacio acogedor en el corazón de El Calafate</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/13.webp" alt="Áreas comunes">
+                        <div class="carousel-caption">
+                            <h4>Áreas Comunes</h4>
+                            <p>Espacios para compartir y conocer otros viajeros</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/11.webp" alt="Habitaciones">
+                        <div class="carousel-caption">
+                            <h4>Habitaciones</h4>
+                            <p>Comodidad y calidez para tu descanso</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/8.webp" alt="Vistas panorámicas">
+                        <div class="carousel-caption">
+                            <h4>Vistas Panorámicas</h4>
+                            <p>La belleza de la Patagonia desde nuestras instalaciones</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="img/1.webp" alt="Experiencias únicas">
+                        <div class="carousel-caption">
+                            <h4>Experiencias Únicas</h4>
+                            <p>Momentos inolvidables en El Calafate</p>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev" aria-label="Anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" aria-label="Siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" data-slide="0"></button>
+                    <button class="carousel-dot" data-slide="1"></button>
+                    <button class="carousel-dot" data-slide="2"></button>
+                    <button class="carousel-dot" data-slide="3"></button>
+                    <button class="carousel-dot" data-slide="4"></button>
+                </div>
+
+                <div class="carousel-thumbnails">
+                    <div class="carousel-thumb active" data-slide="0">
+                        <img src="img/12.webp" alt="Thumbnail 1">
+                    </div>
+                    <div class="carousel-thumb" data-slide="1">
+                        <img src="img/13.webp" alt="Thumbnail 2">
+                    </div>
+                    <div class="carousel-thumb" data-slide="2">
+                        <img src="img/11.webp" alt="Thumbnail 3">
+                    </div>
+                    <div class="carousel-thumb" data-slide="3">
+                        <img src="img/8.webp" alt="Thumbnail 4">
+                    </div>
+                    <div class="carousel-thumb" data-slide="4">
+                        <img src="img/1.webp" alt="Thumbnail 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Ubicación</h2>
+                <p>En el corazón de El Calafate, a pasos de la Avenida del Libertador y cerca de todos los servicios</p>
+            </div>
+            <div class="rating-badge">
+                <div class="rating-score">9.6</div>
+                <div class="rating-text">
+                    <strong>Excelente</strong>
+                    <span>Basado en 27 opiniones</span>
+                </div>
+            </div>
+            <div class="location-map-full">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2546.167363968726!2d-72.2666505!3d-50.3447837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdbb0ceb3f6a43bf%3A0xb6fa9d258c728c19!2sHostel%20I%20Keu%20Ken!5e0!3m2!1sen!2sar!4v1769794730390!5m2!1sen!2sar" width="100%" height="100%" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="location-grid">
+                <div class="location-col">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contacto</h3>
+                    <div class="location-details">
+                        <div class="location-item">
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Francisco M. Pontoriero 171<br>El Calafate, Santa Cruz, Argentina</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+54 9 2966 26 6581</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-plane"></i>
+                            <div>
+                                <h4>Aeropuerto</h4>
+                                <p>A 20 min del Aeropuerto Internacional</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-mountain"></i>
+                            <div>
+                                <h4>Glaciar Perito Moreno</h4>
+                                <p>A 80 km del Parque Nacional Los Glaciares</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-col">
+                    <h3><i class="fas fa-route"></i> Distancias de interés</h3>
+                    <ul class="distances-list">
+                        <li><i class="fas fa-tree"></i> Parque Manuel Belgrano <span>100 mts</span></li>
+                        <li><i class="fas fa-shopping-cart"></i> Hipermercado La Anónima <span>100 mts</span></li>
+                        <li><i class="fas fa-city"></i> Centro de Calafate <span>500 mts</span></li>
+                        <li><i class="fas fa-theater-masks"></i> Anfiteatro <span>400 mts</span></li>
+                        <li><i class="fas fa-prescription-bottle-alt"></i> Farmacia <span>300 mts</span></li>
+                        <li><i class="fas fa-bread-slice"></i> Panadería <span>300 mts</span></li>
+                        <li><i class="fas fa-info-circle"></i> Centro de Informes <span>400 mts</span></li>
+                        <li><i class="fas fa-hospital"></i> Centro de Salud <span>400 mts</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="cta">
+        <div class="container">
+            <h2>¿Listo para tu aventura patagónica?</h2>
+            <p>Reservá ahora y viví una experiencia inolvidable en El Calafate</p>
+            <div class="booking-bar">
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Check-in</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Check-out</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Huéspedes</label>
+                        <select id="guests">
+                            <option>1 Adulto</option>
+                            <option>2 Adultos</option>
+                            <option>3 Adultos</option>
+                            <option>4 Adultos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-bed"></i> Habitación</label>
+                        <select id="roomType">
+                            <option>Cualquier tipo</option>
+                            <option>Habitación Privada Doble</option>
+                            <option>Habitación Triple</option>
+                            <option>Habitación Compartida</option>
+                            <option>Suite Familiar</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-buscar">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.webp" alt="I Keu Ken Hostel">
+                    <p>Tu hogar en la Patagonia. Comodidad, calidez y experiencias únicas en El Calafate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#about">El Lodge</a></li>
+                        <li><a href="#rooms">Habitaciones</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#gallery">Galería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="#excursiones">Excursiones</a></li>
+                        <li><a href="#promotions">Promociones</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:+5492966266581"><i class="fas fa-phone"></i> +54 9 2966 26 6581</a></li>
+                        <li><a href="mailto:info@ikeuken.com"><i class="fas fa-envelope"></i> info@ikeuken.com</a></li>
+                        <li><a href="#location"><i class="fas fa-map-marker-alt"></i> El Calafate, Argentina</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 I Keu Ken Hostel. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        const mobileClose = document.querySelector('.mobile-menu-close');
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+        mobileClose.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Language selector toggle
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Gallery Carousel
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const thumbs = document.querySelectorAll('.carousel-thumb');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        const counter = document.querySelector('.carousel-counter');
+        let currentSlide = 0;
+        let autoPlayInterval = null;
+        const autoPlayDelay = 7000; // 7 segundos entre slides
+
+        function showSlide(index) {
+            // Handle wrap-around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentSlide = index;
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) dot.classList.add('active');
+            });
+
+            // Update thumbnails
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.remove('active');
+                if (i === index) thumb.classList.add('active');
+            });
+
+            // Update counter
+            counter.textContent = `${index + 1} / ${slides.length}`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoPlay();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                resetAutoPlay();
+            });
+        });
+
+        thumbs.forEach((thumb, i) => {
+            thumb.addEventListener('click', () => {
+                showSlide(i);
+                resetAutoPlay();
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetAutoPlay();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetAutoPlay();
+            }
+        });
+
+        // Auto-play
+        function startAutoPlay() {
+            // Limpiar cualquier intervalo existente antes de crear uno nuevo
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+            autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        function resetAutoPlay() {
+            stopAutoPlay();
+            startAutoPlay();
+        }
+
+        // Start auto-play
+        startAutoPlay();
+
+        // Pause on hover
+        const carouselMain = document.querySelector('.carousel-main');
+        carouselMain.addEventListener('mouseenter', stopAutoPlay);
+        carouselMain.addEventListener('mouseleave', startAutoPlay);
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carouselMain.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselMain.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+                resetAutoPlay();
+            }
+        }
+
+        // Room Carousels
+        document.querySelectorAll('.room-card').forEach(card => {
+            const slides = card.querySelectorAll('.room-slide');
+            const dotsContainer = card.querySelector('.room-carousel-dots');
+            const prevBtn = card.querySelector('.room-carousel-btn.prev');
+            const nextBtn = card.querySelector('.room-carousel-btn.next');
+            let current = 0;
+
+            // Generate dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.classList.add('room-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => showRoomSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            function showRoomSlide(index) {
+                if (index >= slides.length) index = 0;
+                if (index < 0) index = slides.length - 1;
+                current = index;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[index].classList.add('active');
+                dotsContainer.querySelectorAll('.room-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => showRoomSlide(current - 1));
+            nextBtn.addEventListener('click', () => showRoomSlide(current + 1));
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            const carousel = card.querySelector('.room-carousel');
+            carousel.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            carousel.addEventListener('touchend', e => {
+                const diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 50) showRoomSlide(current + (diff > 0 ? 1 : -1));
+            }, { passive: true });
+        });
+
+        // "Consultar" buttons - scroll to booking and pre-select room
+        document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const roomName = this.getAttribute('data-room');
+                const roomSelect = document.getElementById('roomType');
+                // Find matching option
+                for (let option of roomSelect.options) {
+                    if (option.text === roomName) {
+                        roomSelect.value = option.value;
+                        break;
+                    }
+                }
+                // Scroll to booking section
+                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Booking Form - WhatsApp Redirect
+        const bookingForm = document.getElementById('bookingForm');
+        const whatsappNumber = '5492966266581';
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guests = document.getElementById('guests').value;
+            const roomType = document.getElementById('roomType').value;
+
+            // Formatear fechas para mejor lectura
+            const formatDate = (dateStr) => {
+                if (!dateStr) return '';
+                const date = new Date(dateStr + 'T00:00:00');
+                return date.toLocaleDateString('es-AR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            };
+
+            // Construir mensaje
+            let message = `¡Hola! Me gustaría hacer una consulta de disponibilidad:\n\n`;
+            message += `Check-in: ${formatDate(checkin)}\n`;
+            message += `Check-out: ${formatDate(checkout)}\n`;
+            message += `Huéspedes: ${guests}\n`;
+            message += `Tipo de habitación: ${roomType}\n\n`;
+            message += `¡Gracias!`;
+
+            // Codificar mensaje para URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Abrir WhatsApp
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+        // Accordion
+        document.querySelectorAll('.accordion-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const content = item.querySelector('.accordion-content');
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null;
+                });
+
+                // Open clicked if it was closed
+                if (!isActive) {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
