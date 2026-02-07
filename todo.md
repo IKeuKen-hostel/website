@@ -1,5 +1,14 @@
 ## DONE
 
+### Seccion Promociones.
+
+* 20% descuento Solo Residentes Nacionales (todo el año) con Transferencia , efectivo.
+
+* 4x3 Reserva anticipada
+Transferencia, Tarjeta en garantia.
+
+* Eliminar Transfer gratuito.
+
 ### Seccion "habitaciones" 
 * Falta agregar la HAB TRIPLE 
 * Suite Familiar : MAximo 3 personas, Baño y cocina Privada.
@@ -74,14 +83,6 @@ consulta por traslados al Aeropuero, y al Chalten
 * Carrusel de fotos en cada habitación - requiere definir qué imágenes usar para cada habitación
 * Botón "Ver más" - estaba con "?" en el todo, lo dejé como está. Necesitás definir a dónde debería llevar (WhatsApp, modal con más info, etc.)
 
-### Seccion Promociones.
-
-* 20% descuento Solo Residentes Nacionales (todo el año) con Transferencia , efectivo.
-
-* 4x3 Reserva anticipada
-Transferencia, Tarjeta en garantia.
-
-* Eliminar Transfer gratuito.
 
 ### Seccion de ubicación
 
