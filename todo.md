@@ -98,6 +98,9 @@ Transferencia, Tarjeta en garantia.
 
 ## TODO
 
+* mejorar el formulario de reserva
+* mejorar la seccion about us
+
 ## Contenido y traducciones
 
 ### Traducción completa al inglés

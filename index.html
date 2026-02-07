@@ -232,7 +232,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('img/14.webp');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('img/portada/1.webp');
             background-size: cover;
             background-position: center;
             animation: zoomInOut 20s ease-in-out infinite;
@@ -540,81 +540,179 @@
         }
 
         .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
         }
 
         .room-card {
-            border-radius: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            height: 350px;
         }
 
         .room-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
-        .room-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--color-sky), var(--color-sand));
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .room-card.reverse .room-carousel {
+            order: 2;
         }
 
-        .room-image img {
+        .room-card.reverse .room-content {
+            order: 1;
+        }
+
+        .room-carousel {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .room-slide {
+            display: none;
+            height: 100%;
+        }
+
+        .room-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .room-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
+        .room-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.85);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--color-dark);
+            transition: all 0.3s;
+            z-index: 5;
+            opacity: 0;
+        }
+
+        .room-card:hover .room-carousel-btn {
+            opacity: 1;
+        }
+
+        .room-carousel-btn:hover {
+            background: var(--color-sky);
+            color: var(--color-white);
+        }
+
+        .room-carousel-btn.prev {
+            left: 8px;
+        }
+
+        .room-carousel-btn.next {
+            right: 8px;
+        }
+
+        .room-carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            z-index: 5;
+        }
+
+        .room-carousel-dots .room-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .room-carousel-dots .room-dot.active {
+            background: var(--color-white);
+            transform: scale(1.3);
+        }
+
         .room-content {
-            padding: 25px;
+            padding: 30px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
         }
 
         .room-content h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--color-dark);
-            margin-bottom: 10px;
+            margin: 0;
+        }
+
+        .room-description {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0;
+            line-height: 1.4;
         }
 
         .room-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin: 15px 0;
+            gap: 8px;
+            margin: 8px 0;
         }
 
         .room-features span {
-            font-size: 0.85rem;
-            color: #666;
-            display: flex;
+            font-size: 0.8rem;
+            color: #555;
+            display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            background: var(--color-light);
+            padding: 5px 12px;
+            border-radius: 20px;
         }
 
         .room-features i {
             color: var(--color-sky);
+            font-size: 0.8rem;
         }
 
         .room-cta {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            text-align: center;
+            margin-top: auto;
+            text-align: left;
         }
 
         .btn-ver {
             background: var(--color-green);
             color: var(--color-white);
-            padding: 10px 20px;
+            padding: 10px 25px;
             border-radius: 20px;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
             transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-ver:hover {
@@ -1560,8 +1658,13 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .rooms-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .room-card {
+                grid-template-columns: 1fr 1fr;
+                height: 300px;
+            }
+
+            .room-content h3 {
+                font-size: 1.5rem;
             }
 
 
@@ -1657,7 +1760,36 @@
                 grid-template-columns: 1fr;
             }
 
-            .rooms-grid, .services-grid {
+            .rooms-grid {
+                gap: 30px;
+            }
+
+            .room-card {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .room-card.reverse .room-carousel {
+                order: 0;
+            }
+
+            .room-card.reverse .room-content {
+                order: 0;
+            }
+
+            .room-carousel {
+                height: 250px;
+            }
+
+            .room-content {
+                padding: 25px;
+            }
+
+            .room-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1921,69 +2053,100 @@
             </div>
             <div class="rooms-grid">
                 <div class="room-card">
-                    <div class="room-image">
-                        <img src="img/5.webp" alt="Habitación Privada Doble">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/privada/94.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/115.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/116.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/117.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/120.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/122.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide"><img src="img/habitaciones/privada/123.webp" alt="Habitación Privada Doble"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
                     </div>
                     <div class="room-content">
                         <h3>Habitación Privada Doble</h3>
+                        <p class="room-description">Espacio íntimo y confortable, ideal para parejas o quienes buscan privacidad.</p>
                         <div class="room-features">
                             <span><i class="fas fa-user-friends"></i> 2 personas</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                             <span><i class="fas fa-snowflake"></i> Calefacción</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#" class="btn-ver">Ver más</a>
+                            <a href="#booking" class="btn-ver" data-room="Habitación Privada Doble"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="img/5.webp" alt="Habitación Triple">
+                <div class="room-card reverse">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/triple/56.webp" alt="Habitación Triple"></div>
+                        <div class="room-slide"><img src="img/habitaciones/triple/57.webp" alt="Habitación Triple"></div>
+                        <div class="room-slide"><img src="img/habitaciones/triple/58.webp" alt="Habitación Triple"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
                     </div>
                     <div class="room-content">
                         <h3>Habitación Triple</h3>
+                        <p class="room-description">Perfecta para amigos o familias pequeñas que viajan juntos.</p>
                         <div class="room-features">
                             <span><i class="fas fa-users"></i> 3 personas</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                             <span><i class="fas fa-snowflake"></i> Calefacción</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#" class="btn-ver">Ver más</a>
+                            <a href="#booking" class="btn-ver" data-room="Habitación Triple"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
                 <div class="room-card">
-                    <div class="room-image">
-                        <img src="img/4.webp" alt="Habitación Compartida">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/compartida/102.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/104.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/105.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/106.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/107.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide"><img src="img/habitaciones/compartida/108.webp" alt="Habitación Compartida"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
                     </div>
                     <div class="room-content">
                         <h3>Habitación Compartida</h3>
+                        <p class="room-description">La opción ideal para viajeros que buscan conocer gente nueva.</p>
                         <div class="room-features">
-                            <span><i class="fas fa-users"></i> Máximo 4 personas</span>
+                            <span><i class="fas fa-users"></i> Máx. 4 personas</span>
                             <span><i class="fas fa-lock"></i> Lockers</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-plug"></i> Enchufes en cada cama</span>
-                            <span><i class="fas fa-th-large"></i> Repisa en cada cama</span>
+                            <span><i class="fas fa-plug"></i> Enchufes</span>
+                            <span><i class="fas fa-th-large"></i> Repisas</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#" class="btn-ver">Ver más</a>
+                            <a href="#booking" class="btn-ver" data-room="Habitación Compartida"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="img/7.webp" alt="Suite Familiar">
+                <div class="room-card reverse">
+                    <div class="room-carousel">
+                        <div class="room-slide active"><img src="img/habitaciones/familiar/119.webp" alt="Suite Familiar"></div>
+                        <div class="room-slide"><img src="img/habitaciones/familiar/121.webp" alt="Suite Familiar"></div>
+                        <div class="room-slide"><img src="img/habitaciones/familiar/124.webp" alt="Suite Familiar"></div>
+                        <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                        <div class="room-carousel-dots"></div>
                     </div>
                     <div class="room-content">
                         <h3>Suite Familiar</h3>
+                        <p class="room-description">Comodidad total con baño y cocina privada para una estadía independiente.</p>
                         <div class="room-features">
-                            <span><i class="fas fa-users"></i> Máximo 3 personas</span>
+                            <span><i class="fas fa-users"></i> Máx. 3 personas</span>
                             <span><i class="fas fa-bath"></i> Baño privado</span>
                             <span><i class="fas fa-utensils"></i> Cocina privada</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#" class="btn-ver">Ver más</a>
+                            <a href="#booking" class="btn-ver" data-room="Suite Familiar"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
@@ -2408,9 +2571,10 @@
                         <label><i class="fas fa-bed"></i> Habitación</label>
                         <select id="roomType">
                             <option>Cualquier tipo</option>
-                            <option>Habitación Privada</option>
+                            <option>Habitación Privada Doble</option>
+                            <option>Habitación Triple</option>
                             <option>Habitación Compartida</option>
-                            <option>Suite</option>
+                            <option>Suite Familiar</option>
                         </select>
                     </div>
                     <button type="submit" class="btn-buscar">
@@ -2656,6 +2820,65 @@
                 resetAutoPlay();
             }
         }
+
+        // Room Carousels
+        document.querySelectorAll('.room-card').forEach(card => {
+            const slides = card.querySelectorAll('.room-slide');
+            const dotsContainer = card.querySelector('.room-carousel-dots');
+            const prevBtn = card.querySelector('.room-carousel-btn.prev');
+            const nextBtn = card.querySelector('.room-carousel-btn.next');
+            let current = 0;
+
+            // Generate dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.classList.add('room-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => showRoomSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            function showRoomSlide(index) {
+                if (index >= slides.length) index = 0;
+                if (index < 0) index = slides.length - 1;
+                current = index;
+                slides.forEach(s => s.classList.remove('active'));
+                slides[index].classList.add('active');
+                dotsContainer.querySelectorAll('.room-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => showRoomSlide(current - 1));
+            nextBtn.addEventListener('click', () => showRoomSlide(current + 1));
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            const carousel = card.querySelector('.room-carousel');
+            carousel.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            carousel.addEventListener('touchend', e => {
+                const diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 50) showRoomSlide(current + (diff > 0 ? 1 : -1));
+            }, { passive: true });
+        });
+
+        // "Consultar" buttons - scroll to booking and pre-select room
+        document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const roomName = this.getAttribute('data-room');
+                const roomSelect = document.getElementById('roomType');
+                // Find matching option
+                for (let option of roomSelect.options) {
+                    if (option.text === roomName) {
+                        roomSelect.value = option.value;
+                        break;
+                    }
+                }
+                // Scroll to booking section
+                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
 
         // Booking Form - WhatsApp Redirect
         const bookingForm = document.getElementById('bookingForm');
