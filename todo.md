@@ -96,9 +96,14 @@ Transferencia, Tarjeta en garantia.
 * implementar Carrusel de fotos en cada habitación - fotos de cada hab en la carpeta img/habitaciones/
 * Botón "Ver más" -> cambiar a "consultar" que lleve al formulario de reserva con la habitación seleccionada
 
+* en la sección de excursiones todos los CTA deben decir "consulta por Disponibilidad"
+* en la hab privada doble falta: lockers y enchufes
+* en la hab triple falta: Lockers, enchufes, repisas
+* mejorar el formulario de reserva
+
 ## TODO
 
-* mejorar el formulario de reserva
+* actualizar links de redes sociales
 * mejorar la seccion about us
 
 ## Contenido y traducciones
