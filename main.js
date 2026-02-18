@@ -1,14 +1,15 @@
-// Header scroll effect
-const header = document.querySelector('header');
-const heroHeight = document.querySelector('.hero').offsetHeight;
+// Dynamic year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+// Header scroll effect + hero animation pause via IntersectionObserver
+const header = document.querySelector('header');
+const hero = document.querySelector('.hero');
+const heroHeight = hero.offsetHeight;
+
+new IntersectionObserver(([entry]) => {
+    header.classList.toggle('scrolled', !entry.isIntersecting);
+    hero.classList.toggle('hero-paused', !entry.isIntersecting);
+}, { rootMargin: '-50px 0px 0px 0px', threshold: 0 }).observe(hero);
 
 // Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
@@ -20,7 +21,9 @@ function toggleMenu() {
     menuToggle.classList.toggle('active');
     mobileMenu.classList.toggle('active');
     mobileOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    const isOpen = mobileMenu.classList.contains('active');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    menuToggle.setAttribute('aria-expanded', isOpen);
 }
 
 const mobileClose = document.querySelector('.mobile-menu-close');
@@ -37,13 +40,15 @@ mobileLinks.forEach(link => {
     });
 });
 
-// Language selector toggle
+// Language selector
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        setLanguage(btn.dataset.lang);
     });
 });
+
+// Apply saved language on load
+setLanguage(currentLang);
 
 // Gallery Carousel
 const slides = document.querySelectorAll('.carousel-slide');
@@ -56,11 +61,25 @@ let currentSlide = 0;
 let autoPlayInterval = null;
 const autoPlayDelay = 7000; // 7 segundos entre slides
 
+// Load image from data-src if not yet loaded
+function loadSlideImg(slide) {
+    const img = slide.querySelector('img[data-src]');
+    if (img) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    }
+}
+
 function showSlide(index) {
     // Handle wrap-around
     if (index >= slides.length) index = 0;
     if (index < 0) index = slides.length - 1;
     currentSlide = index;
+
+    // Load current and adjacent slides
+    loadSlideImg(slides[index]);
+    loadSlideImg(slides[(index + 1) % slides.length]);
+    loadSlideImg(slides[(index - 1 + slides.length) % slides.length]);
 
     // Update slides
     slides.forEach((slide, i) => {
@@ -197,6 +216,10 @@ document.querySelectorAll('.room-card').forEach(card => {
         if (index >= slides.length) index = 0;
         if (index < 0) index = slides.length - 1;
         current = index;
+        // Load current and adjacent slides
+        loadSlideImg(slides[index]);
+        loadSlideImg(slides[(index + 1) % slides.length]);
+        loadSlideImg(slides[(index - 1 + slides.length) % slides.length]);
         slides.forEach(s => s.classList.remove('active'));
         slides[index].classList.add('active');
         counter.textContent = (index + 1) + ' / ' + slides.length;
@@ -243,7 +266,9 @@ document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
     const prevBtn = document.getElementById('dpPrev');
     const nextBtn = document.getElementById('dpNext');
 
-    const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    function getMonths() {
+        return t('dp.months').split(',');
+    }
 
     let currentMonth, currentYear, activeInput, selectedDates = {};
 
@@ -268,8 +293,9 @@ document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
         activeInput = null;
     }
 
+    window.renderCalendar = renderCalendar;
     function renderCalendar() {
-        monthYearLabel.textContent = months[currentMonth] + ' ' + currentYear;
+        monthYearLabel.textContent = getMonths()[currentMonth] + ' ' + currentYear;
         daysContainer.innerHTML = '';
 
         const firstDay = new Date(currentYear, currentMonth, 1);
@@ -323,7 +349,7 @@ document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
 
     function formatDisplay(dateStr) {
         const d = new Date(dateStr + 'T00:00:00');
-        return d.toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        return d.toLocaleDateString(t('wa.locale'), { day: '2-digit', month: '2-digit', year: 'numeric' });
     }
 
     function selectDate(dateStr, dateObj) {
@@ -372,10 +398,11 @@ bookingForm.addEventListener('submit', function(e) {
     const roomType = document.getElementById('roomType').value;
 
     // Formatear fechas para mejor lectura
+    const locale = t('wa.locale');
     const formatDate = (dateStr) => {
         if (!dateStr) return '';
         const date = new Date(dateStr + 'T00:00:00');
-        return date.toLocaleDateString('es-AR', {
+        return date.toLocaleDateString(locale, {
             day: '2-digit',
             month: '2-digit',
             year: 'numeric'
@@ -383,12 +410,12 @@ bookingForm.addEventListener('submit', function(e) {
     };
 
     // Construir mensaje
-    let message = `¡Hola! Me gustaría hacer una consulta de disponibilidad:\n\n`;
+    let message = `${t('wa.greeting')}\n\n`;
     message += `Check-in: ${formatDate(checkin)}\n`;
     message += `Check-out: ${formatDate(checkout)}\n`;
-    message += `Huéspedes: ${guests}\n`;
-    message += `Tipo de habitación: ${roomType}\n\n`;
-    message += `¡Gracias!`;
+    message += `${t('wa.guests')}: ${guests}\n`;
+    message += `${t('wa.roomType')}: ${roomType}\n\n`;
+    message += t('wa.thanks');
 
     // Codificar mensaje para URL
     const encodedMessage = encodeURIComponent(message);
@@ -409,12 +436,14 @@ document.querySelectorAll('.accordion-trigger').forEach(btn => {
         document.querySelectorAll('.accordion-item').forEach(i => {
             i.classList.remove('active');
             i.querySelector('.accordion-content').style.maxHeight = null;
+            i.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
         });
 
         // Open clicked if it was closed
         if (!isActive) {
             item.classList.add('active');
             content.style.maxHeight = content.scrollHeight + 'px';
+            btn.setAttribute('aria-expanded', 'true');
         }
     });
 });
@@ -448,22 +477,19 @@ reviewDots.forEach(dot => {
     dot.addEventListener('click', () => { showReview(parseInt(dot.dataset.review)); resetReviewAutoPlay(); });
 });
 
-// Active section highlight in menu
+// Active section highlight in menu via IntersectionObserver
 const sections = document.querySelectorAll('section[id]');
 const menuLinks = document.querySelectorAll('.mobile-menu .nav-links a');
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const top = section.offsetTop - 150;
-        if (window.scrollY >= top) {
-            current = section.getAttribute('id');
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            menuLinks.forEach(link => {
+                link.classList.toggle('active-section', link.getAttribute('href') === '#' + id);
+            });
         }
     });
-    menuLinks.forEach(link => {
-        link.classList.remove('active-section');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active-section');
-        }
-    });
-});
+}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+sections.forEach(section => sectionObserver.observe(section));

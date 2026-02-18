@@ -1,20 +1,90 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I Keu Ken Hostel | El Calafate, Patagonia</title>
     <meta name="description" content="Descubrí nuestro hostel en El Calafate. Comodidad, calidez y experiencias únicas en la Patagonia Argentina.">
+    <link rel="icon" type="image/png" href="image_webp/favicon.png">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="I Keu Ken Hostel | El Calafate, Patagonia">
+    <meta property="og:description" content="Comodidad, calidez y experiencias únicas en la Patagonia Argentina.">
+    <meta property="og:image" content="image_webp/home.webp">
+    <meta property="og:url" content="https://www.ikeuken.com">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="I Keu Ken Hostel">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I Keu Ken Hostel | El Calafate, Patagonia">
+    <meta name="twitter:description" content="Comodidad, calidez y experiencias únicas en la Patagonia Argentina.">
+    <meta name="twitter:image" content="image_webp/home.webp">
+
+    <!-- Font Awesome (subset) -->
+    <link rel="stylesheet" href="fontawesome-subset.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Preload hero image -->
+    <link rel="preload" href="image_webp/home.webp" as="image" type="image/webp">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Hostel",
+        "name": "I Keu Ken Hostel",
+        "description": "Descubrí nuestro hostel en El Calafate. Comodidad, calidez y experiencias únicas en la Patagonia Argentina.",
+        "url": "https://www.ikeuken.com",
+        "telephone": "+5492966266581",
+        "email": "info@ikeuken.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Francisco M. Pontoriero 171",
+            "addressLocality": "El Calafate",
+            "addressRegion": "Santa Cruz",
+            "addressCountry": "AR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -50.3447837,
+            "longitude": -72.2666505
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "9.6",
+            "bestRating": "10",
+            "ratingCount": "150"
+        },
+        "image": [
+            "image_webp/home.webp",
+            "image_webp/galeria/1.webp",
+            "image_webp/galeria/2.webp"
+        ],
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "WiFi", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Cocina", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Desayuno", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Calefacción", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Estacionamiento", "value": true}
+        ],
+        "sameAs": [
+            "https://www.instagram.com/hostelikeuken/"
+        ],
+        "checkinTime": "14:00",
+        "checkoutTime": "10:00",
+        "currenciesAccepted": "ARS, USD",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer"
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -25,14 +95,14 @@
                     <img src="image_webp/logo.png" alt="I Keu Ken Hostel">
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#about">El Lodge</a></li>
-                    <li><a href="#rooms">Habitaciones</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#excursiones">Excursiones</a></li>
-                    <li><a href="#promotions">Promos</a></li>
-                    <li><a href="#gallery">Galería</a></li>
-                    <li><a href="#reviews">Reseñas</a></li>
-                    <li><a href="#location">Ubicación</a></li>
+                    <li><a href="#about" data-i18n="nav.lodge">El Lodge</a></li>
+                    <li><a href="#rooms" data-i18n="nav.rooms">Habitaciones</a></li>
+                    <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+                    <li><a href="#excursiones" data-i18n="nav.excursions">Excursiones</a></li>
+                    <li><a href="#promotions" data-i18n="nav.promos">Promos</a></li>
+                    <li><a href="#gallery" data-i18n="nav.gallery">Galería</a></li>
+                    <li><a href="#reviews" data-i18n="nav.reviews">Reseñas</a></li>
+                    <li><a href="#location" data-i18n="nav.location">Ubicación</a></li>
                 </ul>
                 <div class="lang-selector">
                     <button class="lang-btn active" data-lang="es">
@@ -43,10 +113,13 @@
                         <span>EN</span>
                     </button>
                 </div>
-                <a href="#booking" class="btn-reservar">
+                <a href="https://www.instagram.com/hostelikeuken/" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Instagram (se abre en nueva ventana)" data-i18n-aria="aria.instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#booking" class="btn-reservar" data-i18n-html="nav.book">
                     <i class="fas fa-calendar-check"></i> Reservar
                 </a>
-                <button class="menu-toggle">
+                <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" data-i18n-aria="aria.openMenu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -56,31 +129,32 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu-overlay"></div>
     <div class="mobile-menu">
-        <button class="mobile-menu-close">
+        <button class="mobile-menu-close" aria-label="Cerrar menú" data-i18n-aria="aria.closeMenu">
             <i class="fas fa-times"></i>
         </button>
         <ul class="nav-links">
-            <li><a href="#about"><i class="fas fa-home"></i> El Lodge</a></li>
-            <li><a href="#rooms"><i class="fas fa-bed"></i> Habitaciones</a></li>
-            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
-            <li><a href="#excursiones"><i class="fas fa-hiking"></i> Excursiones</a></li>
-            <li><a href="#promotions"><i class="fas fa-tag"></i> Promos</a></li>
-            <li><a href="#gallery"><i class="fas fa-images"></i> Galería</a></li>
-            <li><a href="#reviews"><i class="fas fa-star"></i> Reseñas</a></li>
-            <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Ubicación</a></li>
+            <li><a href="#about" data-i18n-html="nav.lodge"><i class="fas fa-home"></i> El Lodge</a></li>
+            <li><a href="#rooms" data-i18n-html="nav.rooms"><i class="fas fa-bed"></i> Habitaciones</a></li>
+            <li><a href="#services" data-i18n-html="nav.services"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+            <li><a href="#excursiones" data-i18n-html="nav.excursions"><i class="fas fa-hiking"></i> Excursiones</a></li>
+            <li><a href="#promotions" data-i18n-html="nav.promos"><i class="fas fa-tag"></i> Promos</a></li>
+            <li><a href="#gallery" data-i18n-html="nav.gallery"><i class="fas fa-images"></i> Galería</a></li>
+            <li><a href="#reviews" data-i18n-html="nav.reviews"><i class="fas fa-star"></i> Reseñas</a></li>
+            <li><a href="#location" data-i18n-html="nav.location"><i class="fas fa-map-marker-alt"></i> Ubicación</a></li>
         </ul>
     </div>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>I KEU KEN HOSTEL</h1>
-            <p>Comodidad, calidez y experiencias únicas en la Patagonia</p>
+            <p data-i18n="hero.subtitle">Comodidad, calidez y experiencias únicas en la Patagonia</p>
             <div class="hero-buttons">
-                <a href="#booking" class="btn-primary">
+                <a href="#booking" class="btn-primary" data-i18n-html="hero.bookNow">
                     <i class="fas fa-calendar-alt"></i> Reservar Ahora
                 </a>
-                <a href="#about" class="btn-secondary">
+                <a href="#about" class="btn-secondary" data-i18n-html="hero.learnMore">
                     <i class="fas fa-info-circle"></i> Conocer Más
                 </a>
             </div>
@@ -91,18 +165,18 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
-                <h2>Bienvenidos a I Keu Ken</h2>
-                <p>Descubrí la magia de la Patagonia en nuestro acogedor hostel, a minutos del Glaciar Perito Moreno</p>
+                <h2 data-i18n="about.title">Bienvenidos a I Keu Ken</h2>
+                <p data-i18n="about.subtitle">Descubrí la magia de la Patagonia en nuestro acogedor hostel, a minutos del Glaciar Perito Moreno</p>
             </div>
             <div class="about-grid">
                 <!-- Tarjeta principal destacada -->
                 <div class="about-card featured">
                     <div class="about-image">
-                        <img src="image_webp/about/paisaje.webp" alt="Ubicación Privilegiada">
+                        <img loading="lazy" src="image_webp/about/paisaje.webp" alt="Ubicación Privilegiada">
                     </div>
                     <div class="about-text">
-                        <h3>Ubicación Privilegiada</h3>
-                        <p>Estamos ubicados a solo minutos del centro de El Calafate, con fácil acceso a las principales atracciones turísticas de la región. El Glaciar Perito Moreno, el Lago Argentino y los mejores restaurantes están a tu alcance.</p>
+                        <h3 data-i18n="about.location.title">Ubicación Privilegiada</h3>
+                        <p data-i18n="about.location.text">Estamos ubicados a solo minutos del centro de El Calafate, con fácil acceso a las principales atracciones turísticas de la región. El Glaciar Perito Moreno, el Lago Argentino y los mejores restaurantes están a tu alcance.</p>
                     </div>
                 </div>
 
@@ -111,21 +185,21 @@
                     <div class="about-card">
                         <div class="about-image">
                             <span class="about-number">1</span>
-                            <img src="image_webp/about/atencion.webp" alt="Atención Personalizada">
+                            <img loading="lazy" src="image_webp/about/atencion.webp" alt="Atención Personalizada">
                         </div>
                         <div class="about-text">
-                            <h3>Atención Personalizada</h3>
-                            <p>Nuestro equipo te ayudará a planificar excursiones y vivir experiencias únicas en la Patagonia.</p>
+                            <h3 data-i18n="about.service.title">Atención Personalizada</h3>
+                            <p data-i18n="about.service.text">Nuestro equipo te ayudará a planificar excursiones y vivir experiencias únicas en la Patagonia.</p>
                         </div>
                     </div>
                     <div class="about-card">
                         <div class="about-image">
                             <span class="about-number">2</span>
-                            <img src="image_webp/about/ambiente.webp" alt="Ambiente Hogareño">
+                            <img loading="lazy" src="image_webp/about/ambiente.webp" alt="Ambiente Hogareño">
                         </div>
                         <div class="about-text">
-                            <h3>Ambiente Hogareño</h3>
-                            <p>Espacios cálidos y acogedores para que te sientas como en casa durante tu estadía.</p>
+                            <h3 data-i18n="about.vibe.title">Ambiente Hogareño</h3>
+                            <p data-i18n="about.vibe.text">Espacios cálidos y acogedores para que te sientas como en casa durante tu estadía.</p>
                         </div>
                     </div>
                 </div>
@@ -137,143 +211,143 @@
     <section id="rooms" class="rooms">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestras Habitaciones</h2>
-                <p>Espacios diseñados para tu comodidad y descanso</p>
+                <h2 data-i18n="rooms.title">Nuestras Habitaciones</h2>
+                <p data-i18n="rooms.subtitle">Espacios diseñados para tu comodidad y descanso</p>
             </div>
             <div class="rooms-grid">
                 <div class="room-card">
                     <div class="room-carousel">
-                        <div class="room-slide active"><img src="image_webp/Habitaciones/privada/1.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/2.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/3.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/4.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/5.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/6.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/7.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/8.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/9.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/10.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/11.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/12.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/13.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/14.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/15.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/16.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/17.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/18.webp" alt="Habitación Privada Doble"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/privada/19.webp" alt="Habitación Privada Doble"></div>
+                        <div class="room-slide active"><img src="image_webp/Habitaciones/privada/1.webp" alt="Habitación Privada Doble - foto 1 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/2.webp" alt="Habitación Privada Doble - foto 2 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/3.webp" alt="Habitación Privada Doble - foto 3 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/4.webp" alt="Habitación Privada Doble - foto 4 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/5.webp" alt="Habitación Privada Doble - foto 5 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/6.webp" alt="Habitación Privada Doble - foto 6 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/7.webp" alt="Habitación Privada Doble - foto 7 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/8.webp" alt="Habitación Privada Doble - foto 8 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/9.webp" alt="Habitación Privada Doble - foto 9 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/10.webp" alt="Habitación Privada Doble - foto 10 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/11.webp" alt="Habitación Privada Doble - foto 11 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/12.webp" alt="Habitación Privada Doble - foto 12 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/13.webp" alt="Habitación Privada Doble - foto 13 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/14.webp" alt="Habitación Privada Doble - foto 14 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/15.webp" alt="Habitación Privada Doble - foto 15 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/16.webp" alt="Habitación Privada Doble - foto 16 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/17.webp" alt="Habitación Privada Doble - foto 17 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/18.webp" alt="Habitación Privada Doble - foto 18 de 19"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/privada/19.webp" alt="Habitación Privada Doble - foto 19 de 19"></div>
                         <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                         <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                         <span class="room-counter"></span>
                     </div>
                     <div class="room-content">
-                        <h3>Habitación Privada Doble</h3>
-                        <p class="room-description">Espacio íntimo y confortable, ideal para parejas o quienes buscan privacidad.</p>
+                        <h3 data-i18n="rooms.private.name">Habitación Privada Doble</h3>
+                        <p class="room-description" data-i18n="rooms.private.desc">Espacio íntimo y confortable, ideal para parejas o quienes buscan privacidad.</p>
                         <div class="room-features">
-                            <span><i class="fas fa-user-friends"></i> 2 personas</span>
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-snowflake"></i> Calefacción</span>
-                            <span><i class="fas fa-lock"></i> Lockers</span>
-                            <span><i class="fas fa-plug"></i> Enchufes</span>
+                            <span data-i18n-html="rooms.feature.2pax"><i class="fas fa-user-friends"></i> 2 personas</span>
+                            <span data-i18n-html="rooms.feature.wifi"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span data-i18n-html="rooms.feature.heating"><i class="fas fa-snowflake"></i> Calefacción</span>
+                            <span data-i18n-html="rooms.feature.lockers"><i class="fas fa-lock"></i> Lockers</span>
+                            <span data-i18n-html="rooms.feature.outlets"><i class="fas fa-plug"></i> Enchufes</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#booking" class="btn-ver" data-room="Habitación Privada Doble"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <a href="#booking" class="btn-ver" data-room="Habitación Privada Doble" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
                 <div class="room-card reverse">
                     <div class="room-carousel">
-                        <div class="room-slide active"><img src="image_webp/Habitaciones/triple/1.webp" alt="Habitación Triple"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/triple/2.webp" alt="Habitación Triple"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/triple/3.webp" alt="Habitación Triple"></div>
+                        <div class="room-slide active"><img src="image_webp/Habitaciones/triple/1.webp" alt="Habitación Triple - foto 1 de 3"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/triple/2.webp" alt="Habitación Triple - foto 2 de 3"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/triple/3.webp" alt="Habitación Triple - foto 3 de 3"></div>
                         <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                         <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                         <span class="room-counter"></span>
                     </div>
                     <div class="room-content">
-                        <h3>Habitación Triple</h3>
-                        <p class="room-description">Perfecta para amigos o familias pequeñas que viajan juntos.</p>
+                        <h3 data-i18n="rooms.triple.name">Habitación Triple</h3>
+                        <p class="room-description" data-i18n="rooms.triple.desc">Perfecta para amigos o familias pequeñas que viajan juntos.</p>
                         <div class="room-features">
-                            <span><i class="fas fa-users"></i> 3 personas</span>
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-snowflake"></i> Calefacción</span>
-                            <span><i class="fas fa-lock"></i> Lockers</span>
-                            <span><i class="fas fa-plug"></i> Enchufes</span>
-                            <span><i class="fas fa-th-large"></i> Repisas</span>
+                            <span data-i18n-html="rooms.feature.3pax"><i class="fas fa-users"></i> 3 personas</span>
+                            <span data-i18n-html="rooms.feature.wifi"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span data-i18n-html="rooms.feature.heating"><i class="fas fa-snowflake"></i> Calefacción</span>
+                            <span data-i18n-html="rooms.feature.lockers"><i class="fas fa-lock"></i> Lockers</span>
+                            <span data-i18n-html="rooms.feature.outlets"><i class="fas fa-plug"></i> Enchufes</span>
+                            <span data-i18n-html="rooms.feature.shelves"><i class="fas fa-th-large"></i> Repisas</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#booking" class="btn-ver" data-room="Habitación Triple"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <a href="#booking" class="btn-ver" data-room="Habitación Triple" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
                 <div class="room-card">
                     <div class="room-carousel">
-                        <div class="room-slide active"><img src="image_webp/Habitaciones/compartida/1.webp" alt="Habitación Compartida"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/compartida/2.webp" alt="Habitación Compartida"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/compartida/3.webp" alt="Habitación Compartida"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/compartida/4.webp" alt="Habitación Compartida"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/compartida/5.webp" alt="Habitación Compartida"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/compartida/6.webp" alt="Habitación Compartida"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/compartida/7.webp" alt="Habitación Compartida"></div>
+                        <div class="room-slide active"><img src="image_webp/Habitaciones/compartida/1.webp" alt="Habitación Compartida - foto 1 de 7"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/compartida/2.webp" alt="Habitación Compartida - foto 2 de 7"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/compartida/3.webp" alt="Habitación Compartida - foto 3 de 7"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/compartida/4.webp" alt="Habitación Compartida - foto 4 de 7"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/compartida/5.webp" alt="Habitación Compartida - foto 5 de 7"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/compartida/6.webp" alt="Habitación Compartida - foto 6 de 7"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/compartida/7.webp" alt="Habitación Compartida - foto 7 de 7"></div>
                         <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                         <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                         <span class="room-counter"></span>
                     </div>
                     <div class="room-content">
-                        <h3>Habitación Compartida</h3>
-                        <p class="room-description">La opción ideal para viajeros que buscan conocer gente nueva.</p>
+                        <h3 data-i18n="rooms.shared.name">Habitación Compartida</h3>
+                        <p class="room-description" data-i18n="rooms.shared.desc">La opción ideal para viajeros que buscan conocer gente nueva.</p>
                         <div class="room-features">
-                            <span><i class="fas fa-users"></i> Máx. 4 personas</span>
-                            <span><i class="fas fa-lock"></i> Lockers</span>
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-plug"></i> Enchufes</span>
-                            <span><i class="fas fa-th-large"></i> Repisas</span>
+                            <span data-i18n-html="rooms.feature.max4"><i class="fas fa-users"></i> Máx. 4 personas</span>
+                            <span data-i18n-html="rooms.feature.lockers"><i class="fas fa-lock"></i> Lockers</span>
+                            <span data-i18n-html="rooms.feature.wifi"><i class="fas fa-wifi"></i> WiFi</span>
+                            <span data-i18n-html="rooms.feature.outlets"><i class="fas fa-plug"></i> Enchufes</span>
+                            <span data-i18n-html="rooms.feature.shelves"><i class="fas fa-th-large"></i> Repisas</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#booking" class="btn-ver" data-room="Habitación Compartida"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <a href="#booking" class="btn-ver" data-room="Habitación Compartida" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
                 <div class="room-card reverse">
                     <div class="room-carousel">
-                        <div class="room-slide active"><img src="image_webp/Habitaciones/familiar/1.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/2.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/4.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/5.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/6.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/7.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/8.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/9.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/10.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/11.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/12.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/13.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/14.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/15.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/16.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/17.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/18.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/19.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/20.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/21.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/22.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/23.webp" alt="Suite Familiar"></div>
-                        <div class="room-slide"><img src="image_webp/Habitaciones/familiar/24.webp" alt="Suite Familiar"></div>
+                        <div class="room-slide active"><img src="image_webp/Habitaciones/familiar/1.webp" alt="Suite Familiar - foto 1 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/2.webp" alt="Suite Familiar - foto 2 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/4.webp" alt="Suite Familiar - foto 3 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/5.webp" alt="Suite Familiar - foto 4 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/6.webp" alt="Suite Familiar - foto 5 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/7.webp" alt="Suite Familiar - foto 6 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/8.webp" alt="Suite Familiar - foto 7 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/9.webp" alt="Suite Familiar - foto 8 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/10.webp" alt="Suite Familiar - foto 9 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/11.webp" alt="Suite Familiar - foto 10 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/12.webp" alt="Suite Familiar - foto 11 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/13.webp" alt="Suite Familiar - foto 12 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/14.webp" alt="Suite Familiar - foto 13 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/15.webp" alt="Suite Familiar - foto 14 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/16.webp" alt="Suite Familiar - foto 15 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/17.webp" alt="Suite Familiar - foto 16 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/18.webp" alt="Suite Familiar - foto 17 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/19.webp" alt="Suite Familiar - foto 18 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/20.webp" alt="Suite Familiar - foto 19 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/21.webp" alt="Suite Familiar - foto 20 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/22.webp" alt="Suite Familiar - foto 21 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/23.webp" alt="Suite Familiar - foto 22 de 23"></div>
+                        <div class="room-slide"><img data-src="image_webp/Habitaciones/familiar/24.webp" alt="Suite Familiar - foto 23 de 23"></div>
                         <button class="room-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                         <button class="room-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                         <span class="room-counter"></span>
                     </div>
                     <div class="room-content">
-                        <h3>Suite Familiar</h3>
-                        <p class="room-description">Comodidad total con baño y cocina privada para una estadía independiente.</p>
+                        <h3 data-i18n="rooms.family.name">Suite Familiar</h3>
+                        <p class="room-description" data-i18n="rooms.family.desc">Comodidad total con baño y cocina privada para una estadía independiente.</p>
                         <div class="room-features">
-                            <span><i class="fas fa-users"></i> Máx. 3 personas</span>
-                            <span><i class="fas fa-bath"></i> Baño privado</span>
-                            <span><i class="fas fa-utensils"></i> Cocina privada</span>
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
+                            <span data-i18n-html="rooms.feature.max3"><i class="fas fa-users"></i> Máx. 3 personas</span>
+                            <span data-i18n-html="rooms.feature.bathroom"><i class="fas fa-bath"></i> Baño privado</span>
+                            <span data-i18n-html="rooms.feature.kitchen"><i class="fas fa-utensils"></i> Cocina privada</span>
+                            <span data-i18n-html="rooms.feature.wifi"><i class="fas fa-wifi"></i> WiFi</span>
                         </div>
                         <div class="room-cta">
-                            <a href="#booking" class="btn-ver" data-room="Suite Familiar"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <a href="#booking" class="btn-ver" data-room="Suite Familiar" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
                         </div>
                     </div>
                 </div>
@@ -285,49 +359,49 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
-                <h2>Servicios & Amenities</h2>
-                <p>Todo lo que necesitás para una estadía perfecta</p>
+                <h2 data-i18n="services.title">Servicios & Amenities</h2>
+                <p data-i18n="services.subtitle">Todo lo que necesitás para una estadía perfecta</p>
             </div>
             <div class="services-grid">
                 <div class="service-item">
                     <i class="fas fa-wifi"></i>
-                    <h4>WiFi Gratis</h4>
-                    <p>Conexión de alta velocidad en todo el hostel</p>
+                    <h4 data-i18n="svc.wifi.title">WiFi Gratis</h4>
+                    <p data-i18n="svc.wifi.text">Conexión de alta velocidad en todo el hostel</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-utensils"></i>
-                    <h4>Cocina Equipada</h4>
-                    <p>Cocina compartida con todo lo necesario</p>
+                    <h4 data-i18n="svc.kitchen.title">Cocina Equipada</h4>
+                    <p data-i18n="svc.kitchen.text">Cocina compartida con todo lo necesario</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-coffee"></i>
-                    <h4>Desayuno</h4>
-                    <p>Desayuno incluido con productos locales</p>
+                    <h4 data-i18n="svc.breakfast.title">Desayuno</h4>
+                    <p data-i18n="svc.breakfast.text">Desayuno incluido con productos locales</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-fire"></i>
-                    <h4>Calefacción</h4>
-                    <p>Todas las áreas climatizadas</p>
+                    <h4 data-i18n="svc.heating.title">Calefacción</h4>
+                    <p data-i18n="svc.heating.text">Todas las áreas climatizadas</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-hiking"></i>
-                    <h4>Excursiones</h4>
-                    <p>Organizamos tus tours y aventuras</p>
+                    <h4 data-i18n="svc.tours.title">Excursiones</h4>
+                    <p data-i18n="svc.tours.text">Organizamos tus tours y aventuras</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-parking"></i>
-                    <h4>Estacionamiento</h4>
-                    <p>Parking gratuito para huéspedes</p>
+                    <h4 data-i18n="svc.parking.title">Estacionamiento</h4>
+                    <p data-i18n="svc.parking.text">Parking gratuito para huéspedes</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-suitcase"></i>
-                    <h4>Guardaequipaje</h4>
-                    <p>Guardá tu equipaje con seguridad</p>
+                    <h4 data-i18n="svc.luggage.title">Guardaequipaje</h4>
+                    <p data-i18n="svc.luggage.text">Guardá tu equipaje con seguridad</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-shuttle-van"></i>
-                    <h4>Transfer</h4>
-                    <p>Servicio de traslado al aeropuerto</p>
+                    <h4 data-i18n="svc.transfer.title">Transfer</h4>
+                    <p data-i18n="svc.transfer.text">Servicio de traslado al aeropuerto</p>
                 </div>
             </div>
         </div>
@@ -337,138 +411,138 @@
     <section id="excursiones" class="excursiones">
         <div class="container">
             <div class="section-title">
-                <h2>Excursiones</h2>
-                <p>Viví las mejores experiencias de la Patagonia desde nuestro hostel</p>
+                <h2 data-i18n="exc.title">Excursiones</h2>
+                <p data-i18n="exc.subtitle">Viví las mejores experiencias de la Patagonia desde nuestro hostel</p>
             </div>
             <div class="accordion">
                 <div class="accordion-item">
-                    <button class="accordion-trigger">
+                    <button class="accordion-trigger" id="exc-1-btn" aria-expanded="false" aria-controls="exc-1-panel">
                         <div class="accordion-title">
                             <i class="fas fa-binoculars"></i>
-                            <span>Pasarelas y Miradores</span>
+                            <span data-i18n="exc.1.name">Pasarelas y Miradores</span>
                             <span class="accordion-duration"><i class="fas fa-clock"></i> 7 hs</span>
                         </div>
                         <i class="fas fa-chevron-down accordion-arrow"></i>
                     </button>
-                    <div class="accordion-content">
-                        <p>Recorré las pasarelas frente al glaciar Perito Moreno y disfrutá de vistas panorámicas inigualables de sus gigantescos muros de hielo. Ideal para fotos y avistaje de rupturas, es una experiencia accesible para toda la familia.</p>
+                    <div class="accordion-content" id="exc-1-panel" role="region" aria-labelledby="exc-1-btn">
+                        <p data-i18n="exc.1.text">Recorré las pasarelas frente al glaciar Perito Moreno y disfrutá de vistas panorámicas inigualables de sus gigantescos muros de hielo. Ideal para fotos y avistaje de rupturas, es una experiencia accesible para toda la familia.</p>
                         <div class="excursion-features">
-                            <span><i class="fas fa-shuttle-van"></i> Traslado privado</span>
+                            <span data-i18n-html="exc.feature.transfer"><i class="fas fa-shuttle-van"></i> Traslado privado</span>
                         </div>
                         <ul class="excursion-notas">
-                            <li>No incluye entrada al parque</li>
-                            <li>No incluye guía</li>
-                            <li>No incluye vianda</li>
+                            <li data-i18n="exc.note.nopark">No incluye entrada al parque</li>
+                            <li data-i18n="exc.note.noguide">No incluye guía</li>
+                            <li data-i18n="exc.note.nolunch">No incluye vianda</li>
                         </ul>
-                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20Pasarelas%20y%20Miradores" class="btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Consulta por Disponibilidad
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20Pasarelas%20y%20Miradores" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="exc.availability">Consulta por Disponibilidad</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                         </a>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-trigger">
+                    <button class="accordion-trigger" id="exc-2-btn" aria-expanded="false" aria-controls="exc-2-panel">
                         <div class="accordion-title">
                             <i class="fas fa-ship"></i>
-                            <span>Safari Náutico + Pasarelas</span>
+                            <span data-i18n="exc.2.name">Safari Náutico + Pasarelas</span>
                             <span class="accordion-duration"><i class="fas fa-clock"></i> 7 hs</span>
                         </div>
                         <i class="fas fa-chevron-down accordion-arrow"></i>
                     </button>
-                    <div class="accordion-content">
-                        <p>Optimizá tu tiempo con un tour que combina navegación y recorrido por las pasarelas, garantizando las mejores vistas del glaciar desde distintos ángulos en una sola salida. Ideal para quienes quieren una experiencia completa.</p>
+                    <div class="accordion-content" id="exc-2-panel" role="region" aria-labelledby="exc-2-btn">
+                        <p data-i18n="exc.2.text">Optimizá tu tiempo con un tour que combina navegación y recorrido por las pasarelas, garantizando las mejores vistas del glaciar desde distintos ángulos en una sola salida. Ideal para quienes quieren una experiencia completa.</p>
                         <div class="excursion-features">
-                            <span><i class="fas fa-shuttle-van"></i> Traslado privado</span>
+                            <span data-i18n-html="exc.feature.transfer"><i class="fas fa-shuttle-van"></i> Traslado privado</span>
                         </div>
                         <ul class="excursion-notas">
-                            <li>No incluye entrada al parque</li>
-                            <li>No incluye guía</li>
-                            <li>No incluye vianda</li>
+                            <li data-i18n="exc.note.nopark">No incluye entrada al parque</li>
+                            <li data-i18n="exc.note.noguide">No incluye guía</li>
+                            <li data-i18n="exc.note.nolunch">No incluye vianda</li>
                         </ul>
-                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20Safari%20N%C3%A1utico%20%2B%20Pasarelas" class="btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Consulta por Disponibilidad
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20Safari%20N%C3%A1utico%20%2B%20Pasarelas" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="exc.availability">Consulta por Disponibilidad</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                         </a>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-trigger">
+                    <button class="accordion-trigger" id="exc-3-btn" aria-expanded="false" aria-controls="exc-3-panel">
                         <div class="accordion-title">
                             <i class="fas fa-hiking"></i>
-                            <span>Mini-Trekking sobre Hielo</span>
+                            <span data-i18n="exc.3.name">Mini-Trekking sobre Hielo</span>
                             <span class="accordion-duration"><i class="fas fa-clock"></i> 10 hs</span>
                         </div>
                         <i class="fas fa-chevron-down accordion-arrow"></i>
                     </button>
-                    <div class="accordion-content">
-                        <p>Viví la experiencia de caminar sobre el glaciar con guías expertos y equipo técnico; explorarás grietas y formaciones de hielo en una caminata segura y emocionante. Ideal para quienes buscan contacto directo con el hielo.</p>
+                    <div class="accordion-content" id="exc-3-panel" role="region" aria-labelledby="exc-3-btn">
+                        <p data-i18n="exc.3.text">Viví la experiencia de caminar sobre el glaciar con guías expertos y equipo técnico; explorarás grietas y formaciones de hielo en una caminata segura y emocionante. Ideal para quienes buscan contacto directo con el hielo.</p>
                         <div class="excursion-features">
-                            <span><i class="fas fa-hard-hat"></i> Incluye equipo</span>
-                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                            <span data-i18n-html="exc.feature.gear"><i class="fas fa-hard-hat"></i> Incluye equipo</span>
+                            <span data-i18n-html="exc.feature.guide"><i class="fas fa-language"></i> Guía bilingüe</span>
                         </div>
                         <ul class="excursion-notas">
-                            <li>Requiere buena condición física básica</li>
-                            <li>No incluye entrada al parque</li>
-                            <li>No incluye vianda</li>
+                            <li data-i18n="exc.note.fitness">Requiere buena condición física básica</li>
+                            <li data-i18n="exc.note.nopark">No incluye entrada al parque</li>
+                            <li data-i18n="exc.note.nolunch">No incluye vianda</li>
                         </ul>
-                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20el%20Mini-Trekking%20sobre%20hielo" class="btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Consulta por Disponibilidad
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20el%20Mini-Trekking%20sobre%20hielo" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="exc.availability">Consulta por Disponibilidad</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                         </a>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-trigger">
+                    <button class="accordion-trigger" id="exc-4-btn" aria-expanded="false" aria-controls="exc-4-panel">
                         <div class="accordion-title">
                             <i class="fas fa-mountain"></i>
-                            <span>Big Ice</span>
+                            <span data-i18n="exc.4.name">Big Ice</span>
                             <span class="accordion-duration"><i class="fas fa-clock"></i> 12 hs</span>
                         </div>
                         <i class="fas fa-chevron-down accordion-arrow"></i>
                     </button>
-                    <div class="accordion-content">
-                        <p>Para aventureros, el Big Ice ofrece una travesía más intensa y técnica sobre el glaciar, explorando sectores remotos de hielo azul con guías especializados. Jornada completa pensada para experiencias únicas y desafiantes.</p>
+                    <div class="accordion-content" id="exc-4-panel" role="region" aria-labelledby="exc-4-btn">
+                        <p data-i18n="exc.4.text">Para aventureros, el Big Ice ofrece una travesía más intensa y técnica sobre el glaciar, explorando sectores remotos de hielo azul con guías especializados. Jornada completa pensada para experiencias únicas y desafiantes.</p>
                         <div class="excursion-features">
-                            <span><i class="fas fa-hard-hat"></i> Incluye equipo</span>
-                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
+                            <span data-i18n-html="exc.feature.gear"><i class="fas fa-hard-hat"></i> Incluye equipo</span>
+                            <span data-i18n-html="exc.feature.guide"><i class="fas fa-language"></i> Guía bilingüe</span>
                         </div>
                         <ul class="excursion-notas">
-                            <li>Nivel avanzado</li>
-                            <li>No incluye entrada al parque</li>
-                            <li>No incluye vianda</li>
+                            <li data-i18n="exc.note.advanced">Nivel avanzado</li>
+                            <li data-i18n="exc.note.nopark">No incluye entrada al parque</li>
+                            <li data-i18n="exc.note.nolunch">No incluye vianda</li>
                         </ul>
-                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20disponibilidad%20Big%20Ice" class="btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Consulta por Disponibilidad
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20disponibilidad%20Big%20Ice" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="exc.availability">Consulta por Disponibilidad</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                         </a>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-trigger">
+                    <button class="accordion-trigger" id="exc-5-btn" aria-expanded="false" aria-controls="exc-5-panel">
                         <div class="accordion-title">
                             <i class="fas fa-flag"></i>
-                            <span>Laguna de los Tres (Fitz Roy)</span>
+                            <span data-i18n="exc.5.name">Laguna de los Tres (Fitz Roy)</span>
                             <span class="accordion-duration"><i class="fas fa-clock"></i> 14 hs</span>
                         </div>
                         <i class="fas fa-chevron-down accordion-arrow"></i>
                     </button>
-                    <div class="accordion-content">
-                        <p>La clásica caminata hacia la Laguna de los Tres ofrece vistas emblemáticas del cerro Fitz Roy y una postal inolvidable en el mirador frente a la laguna. Excursión exigente pero extremadamente gratificante para amantes del trekking.</p>
+                    <div class="accordion-content" id="exc-5-panel" role="region" aria-labelledby="exc-5-btn">
+                        <p data-i18n="exc.5.text">La clásica caminata hacia la Laguna de los Tres ofrece vistas emblemáticas del cerro Fitz Roy y una postal inolvidable en el mirador frente a la laguna. Excursión exigente pero extremadamente gratificante para amantes del trekking.</p>
                         <div class="excursion-features">
-                            <span><i class="fas fa-language"></i> Guía bilingüe</span>
-                            <span><i class="fas fa-utensils"></i> Incluye vianda</span>
+                            <span data-i18n-html="exc.feature.guide"><i class="fas fa-language"></i> Guía bilingüe</span>
+                            <span data-i18n-html="exc.feature.lunch"><i class="fas fa-utensils"></i> Incluye vianda</span>
                         </div>
                         <ul class="excursion-notas">
-                            <li>Nivel exigente, recomendable para senderistas</li>
-                            <li>No incluye entrada al parque</li>
+                            <li data-i18n="exc.note.demanding">Nivel exigente, recomendable para senderistas</li>
+                            <li data-i18n="exc.note.nopark">No incluye entrada al parque</li>
                         </ul>
-                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20a%20Laguna%20de%20los%20Tres%20(Fitz%20Roy)" class="btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Consulta por Disponibilidad
+                        <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20reservar%20la%20excursi%C3%B3n%20a%20Laguna%20de%20los%20Tres%20(Fitz%20Roy)" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="exc.availability">Consulta por Disponibilidad</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="traslados-box">
-                <h3><i class="fas fa-shuttle-van"></i> Traslados</h3>
-                <p>Consultá por traslados al Aeropuerto y a El Chaltén</p>
-                <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20traslados" class="btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Consulta por Disponibilidad
+                <h3 data-i18n-html="exc.transfers.title"><i class="fas fa-shuttle-van"></i> Traslados</h3>
+                <p data-i18n="exc.transfers.text">Consultá por traslados al Aeropuerto y a El Chaltén</p>
+                <a href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20traslados" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> <span data-i18n="exc.availability">Consulta por Disponibilidad</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                 </a>
             </div>
         </div>
@@ -478,8 +552,8 @@
     <section id="promotions" class="promotions">
         <div class="container">
             <div class="section-title">
-                <h2>Promociones Especiales</h2>
-                <p>Aprovechá nuestras ofertas exclusivas para tu estadía en El Calafate</p>
+                <h2 data-i18n="promo.title">Promociones Especiales</h2>
+                <p data-i18n="promo.subtitle">Aprovechá nuestras ofertas exclusivas para tu estadía en El Calafate</p>
             </div>
             <div class="promo-grid">
                 <div class="promo-card">
@@ -487,13 +561,13 @@
                     <div class="promo-icon">
                         <i class="fas fa-flag"></i>
                     </div>
-                    <h3>Residentes Nacionales</h3>
-                    <p>20% de descuento para residentes nacionales durante todo el año. Pagando con transferencia o efectivo.</p>
+                    <h3 data-i18n="promo.1.name">Residentes Nacionales</h3>
+                    <p data-i18n="promo.1.text">20% de descuento para residentes nacionales durante todo el año. Pagando con transferencia o efectivo.</p>
                     <div class="promo-price">
-                        <span class="new-price">Todo el año</span>
+                        <span class="new-price" data-i18n="promo.1.price">Todo el año</span>
                     </div>
-                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%20para%20Residentes%20Nacionales%20(20%25%20de%20descuento)" class="btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Consultar
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%20para%20Residentes%20Nacionales%20(20%25%20de%20descuento)" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn.inquire">Consultar</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                     </a>
                 </div>
                 <div class="promo-card">
@@ -501,13 +575,13 @@
                     <div class="promo-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3>Reserva Anticipada</h3>
-                    <p>Pagá 3 noches y quedate 4. Abonando con transferencia o tarjeta en garantía.</p>
+                    <h3 data-i18n="promo.2.name">Reserva Anticipada</h3>
+                    <p data-i18n="promo.2.text">Pagá 3 noches y quedate 4. Abonando con transferencia o tarjeta en garantía.</p>
                     <div class="promo-price">
-                        <span class="new-price">1 noche gratis</span>
+                        <span class="new-price" data-i18n="promo.2.price">1 noche gratis</span>
                     </div>
-                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%204x3%20Reserva%20Anticipada" class="btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Consultar
+                    <a href="https://wa.me/5492966266581?text=Hola!%20Me%20interesa%20la%20promo%204x3%20Reserva%20Anticipada" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="btn.inquire">Consultar</span> <span class="sr-only" data-i18n="aria.newWindow">(se abre en nueva ventana)</span>
                     </a>
                 </div>
             </div>
@@ -518,59 +592,35 @@
     <section id="gallery" class="gallery">
         <div class="container">
             <div class="section-title">
-                <h2>Galería</h2>
-                <p>Conocé nuestros espacios y la belleza de El Calafate</p>
+                <h2 data-i18n="gallery.title">Galería</h2>
+                <p data-i18n="gallery.subtitle">Conocé nuestros espacios y la belleza de El Calafate</p>
             </div>
             <div class="carousel-container">
                 <div class="carousel-main">
                     <span class="carousel-counter">1 / 6</span>
 
                     <div class="carousel-slide active">
-                        <img src="image_webp/galeria/IMG_2901.webp" alt="Paisaje patagónico">
-                        <div class="carousel-caption">
-                            <h4>Paisaje Patagónico</h4>
-                            <p>La belleza de la Patagonia desde nuestras instalaciones</p>
-                        </div>
+                        <img src="image_webp/galeria/1.webp" alt="Paisaje patagónico">
                     </div>
 
                     <div class="carousel-slide">
-                        <img src="image_webp/galeria/IMG_3010.webp" alt="Sala de estar">
-                        <div class="carousel-caption">
-                            <h4>Sala de Estar</h4>
-                            <p>Espacios para compartir y conocer otros viajeros</p>
-                        </div>
+                        <img data-src="image_webp/galeria/2.webp" alt="Sala de estar">
                     </div>
 
                     <div class="carousel-slide">
-                        <img src="image_webp/galeria/IMG_3071.webp" alt="Cocina">
-                        <div class="carousel-caption">
-                            <h4>Cocina</h4>
-                            <p>Cocina equipada para que te sientas como en casa</p>
-                        </div>
+                        <img data-src="image_webp/galeria/3.webp" alt="Cocina">
                     </div>
 
                     <div class="carousel-slide">
-                        <img src="image_webp/galeria/IMG_3072.webp" alt="Espacios comunes">
-                        <div class="carousel-caption">
-                            <h4>Espacios Comunes</h4>
-                            <p>Un espacio acogedor en el corazón de El Calafate</p>
-                        </div>
+                        <img data-src="image_webp/galeria/4.webp" alt="Espacios comunes">
                     </div>
 
                     <div class="carousel-slide">
-                        <img src="image_webp/galeria/IMG_3073.webp" alt="Nuestro hostel">
-                        <div class="carousel-caption">
-                            <h4>Nuestro Hostel</h4>
-                            <p>Comodidad y calidez para tu descanso</p>
-                        </div>
+                        <img data-src="image_webp/galeria/5.webp" alt="Nuestro hostel">
                     </div>
 
                     <div class="carousel-slide">
-                        <img src="image_webp/galeria/IMG_3731 2.webp" alt="Experiencias únicas">
-                        <div class="carousel-caption">
-                            <h4>Experiencias Únicas</h4>
-                            <p>Momentos inolvidables en El Calafate</p>
-                        </div>
+                        <img data-src="image_webp/galeria/6.webp" alt="Experiencias únicas">
                     </div>
 
                     <button class="carousel-btn prev" aria-label="Anterior">
@@ -582,32 +632,32 @@
                 </div>
 
                 <div class="carousel-dots">
-                    <button class="carousel-dot active" data-slide="0"></button>
-                    <button class="carousel-dot" data-slide="1"></button>
-                    <button class="carousel-dot" data-slide="2"></button>
-                    <button class="carousel-dot" data-slide="3"></button>
-                    <button class="carousel-dot" data-slide="4"></button>
-                    <button class="carousel-dot" data-slide="5"></button>
+                    <button class="carousel-dot active" data-slide="0" aria-label="Ir a imagen 1"></button>
+                    <button class="carousel-dot" data-slide="1" aria-label="Ir a imagen 2"></button>
+                    <button class="carousel-dot" data-slide="2" aria-label="Ir a imagen 3"></button>
+                    <button class="carousel-dot" data-slide="3" aria-label="Ir a imagen 4"></button>
+                    <button class="carousel-dot" data-slide="4" aria-label="Ir a imagen 5"></button>
+                    <button class="carousel-dot" data-slide="5" aria-label="Ir a imagen 6"></button>
                 </div>
 
                 <div class="carousel-thumbnails">
                     <div class="carousel-thumb active" data-slide="0">
-                        <img src="image_webp/galeria/IMG_2901.webp" alt="Thumbnail 1">
+                        <img loading="lazy" src="image_webp/galeria/thumbs/1.webp" alt="Thumbnail 1">
                     </div>
                     <div class="carousel-thumb" data-slide="1">
-                        <img src="image_webp/galeria/IMG_3010.webp" alt="Thumbnail 2">
+                        <img loading="lazy" src="image_webp/galeria/thumbs/2.webp" alt="Thumbnail 2">
                     </div>
                     <div class="carousel-thumb" data-slide="2">
-                        <img src="image_webp/galeria/IMG_3071.webp" alt="Thumbnail 3">
+                        <img loading="lazy" src="image_webp/galeria/thumbs/3.webp" alt="Thumbnail 3">
                     </div>
                     <div class="carousel-thumb" data-slide="3">
-                        <img src="image_webp/galeria/IMG_3072.webp" alt="Thumbnail 4">
+                        <img loading="lazy" src="image_webp/galeria/thumbs/4.webp" alt="Thumbnail 4">
                     </div>
                     <div class="carousel-thumb" data-slide="4">
-                        <img src="image_webp/galeria/IMG_3073.webp" alt="Thumbnail 5">
+                        <img loading="lazy" src="image_webp/galeria/thumbs/5.webp" alt="Thumbnail 5">
                     </div>
                     <div class="carousel-thumb" data-slide="5">
-                        <img src="image_webp/galeria/IMG_3731 2.webp" alt="Thumbnail 6">
+                        <img loading="lazy" src="image_webp/galeria/thumbs/6.webp" alt="Thumbnail 6">
                     </div>
                 </div>
             </div>
@@ -618,15 +668,15 @@
     <section id="reviews" class="reviews">
         <div class="container">
             <div class="section-title">
-                <h2>Lo que dicen nuestros huéspedes</h2>
-                <p>Experiencias reales de viajeros que eligieron I Keu Ken</p>
+                <h2 data-i18n="reviews.title">Lo que dicen nuestros huéspedes</h2>
+                <p data-i18n="reviews.subtitle">Experiencias reales de viajeros que eligieron I Keu Ken</p>
             </div>
             <div class="reviews-badge">
                 <div class="rating-badge">
                     <div class="rating-score">9.6</div>
                     <div class="rating-text">
-                        <strong>Excelente</strong>
-                        <span>Google Reviews</span>
+                        <strong data-i18n="reviews.excellent">Excelente</strong>
+                        <span data-i18n="reviews.based">Google Reviews</span>
                     </div>
                 </div>
             </div>
@@ -645,8 +695,8 @@
                         </div>
                         <p class="review-text">Great hostel with a very welcoming atmosphere. Max, the owner, was incredibly kind and helpful with everything I needed — always with a big smile and positive attitude. Highly recommended!</p>
                         <div class="review-tags">
-                            <span class="review-tag">Vista increíble</span>
-                            <span class="review-tag">Tranquilo</span>
+                            <span class="review-tag" data-i18n="reviews.tag.view">Vista increíble</span>
+                            <span class="review-tag" data-i18n="reviews.tag.quiet">Tranquilo</span>
                         </div>
                     </div>
                     <div class="review-card">
@@ -662,13 +712,13 @@
                         </div>
                         <p class="review-text">Stayed there only one night but loved the place: a proper hostel with a nice vibe, run by people who you can tell love traveling.</p>
                         <div class="review-scores">
-                            <span class="review-score-item">Habitaciones: <strong>5/5</strong></span>
-                            <span class="review-score-item">Servicio: <strong>5/5</strong></span>
-                            <span class="review-score-item">Ubicación: <strong>4/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.rooms">Habitaciones:</span> <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.service">Servicio:</span> <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.location">Ubicación:</span> <strong>4/5</strong></span>
                         </div>
                         <div class="review-tags">
-                            <span class="review-tag">Vista increíble</span>
-                            <span class="review-tag">Tranquilo</span>
+                            <span class="review-tag" data-i18n="reviews.tag.view">Vista increíble</span>
+                            <span class="review-tag" data-i18n="reviews.tag.quiet">Tranquilo</span>
                         </div>
                     </div>
                     <div class="review-card">
@@ -684,9 +734,9 @@
                         </div>
                         <p class="review-text">Me encantó el lugar, habitaciones con distintas temáticas, baños amplios y limpios. La cocina es amplia y muy cómoda. Lo más bello es "Viernes" (guau guau). Gracias Mel y Max por la buena onda. Espero verlos pronto!</p>
                         <div class="review-scores">
-                            <span class="review-score-item">Habitaciones: <strong>4/5</strong></span>
-                            <span class="review-score-item">Servicio: <strong>4/5</strong></span>
-                            <span class="review-score-item">Ubicación: <strong>4/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.rooms">Habitaciones:</span> <strong>4/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.service">Servicio:</span> <strong>4/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.location">Ubicación:</span> <strong>4/5</strong></span>
                         </div>
                     </div>
                     <div class="review-card">
@@ -702,9 +752,9 @@
                         </div>
                         <p class="review-text">Best hostel in town, perfect to solo travel, great service: super helpful, amazing vibe. Thank youuuu</p>
                         <div class="review-scores">
-                            <span class="review-score-item">Habitaciones: <strong>5/5</strong></span>
-                            <span class="review-score-item">Servicio: <strong>5/5</strong></span>
-                            <span class="review-score-item">Ubicación: <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.rooms">Habitaciones:</span> <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.service">Servicio:</span> <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.location">Ubicación:</span> <strong>5/5</strong></span>
                         </div>
                     </div>
                     <div class="review-card">
@@ -720,25 +770,25 @@
                         </div>
                         <p class="review-text">Ostello molto bello e accogliente, cucina completa di tutto il necessario, camere pulite e non troppo grandi, giardino bellissimo con una vista incredibile sul lago. Accoglienza fantastica, Max e Mel due persone meravigliose! Consigliatissimo!</p>
                         <div class="review-scores">
-                            <span class="review-score-item">Habitaciones: <strong>5/5</strong></span>
-                            <span class="review-score-item">Servicio: <strong>5/5</strong></span>
-                            <span class="review-score-item">Ubicación: <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.rooms">Habitaciones:</span> <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.service">Servicio:</span> <strong>5/5</strong></span>
+                            <span class="review-score-item"><span data-i18n="reviews.location">Ubicación:</span> <strong>5/5</strong></span>
                         </div>
                         <div class="review-tags">
-                            <span class="review-tag">Vista increíble</span>
-                            <span class="review-tag">Tranquilo</span>
-                            <span class="review-tag">Buen precio</span>
+                            <span class="review-tag" data-i18n="reviews.tag.view">Vista increíble</span>
+                            <span class="review-tag" data-i18n="reviews.tag.quiet">Tranquilo</span>
+                            <span class="review-tag" data-i18n="reviews.tag.price">Buen precio</span>
                         </div>
                     </div>
                 </div>
                 <button class="reviews-carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                 <button class="reviews-carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                 <div class="reviews-dots">
-                    <button class="reviews-dot active" data-review="0"></button>
-                    <button class="reviews-dot" data-review="1"></button>
-                    <button class="reviews-dot" data-review="2"></button>
-                    <button class="reviews-dot" data-review="3"></button>
-                    <button class="reviews-dot" data-review="4"></button>
+                    <button class="reviews-dot active" data-review="0" aria-label="Ir a reseña 1"></button>
+                    <button class="reviews-dot" data-review="1" aria-label="Ir a reseña 2"></button>
+                    <button class="reviews-dot" data-review="2" aria-label="Ir a reseña 3"></button>
+                    <button class="reviews-dot" data-review="3" aria-label="Ir a reseña 4"></button>
+                    <button class="reviews-dot" data-review="4" aria-label="Ir a reseña 5"></button>
                 </div>
             </div>
         </div>
@@ -748,14 +798,14 @@
     <section id="location" class="location">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestra Ubicación</h2>
-                <p>En el corazón de El Calafate, a pasos de la Avenida del Libertador y cerca de todos los servicios</p>
+                <h2 data-i18n="location.title">Nuestra Ubicación</h2>
+                <p data-i18n="location.subtitle">En el corazón de El Calafate, a pasos de la Avenida del Libertador y cerca de todos los servicios</p>
             </div>
             <div class="rating-badge">
                 <div class="rating-score">9.6</div>
                 <div class="rating-text">
-                    <strong>Excelente</strong>
-                    <span>Basado en 27 opiniones</span>
+                    <strong data-i18n="reviews.excellent">Excelente</strong>
+                    <span data-i18n="reviews.based2">Basado en 27 opiniones</span>
                 </div>
             </div>
             <div class="location-map-full">
@@ -763,49 +813,49 @@
             </div>
             <div class="location-grid">
                 <div class="location-col">
-                    <h3><i class="fas fa-map-marker-alt"></i> Contacto</h3>
+                    <h3 data-i18n-html="location.contact"><i class="fas fa-map-marker-alt"></i> Contacto</h3>
                     <div class="location-details">
                         <div class="location-item">
                             <i class="fas fa-home"></i>
                             <div>
-                                <h4>Dirección</h4>
+                                <h4 data-i18n="location.address">Dirección</h4>
                                 <p>Francisco M. Pontoriero 171<br>El Calafate, Santa Cruz, Argentina</p>
                             </div>
                         </div>
                         <div class="location-item">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h4>Teléfono</h4>
+                                <h4 data-i18n="location.phone">Teléfono</h4>
                                 <p>+54 9 2966 26 6581</p>
                             </div>
                         </div>
                         <div class="location-item">
                             <i class="fas fa-plane"></i>
                             <div>
-                                <h4>Aeropuerto</h4>
-                                <p>A 20 min del Aeropuerto Internacional</p>
+                                <h4 data-i18n="location.airport">Aeropuerto</h4>
+                                <p data-i18n="location.airport.text">A 20 min del Aeropuerto Internacional</p>
                             </div>
                         </div>
                         <div class="location-item">
                             <i class="fas fa-mountain"></i>
                             <div>
-                                <h4>Glaciar Perito Moreno</h4>
-                                <p>A 80 km del Parque Nacional Los Glaciares</p>
+                                <h4 data-i18n="location.glacier">Glaciar Perito Moreno</h4>
+                                <p data-i18n="location.glacier.text">A 80 km del Parque Nacional Los Glaciares</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="location-col">
-                    <h3><i class="fas fa-route"></i> Distancias de interés</h3>
+                    <h3 data-i18n-html="location.distances"><i class="fas fa-route"></i> Distancias de interés</h3>
                     <ul class="distances-list">
-                        <li><i class="fas fa-tree"></i> Parque Manuel Belgrano <span>100 mts</span></li>
-                        <li><i class="fas fa-shopping-cart"></i> Hipermercado La Anónima <span>100 mts</span></li>
-                        <li><i class="fas fa-city"></i> Centro de Calafate <span>500 mts</span></li>
-                        <li><i class="fas fa-theater-masks"></i> Anfiteatro <span>400 mts</span></li>
-                        <li><i class="fas fa-prescription-bottle-alt"></i> Farmacia <span>300 mts</span></li>
-                        <li><i class="fas fa-bread-slice"></i> Panadería <span>300 mts</span></li>
-                        <li><i class="fas fa-info-circle"></i> Centro de Informes <span>400 mts</span></li>
-                        <li><i class="fas fa-hospital"></i> Centro de Salud <span>400 mts</span></li>
+                        <li data-i18n-html="location.park"><i class="fas fa-tree"></i> Parque Manuel Belgrano <span>100 mts</span></li>
+                        <li data-i18n-html="location.supermarket"><i class="fas fa-shopping-cart"></i> Hipermercado La Anónima <span>100 mts</span></li>
+                        <li data-i18n-html="location.downtown"><i class="fas fa-city"></i> Centro de Calafate <span>500 mts</span></li>
+                        <li data-i18n-html="location.amphitheater"><i class="fas fa-theater-masks"></i> Anfiteatro <span>400 mts</span></li>
+                        <li data-i18n-html="location.pharmacy"><i class="fas fa-prescription-bottle-alt"></i> Farmacia <span>300 mts</span></li>
+                        <li data-i18n-html="location.bakery"><i class="fas fa-bread-slice"></i> Panadería <span>300 mts</span></li>
+                        <li data-i18n-html="location.info"><i class="fas fa-info-circle"></i> Centro de Informes <span>400 mts</span></li>
+                        <li data-i18n-html="location.health"><i class="fas fa-hospital"></i> Centro de Salud <span>400 mts</span></li>
                     </ul>
                 </div>
             </div>
@@ -815,40 +865,40 @@
     <!-- Booking Section -->
     <section id="booking" class="cta">
         <div class="container">
-            <h2>¿Listo para tu aventura patagónica?</h2>
-            <p>Reservá ahora y viví una experiencia inolvidable en El Calafate</p>
+            <h2 data-i18n="booking.title">¿Listo para tu aventura patagónica?</h2>
+            <p data-i18n="booking.subtitle">Reservá ahora y viví una experiencia inolvidable en El Calafate</p>
             <div class="booking-bar">
                 <form class="booking-form" id="bookingForm">
                     <div class="form-group">
-                        <label><i class="fas fa-calendar"></i> Check-in</label>
-                        <input type="text" id="checkin" class="date-input-custom" placeholder="Seleccionar fecha" readonly required>
+                        <label data-i18n-html="booking.checkin"><i class="fas fa-calendar"></i> Check-in</label>
+                        <input type="text" id="checkin" class="date-input-custom" placeholder="Seleccionar fecha" data-i18n-placeholder="booking.placeholder" readonly required>
                         <input type="hidden" id="checkin-value">
                     </div>
                     <div class="form-group">
-                        <label><i class="fas fa-calendar"></i> Check-out</label>
-                        <input type="text" id="checkout" class="date-input-custom" placeholder="Seleccionar fecha" readonly required>
+                        <label data-i18n-html="booking.checkout"><i class="fas fa-calendar"></i> Check-out</label>
+                        <input type="text" id="checkout" class="date-input-custom" placeholder="Seleccionar fecha" data-i18n-placeholder="booking.placeholder" readonly required>
                         <input type="hidden" id="checkout-value">
                     </div>
                     <div class="form-group">
-                        <label><i class="fas fa-users"></i> Huéspedes</label>
+                        <label data-i18n-html="booking.guests"><i class="fas fa-users"></i> Huéspedes</label>
                         <select id="guests">
-                            <option>1 Adulto</option>
-                            <option>2 Adultos</option>
-                            <option>3 Adultos</option>
-                            <option>4 Adultos</option>
+                            <option data-i18n="booking.guest1">1 Adulto</option>
+                            <option data-i18n="booking.guest2">2 Adultos</option>
+                            <option data-i18n="booking.guest3">3 Adultos</option>
+                            <option data-i18n="booking.guest4">4 Adultos</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label><i class="fas fa-bed"></i> Habitación</label>
+                        <label data-i18n-html="booking.room"><i class="fas fa-bed"></i> Habitación</label>
                         <select id="roomType">
-                            <option>Cualquier tipo</option>
-                            <option>Habitación Privada Doble</option>
-                            <option>Habitación Triple</option>
-                            <option>Habitación Compartida</option>
-                            <option>Suite Familiar</option>
+                            <option data-i18n="booking.anyRoom">Cualquier tipo</option>
+                            <option data-i18n="rooms.private.name">Habitación Privada Doble</option>
+                            <option data-i18n="rooms.triple.name">Habitación Triple</option>
+                            <option data-i18n="rooms.shared.name">Habitación Compartida</option>
+                            <option data-i18n="rooms.family.name">Suite Familiar</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn-buscar">
+                    <button type="submit" class="btn-buscar" data-i18n-html="btn.inquire">
                         <i class="fab fa-whatsapp"></i> Consultar
                     </button>
                 </form>
@@ -871,39 +921,40 @@
         </div>
     </div>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="logo.webp" alt="I Keu Ken Hostel">
-                    <p>Tu hogar en la Patagonia. Comodidad, calidez y experiencias únicas en El Calafate.</p>
+                    <img loading="lazy" src="logo.webp" alt="I Keu Ken Hostel">
+                    <p data-i18n="footer.brand">Tu hogar en la Patagonia. Comodidad, calidez y experiencias únicas en El Calafate.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/hostelikeuken/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i><span class="sr-only" data-i18n="aria.instagram">Instagram (se abre en nueva ventana)</span></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Navegación</h4>
+                    <h4 data-i18n="footer.nav">Navegación</h4>
                     <ul>
-                        <li><a href="#about">El Lodge</a></li>
-                        <li><a href="#rooms">Habitaciones</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#gallery">Galería</a></li>
+                        <li><a href="#about" data-i18n="nav.lodge">El Lodge</a></li>
+                        <li><a href="#rooms" data-i18n="nav.rooms">Habitaciones</a></li>
+                        <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+                        <li><a href="#gallery" data-i18n="nav.gallery">Galería</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Información</h4>
+                    <h4 data-i18n="footer.info">Información</h4>
                     <ul>
-                        <li><a href="#excursiones">Excursiones</a></li>
-                        <li><a href="#promotions">Promociones</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#excursiones" data-i18n="nav.excursions">Excursiones</a></li>
+                        <li><a href="#promotions" data-i18n="footer.promotions">Promociones</a></li>
+                        <li><a href="#" data-i18n="footer.terms">Términos y condiciones</a></li>
+                        <li><a href="#" data-i18n="footer.privacy">Política de privacidad</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Contacto</h4>
+                    <h4 data-i18n="footer.contact">Contacto</h4>
                     <ul>
                         <li><a href="tel:+5492966266581"><i class="fas fa-phone"></i> +54 9 2966 26 6581</a></li>
                         <li><a href="mailto:info@ikeuken.com"><i class="fas fa-envelope"></i> info@ikeuken.com</a></li>
@@ -912,11 +963,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 I Keu Ken Hostel. Todos los derechos reservados.</p>
+                <p>&copy; <span id="currentYear"></span> I Keu Ken Hostel. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
             </div>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

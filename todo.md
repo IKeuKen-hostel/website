@@ -1,5 +1,7 @@
 ## DONE
 
+* sacar facebook del footer, dejar solo link instagram. y agregarlo en algun lugar mas visible también
+https://www.instagram.com/hostelikeuken/
 
 ### Nueva sección: Excursiones
 Pasarelas y miradores
@@ -101,13 +103,10 @@ Transferencia, Tarjeta en garantia.
 * en la hab triple falta: Lockers, enchufes, repisas
 * mejorar el formulario de reserva
 
-## TODO
-
-* actualizar links de redes sociales
-* mejorar la seccion about us
-
-## Contenido y traducciones
-
 ### Traducción completa al inglés
 - Traducir todo el contenido del sitio web al idioma inglés.
 - Mantener coherencia, claridad y un tono adecuado para público internacional.
+
+## TODO
+
+* mejorar la seccion about us ?

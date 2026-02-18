@@ -1,0 +1,104 @@
+DONE
+
+1. Performance: ~70+ images loaded at once, no lazy loading
+The room carousels load all images eagerly (19 privada + 3 triple + 7 compartida + 24 familiar + 6 gallery + 6 thumbnails = 65+ images). Only one slide is visible at a time. This is the single biggest performance killer.
+
+Fix: Add loading="lazy" to every <img> except the first visible slide (active) per carousel. Better yet, don't render hidden slides' src at all and load on demand via JS.
+
+2. Performance: Render-blocking Font Awesome CSS (~100KB)
+index.html:10 loads the entire Font Awesome library from a CDN for ~30 icons. This blocks first paint.
+
+Fix: Self-host only the icons you use via a custom FA kit, or switch to inline SVGs for the ~15 unique icons.
+
+3. Performance: Render-blocking Google Fonts (2 families, 9 weights)
+index.html:15 loads Montserrat (5 weights) + Poppins (5 weights). Each unused weight adds latency.
+
+Fix: Trim to only the weights actually used: Montserrat:wght@700;800 and Poppins:wght@400;500;600. Add &display=swap (already present, good) and add <link rel="preload"> for the most critical font file.
+
+7. Performance: Hero background loaded via CSS url() — can't be preloaded
+styles.css:223 loads image_webp/home.webp as a CSS background. The browser can't discover it until CSSOM is built.
+
+Fix: Add <link rel="preload" as="image" href="image_webp/home.webp"> in <head>.
+
+8. Performance: Continuous scale() animation on hero pseudo-element
+styles.css:226-237 runs zoomInOut infinitely on a full-viewport background. This triggers compositing every frame and drains battery on mobile.
+
+Fix: Use will-change: transform on .hero::before and consider pausing the animation after one cycle or when the hero is scrolled out of view.
+
+9. Performance: Scroll event listeners without throttle
+main.js:5 and main.js:455 fire on every scroll pixel (header class toggle + active section highlight).
+
+Fix: Throttle with requestAnimationFrame or use IntersectionObserver for section highlighting.
+
+10. Accessibility: Missing <main> landmark
+The page has <header>, <footer>, and sections but no <main> wrapper. Screen readers can't skip to main content.
+
+Fix: Wrap everything between </header> and <footer> in <main>.
+
+12. Accessibility: WhatsApp links open in new tab without warning
+All target="_blank" links lack rel="noopener" (security risk) and don't warn screen reader users about the new window.
+
+Fix: Add rel="noopener noreferrer" and append visually-hidden text like (se abre en nueva pestaña).
+
+14. UX: Footer copyright says 2024
+index.html:915 — © 2024 is outdated.
+
+Fix: Update to 2025 or use JS to set dynamically.
+
+5. Accessibility: Accordion lacks ARIA attributes
+The accordion buttons (index.html:345) have no aria-expanded, aria-controls, or role attributes. Screen readers can't convey expand/collapse state.
+
+Fix: Add aria-expanded="false" to .accordion-trigger, toggle to "true" in JS, and add role="region" + aria-labelledby to .accordion-content.
+
+6. SEO: Missing structured data (Schema.org)
+No JSON-LD for Hostel, LodgingBusiness, or LocalBusiness. Google can't show rich results (ratings, prices, location).
+
+Fix: Add a <script type="application/ld+json"> block with at minimum LodgingBusiness schema including name, address, geo coordinates, rating, and images.
+
+13. SEO: Missing favicon, Open Graph, and Twitter Card meta
+No <link rel="icon">, no og:title, og:image, og:url, or twitter:card tags.
+
+Fix: Add a favicon and OG/Twitter meta tags for social sharing previews.
+
+4. Accessibility: No alt text differentiation on carousel images
+Every room image repeats the same alt text (e.g., all 19 privada images say "Habitación Privada Doble"). Screen readers can't distinguish slides.
+
+Fix: Use descriptive alts like "Habitación Privada Doble - vista del baño", "...vista de la cama", etc. At minimum, add the slide number.
+
+
+11. Accessibility: Carousel dots/thumbnails have no accessible labels
+index.html:585-590 — <button class="carousel-dot"> has no text or aria-label. Same for .reviews-dot.
+
+Fix: Add aria-label="Ir a imagen 1" (or equivalent) to each dot/thumbnail button.
+
+
+QUICK WINS
+#	Category	Issue	Fix
+DONE
+16	Perf	Gallery thumbnails load full-size images (same src as main slides)	Generate and use actual thumbnail sizes (~80x60)
+17	A11y	.menu-toggle has no aria-label or aria-expanded	Add aria-label="Abrir menú" + toggle aria-expanded
+18	A11y	.mobile-menu-close has no aria-label	Add aria-label="Cerrar menú"
+23	UX	Keyboard arrow keys globally hijacked for gallery carousel (main.js:121-129)	Only activate when carousel is focused/visible
+24	UX	Booking form has no validation feedback — empty dates silently fail	Show inline error states
+
+
+TODO
+15	Perf	Logo is logo.png in a folder called image_webp	Convert to WebP/SVG
+19	A11y	Color contrast — #888 on white for .room-description (styles.css:647) fails WCAG AA (3.5:1 vs required 4.5:1)	Darken to #666
+20	A11y	Color contrast — #999 for .accordion-duration and .excursion-notas also fails	Darken to #767676 minimum
+21	SEO	<html lang="es"> but no hreflang for the EN version (language switcher exists)	Add <link rel="alternate" hreflang="en"> when EN is implemented
+22	SEO	No canonical URL	Add <link rel="canonical" href="https://...">
+25	Perf	backdrop-filter: blur(10px) on 8 service items (styles.css:724) is GPU-intensive on mobile	Remove or limit to @supports + desktop only
+26	A11y	Google Maps iframe has no title attribute	Add title="Mapa de ubicación de I Keu Ken Hostel"
+
+PRIORITY RANKING
+Add loading="lazy" to all off-screen images — biggest LCP/bandwidth win
+Preload hero image — improves LCP directly
+Trim font weights + self-host FA subset — reduces render-blocking resources
+Add <main> landmark + ARIA attributes — baseline accessibility compliance
+Add Schema.org JSON-LD — unlocks rich search results
+Add OG meta + favicon — improves social sharing and branding
+Fix color contrast — WCAG compliance, low effort
+Throttle scroll listeners — smooth scrolling on low-end devices
+Add rel="noopener" to all target="_blank" links — security, one find-and-replace
+The site is well-structured overall — good use of semantic sections, WebP images, CSS custom properties, and responsive breakpoints. The issues above are the gaps that would have the most impact on Core Web Vitals, search ranking, and inclusive access.
