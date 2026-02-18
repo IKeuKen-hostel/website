@@ -430,7 +430,7 @@ nav > .container > .btn-reservar {
 
 /* About Section */
 .about {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .section-title {
@@ -589,7 +589,7 @@ nav > .container > .btn-reservar {
 
 /* Rooms Section */
 .rooms {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--color-white);
 }
 
@@ -762,7 +762,7 @@ nav > .container > .btn-reservar {
 
 /* Services Section */
 .services {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--color-green) 0%, var(--color-dark) 100%);
     color: var(--color-white);
 }
@@ -820,7 +820,7 @@ nav > .container > .btn-reservar {
 
 /* Location Section */
 .location {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .location-map-full {
@@ -1155,7 +1155,7 @@ nav > .container > .btn-reservar {
 /* Gallery Section */
 /* Gallery Carousel */
 .gallery {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--color-white);
 }
 
@@ -1337,7 +1337,7 @@ nav > .container > .btn-reservar {
 
 /* Excursiones Section */
 .excursiones {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--color-white);
 }
 
@@ -1515,7 +1515,7 @@ nav > .container > .btn-reservar {
 
 /* Promotions Section */
 .promotions {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--color-sky) 0%, #5a9fd4 100%);
     position: relative;
     overflow: hidden;
@@ -2172,7 +2172,15 @@ footer {
         padding: 0 10px;
     }
 
-    .reviews {
+    .about,
+    .rooms,
+    .services,
+    .excursiones,
+    .promotions,
+    .gallery,
+    .reviews,
+    .location,
+    .cta {
         padding: 60px 0;
     }
 
