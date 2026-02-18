@@ -1,0 +1,101 @@
+/* Font Awesome 6.5.1 - Subset for I Keu Ken Hostel */
+/* Only includes the 52 icons actually used on the site */
+/* To add a new icon: find its unicode at https://fontawesome.com/icons and add a .fa-NAME::before rule */
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/fa-brands-400.woff2') format('woff2');
+}
+
+.fa,
+.fas,
+.fa-solid {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  display: inline-block;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fab,
+.fa-brands {
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  display: inline-block;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Solid icons */
+.fa-bars::before { content: "\f0c9"; }
+.fa-bath::before { content: "\f2cd"; }
+.fa-bed::before { content: "\f236"; }
+.fa-binoculars::before { content: "\f1e5"; }
+.fa-bread-slice::before { content: "\f7ec"; }
+.fa-calendar::before { content: "\f133"; }
+.fa-calendar-alt::before { content: "\f073"; }
+.fa-calendar-check::before { content: "\f274"; }
+.fa-chevron-down::before { content: "\f078"; }
+.fa-chevron-left::before { content: "\f053"; }
+.fa-chevron-right::before { content: "\f054"; }
+.fa-city::before { content: "\f64f"; }
+.fa-clock::before { content: "\f017"; }
+.fa-coffee::before { content: "\f0f4"; }
+.fa-concierge-bell::before { content: "\f562"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-fire::before { content: "\f06d"; }
+.fa-flag::before { content: "\f024"; }
+.fa-hard-hat::before { content: "\f807"; }
+.fa-hiking::before { content: "\f6ec"; }
+.fa-home::before { content: "\f015"; }
+.fa-hospital::before { content: "\f0f8"; }
+.fa-images::before { content: "\f302"; }
+.fa-info-circle::before { content: "\f05a"; }
+.fa-language::before { content: "\f1ab"; }
+.fa-lock::before { content: "\f023"; }
+.fa-map-marker-alt::before { content: "\f3c5"; }
+.fa-mountain::before { content: "\f6fc"; }
+.fa-parking::before { content: "\f540"; }
+.fa-phone::before { content: "\f095"; }
+.fa-plane::before { content: "\f072"; }
+.fa-plug::before { content: "\f1e6"; }
+.fa-prescription-bottle-alt::before { content: "\f486"; }
+.fa-route::before { content: "\f4d7"; }
+.fa-ship::before { content: "\f21a"; }
+.fa-shopping-cart::before { content: "\f07a"; }
+.fa-shuttle-van::before { content: "\f5b6"; }
+.fa-snowflake::before { content: "\f2dc"; }
+.fa-star::before { content: "\f005"; }
+.fa-suitcase::before { content: "\f0f2"; }
+.fa-tag::before { content: "\f02b"; }
+.fa-th-large::before { content: "\f009"; }
+.fa-theater-masks::before { content: "\f630"; }
+.fa-times::before { content: "\f00d"; }
+.fa-tree::before { content: "\f1bb"; }
+.fa-user-friends::before { content: "\f500"; }
+.fa-users::before { content: "\f0c0"; }
+.fa-utensils::before { content: "\f2e7"; }
+.fa-wifi::before { content: "\f1eb"; }
+
+/* Brand icons */
+.fa-instagram::before { content: "\f16d"; }
+.fa-whatsapp::before { content: "\f232"; }
