@@ -199,6 +199,7 @@ const translations = {
         "footer.terms": "Términos y condiciones",
         "footer.privacy": "Política de privacidad",
         "footer.rights": "Todos los derechos reservados.",
+        "footer.madeBy": "Diseño y desarrollo por",
 
         // Accessibility
         "aria.openMenu": "Abrir menú",
@@ -413,6 +414,7 @@ const translations = {
         "footer.terms": "Terms & conditions",
         "footer.privacy": "Privacy policy",
         "footer.rights": "All rights reserved.",
+        "footer.madeBy": "Design & development by",
 
         // Accessibility
         "aria.openMenu": "Open menu",

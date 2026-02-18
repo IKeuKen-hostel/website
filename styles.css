@@ -274,6 +274,17 @@ nav > .container > .btn-reservar {
     }
 }
 
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
@@ -283,18 +294,24 @@ nav > .container > .btn-reservar {
     font-size: 4rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.3s forwards;
 }
 
 .hero p {
     font-size: 1.4rem;
     margin-bottom: 40px;
     font-weight: 300;
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.6s forwards;
 }
 
 .hero-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
+    opacity: 0;
+    animation: heroFadeIn 0.8s ease-out 0.9s forwards;
 }
 
 .btn-primary {
@@ -413,7 +430,7 @@ nav > .container > .btn-reservar {
 
 /* About Section */
 .about {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .section-title {
@@ -572,7 +589,7 @@ nav > .container > .btn-reservar {
 
 /* Rooms Section */
 .rooms {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--color-white);
 }
 
@@ -745,7 +762,7 @@ nav > .container > .btn-reservar {
 
 /* Services Section */
 .services {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--color-green) 0%, var(--color-dark) 100%);
     color: var(--color-white);
 }
@@ -803,7 +820,7 @@ nav > .container > .btn-reservar {
 
 /* Location Section */
 .location {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .location-map-full {
@@ -1138,7 +1155,7 @@ nav > .container > .btn-reservar {
 /* Gallery Section */
 /* Gallery Carousel */
 .gallery {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--color-white);
 }
 
@@ -1320,7 +1337,7 @@ nav > .container > .btn-reservar {
 
 /* Excursiones Section */
 .excursiones {
-    padding: 100px 0;
+    padding: 80px 0;
     background: var(--color-white);
 }
 
@@ -1498,7 +1515,7 @@ nav > .container > .btn-reservar {
 
 /* Promotions Section */
 .promotions {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, var(--color-sky) 0%, #5a9fd4 100%);
     position: relative;
     overflow: hidden;
@@ -1740,6 +1757,9 @@ footer {
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .footer-links a:hover {
@@ -1752,6 +1772,21 @@ footer {
     text-align: center;
     font-size: 0.85rem;
     opacity: 0.7;
+}
+
+.footer-credit {
+    margin-top: 8px;
+    font-size: 0.8rem;
+}
+
+.footer-credit a {
+    color: var(--color-sky);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-credit a:hover {
+    opacity: 0.8;
 }
 
 /* Mobile Menu Button */
@@ -2137,7 +2172,15 @@ footer {
         padding: 0 10px;
     }
 
-    .reviews {
+    .about,
+    .rooms,
+    .services,
+    .excursiones,
+    .promotions,
+    .gallery,
+    .reviews,
+    .location,
+    .cta {
         padding: 60px 0;
     }
 
