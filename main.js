@@ -136,8 +136,15 @@ thumbs.forEach((thumb, i) => {
     });
 });
 
-// Keyboard navigation
+// Keyboard navigation — only when gallery is visible
+let galleryVisible = false;
+const gallerySection = document.getElementById('gallery');
+new IntersectionObserver(([entry]) => {
+    galleryVisible = entry.isIntersecting;
+}, { threshold: 0.1 }).observe(gallerySection);
+
 document.addEventListener('keydown', (e) => {
+    if (!galleryVisible) return;
     if (e.key === 'ArrowRight') {
         nextSlide();
         resetAutoPlay();
@@ -373,8 +380,8 @@ document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
         if (e.target === overlay) closeDatepicker();
     });
 
-    document.getElementById('checkin').addEventListener('click', function() { openDatepicker('checkin'); });
-    document.getElementById('checkout').addEventListener('click', function() { openDatepicker('checkout'); });
+    document.getElementById('checkin').addEventListener('click', function() { this.classList.remove('input-error'); openDatepicker('checkin'); });
+    document.getElementById('checkout').addEventListener('click', function() { this.classList.remove('input-error'); openDatepicker('checkout'); });
 })();
 
 // Booking Form - WhatsApp Redirect
@@ -384,8 +391,27 @@ const whatsappNumber = '5492966266581';
 bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
     const checkin = document.getElementById('checkin-value').value;
     const checkout = document.getElementById('checkout-value').value;
+
+    // Clear previous errors
+    checkinInput.classList.remove('input-error');
+    checkoutInput.classList.remove('input-error');
+
+    // Validate dates
+    let hasError = false;
+    if (!checkin) {
+        checkinInput.classList.add('input-error');
+        hasError = true;
+    }
+    if (!checkout) {
+        checkoutInput.classList.add('input-error');
+        hasError = true;
+    }
+    if (hasError) return;
+
     const guests = document.getElementById('guests').value;
     const roomSelect = document.getElementById('roomType');
     const roomType = roomSelect.options[roomSelect.selectedIndex].text;

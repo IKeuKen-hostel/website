@@ -381,6 +381,17 @@ nav > .container > .btn-reservar {
     border-color: var(--color-sky);
 }
 
+.form-group input.input-error {
+    border-color: #e74c3c;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
 .btn-buscar {
     background: var(--color-orange);
     color: var(--color-white);
@@ -681,7 +692,7 @@ nav > .container > .btn-reservar {
 
 .room-description {
     font-size: 0.9rem;
-    color: #888;
+    color: #666;
     margin: 0;
     line-height: 1.4;
 }
@@ -758,8 +769,15 @@ nav > .container > .btn-reservar {
     padding: 30px 20px;
     background: rgba(255,255,255,0.1);
     border-radius: 15px;
-    backdrop-filter: blur(10px);
     transition: transform 0.3s, background 0.3s;
+}
+
+@media (min-width: 769px) {
+    @supports (backdrop-filter: blur(10px)) {
+        .service-item {
+            backdrop-filter: blur(10px);
+        }
+    }
 }
 
 .service-item:hover {
@@ -1356,7 +1374,7 @@ nav > .container > .btn-reservar {
 .accordion-duration {
     font-size: 0.8rem;
     font-weight: 400;
-    color: #999;
+    color: #767676;
     margin-left: 10px;
     display: flex;
     align-items: center;
@@ -1429,7 +1447,7 @@ nav > .container > .btn-reservar {
     padding-bottom: 15px;
     margin: 0;
     font-size: 0.8rem;
-    color: #999;
+    color: #767676;
 }
 
 .excursion-notas li::before {

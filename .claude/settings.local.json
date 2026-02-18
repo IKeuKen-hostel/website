@@ -14,7 +14,8 @@
       "Bash(\"C:\\\\Users\\\\teoci\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe\" -c \"\nwith open\\(r''c:\\\\Users\\\\teoci\\\\Documents\\\\REPOS\\\\CLIENTES\\\\keuken\\\\index.html'', ''r'', encoding=''utf-8''\\) as f:\n    lines = f.readlines\\(\\)\n\n# Head part: lines 0-15 \\(before <style>\\)\nhead = lines[:16]\n\n# Body part: lines 2021-2802 \\(between </style></head> and <script>\\)\nbody = lines[2021:2803]\n\n# Build new file\nnew_lines = []\n# Keep original head up to fonts link \\(line 15\\)\nnew_lines.extend\\(head\\)\n# Add CSS link\nnew_lines.append\\(''    <link rel=\"\"stylesheet\"\" href=\"\"styles.css\"\">\\\\n''\\)\n# Add body content \\(which starts with </head><body>...\\)\nnew_lines.extend\\(body\\)\n# Add script link before closing\nnew_lines.append\\(''    <script src=\"\"main.js\"\"></script>\\\\n''\\)\nnew_lines.append\\(''</body>\\\\n''\\)\nnew_lines.append\\(''</html>\\\\n''\\)\n\nwith open\\(r''c:\\\\Users\\\\teoci\\\\Documents\\\\REPOS\\\\CLIENTES\\\\keuken\\\\index.html'', ''w'', encoding=''utf-8''\\) as f:\n    f.writelines\\(new_lines\\)\n\nprint\\(f''Done! New file has {len\\(new_lines\\)} lines''\\)\n\")",
       "Bash(curl:*)",
       "Bash(del \"c:\\\\Users\\\\teoci\\\\Documents\\\\REPOS\\\\CLIENTES\\\\keuken\\\\fonts\\\\fa-all-temp.css\")",
-      "Bash(del \"c:\\\\Users\\\\teoci\\\\Documents\\\\REPOS\\\\CLIENTES\\\\keuken\\\\fonts\\\\extract_icons.py\")"
+      "Bash(del \"c:\\\\Users\\\\teoci\\\\Documents\\\\REPOS\\\\CLIENTES\\\\keuken\\\\fonts\\\\extract_icons.py\")",
+      "Bash(ffmpeg:*)"
     ]
   }
 }

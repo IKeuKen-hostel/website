@@ -181,6 +181,14 @@ const translations = {
         "wa.roomType": "Tipo de habitación",
         "wa.thanks": "¡Gracias!",
         "wa.locale": "es-AR",
+        "wa.exc1": "Hola! Quiero reservar la excursión Pasarelas y Miradores",
+        "wa.exc2": "Hola! Quiero reservar Safari Náutico + Pasarelas",
+        "wa.exc3": "Hola! Quiero reservar el Mini-Trekking sobre hielo",
+        "wa.exc4": "Hola! Quiero consultar disponibilidad Big Ice",
+        "wa.exc5": "Hola! Quiero reservar la excursión a Laguna de los Tres (Fitz Roy)",
+        "wa.transfers": "Hola! Quiero consultar por traslados",
+        "wa.promo1": "Hola! Me interesa la promo para Residentes Nacionales (20% de descuento)",
+        "wa.promo2": "Hola! Me interesa la promo 4x3 Reserva Anticipada",
 
         // Footer
         "footer.brand": "Tu hogar en la Patagonia. Comodidad, calidez y experiencias únicas en El Calafate.",
@@ -200,7 +208,11 @@ const translations = {
         "aria.newWindow": "(se abre en nueva ventana)",
         "aria.instagram": "Instagram (se abre en nueva ventana)",
         "aria.goToImage": "Ir a imagen",
-        "aria.goToReview": "Ir a reseña"
+        "aria.goToReview": "Ir a reseña",
+
+        // Meta
+        "meta.description": "Descubrí nuestro hostel en El Calafate. Comodidad, calidez y experiencias únicas en la Patagonia Argentina.",
+        "meta.ogLocale": "es_AR"
     },
     en: {
         // Nav
@@ -383,6 +395,14 @@ const translations = {
         "wa.roomType": "Room type",
         "wa.thanks": "Thank you!",
         "wa.locale": "en-US",
+        "wa.exc1": "Hi! I'd like to book the Walkways & Viewpoints excursion",
+        "wa.exc2": "Hi! I'd like to book the Boat Safari + Walkways excursion",
+        "wa.exc3": "Hi! I'd like to book the Mini Ice Trekking",
+        "wa.exc4": "Hi! I'd like to check availability for Big Ice",
+        "wa.exc5": "Hi! I'd like to book the Laguna de los Tres (Fitz Roy) excursion",
+        "wa.transfers": "Hi! I'd like to ask about transfers",
+        "wa.promo1": "Hi! I'm interested in the National Residents promo (20% discount)",
+        "wa.promo2": "Hi! I'm interested in the 4x3 Early Booking promo",
 
         // Footer
         "footer.brand": "Your home in Patagonia. Comfort, warmth and unique experiences in El Calafate.",
@@ -402,7 +422,11 @@ const translations = {
         "aria.newWindow": "(opens in new tab)",
         "aria.instagram": "Instagram (opens in new tab)",
         "aria.goToImage": "Go to image",
-        "aria.goToReview": "Go to review"
+        "aria.goToReview": "Go to review",
+
+        // Meta
+        "meta.description": "Discover our hostel in El Calafate. Comfort, warmth and unique experiences in Patagonia, Argentina.",
+        "meta.ogLocale": "en_US"
     }
 };
 
@@ -479,6 +503,20 @@ function setLanguage(lang) {
     });
     document.querySelectorAll('.reviews-dot').forEach((dot, i) => {
         dot.setAttribute('aria-label', t['aria.goToReview'] + ' ' + (i + 1));
+    });
+
+    // Update meta description and og:locale
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && t['meta.description']) metaDesc.setAttribute('content', t['meta.description']);
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale && t['meta.ogLocale']) ogLocale.setAttribute('content', t['meta.ogLocale']);
+
+    // Update WhatsApp message links
+    document.querySelectorAll('[data-wa-msg]').forEach(el => {
+        const key = el.getAttribute('data-wa-msg');
+        if (t[key]) {
+            el.href = 'https://wa.me/5492966266581?text=' + encodeURIComponent(t[key]);
+        }
     });
 
     // Re-render datepicker if it exists
