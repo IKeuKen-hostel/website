@@ -78,8 +78,6 @@ DONE
 16	Perf	Gallery thumbnails load full-size images (same src as main slides)	Generate and use actual thumbnail sizes (~80x60)
 17	A11y	.menu-toggle has no aria-label or aria-expanded	Add aria-label="Abrir menú" + toggle aria-expanded
 18	A11y	.mobile-menu-close has no aria-label	Add aria-label="Cerrar menú"
-23	UX	Keyboard arrow keys globally hijacked for gallery carousel (main.js:121-129)	Only activate when carousel is focused/visible
-24	UX	Booking form has no validation feedback — empty dates silently fail	Show inline error states
 
 
 TODO
@@ -88,6 +86,8 @@ TODO
 20	A11y	Color contrast — #999 for .accordion-duration and .excursion-notas also fails	Darken to #767676 minimum
 21	SEO	<html lang="es"> but no hreflang for the EN version (language switcher exists)	Add <link rel="alternate" hreflang="en"> when EN is implemented
 22	SEO	No canonical URL	Add <link rel="canonical" href="https://...">
+23	UX	Keyboard arrow keys globally hijacked for gallery carousel (main.js:121-129)	Only activate when carousel is focused/visible
+24	UX	Booking form has no validation feedback — empty dates silently fail	Show inline error states
 25	Perf	backdrop-filter: blur(10px) on 8 service items (styles.css:724) is GPU-intensive on mobile	Remove or limit to @supports + desktop only
 26	A11y	Google Maps iframe has no title attribute	Add title="Mapa de ubicación de I Keu Ken Hostel"
 

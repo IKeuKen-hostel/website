@@ -198,7 +198,9 @@ const translations = {
         "aria.prev": "Anterior",
         "aria.next": "Siguiente",
         "aria.newWindow": "(se abre en nueva ventana)",
-        "aria.instagram": "Instagram (se abre en nueva ventana)"
+        "aria.instagram": "Instagram (se abre en nueva ventana)",
+        "aria.goToImage": "Ir a imagen",
+        "aria.goToReview": "Ir a reseña"
     },
     en: {
         // Nav
@@ -398,7 +400,9 @@ const translations = {
         "aria.prev": "Previous",
         "aria.next": "Next",
         "aria.newWindow": "(opens in new tab)",
-        "aria.instagram": "Instagram (opens in new tab)"
+        "aria.instagram": "Instagram (opens in new tab)",
+        "aria.goToImage": "Go to image",
+        "aria.goToReview": "Go to review"
     }
 };
 
@@ -467,6 +471,14 @@ function setLanguage(lang) {
     // Update lang buttons active state
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Update numbered aria-labels (dots)
+    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.setAttribute('aria-label', t['aria.goToImage'] + ' ' + (i + 1));
+    });
+    document.querySelectorAll('.reviews-dot').forEach((dot, i) => {
+        dot.setAttribute('aria-label', t['aria.goToReview'] + ' ' + (i + 1));
     });
 
     // Re-render datepicker if it exists

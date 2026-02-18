@@ -244,16 +244,8 @@ document.querySelectorAll('.room-card').forEach(card => {
 document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
-        const roomName = this.getAttribute('data-room');
-        const roomSelect = document.getElementById('roomType');
-        // Find matching option
-        for (let option of roomSelect.options) {
-            if (option.text === roomName) {
-                roomSelect.value = option.value;
-                break;
-            }
-        }
-        // Scroll to booking section
+        const roomKey = this.getAttribute('data-room');
+        document.getElementById('roomType').value = roomKey;
         document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
     });
 });
@@ -395,7 +387,8 @@ bookingForm.addEventListener('submit', function(e) {
     const checkin = document.getElementById('checkin-value').value;
     const checkout = document.getElementById('checkout-value').value;
     const guests = document.getElementById('guests').value;
-    const roomType = document.getElementById('roomType').value;
+    const roomSelect = document.getElementById('roomType');
+    const roomType = roomSelect.options[roomSelect.selectedIndex].text;
 
     // Formatear fechas para mejor lectura
     const locale = t('wa.locale');
