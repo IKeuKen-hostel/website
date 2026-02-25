@@ -48,6 +48,7 @@ const translations = {
         "rooms.feature.outlets": "Enchufes",
         "rooms.feature.shelves": "Repisas",
         "rooms.feature.bathroom": "Baño privado",
+        "rooms.feature.sharedBath": "Baño compartido",
         "rooms.feature.kitchen": "Cocina privada",
         "btn.inquire": "Consultar",
 
@@ -263,6 +264,7 @@ const translations = {
         "rooms.feature.outlets": "Power outlets",
         "rooms.feature.shelves": "Shelves",
         "rooms.feature.bathroom": "Private bathroom",
+        "rooms.feature.sharedBath": "Shared bathroom",
         "rooms.feature.kitchen": "Private kitchen",
         "btn.inquire": "Inquire",
 
