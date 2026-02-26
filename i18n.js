@@ -51,6 +51,8 @@ const translations = {
         "rooms.feature.sharedBath": "Baño compartido",
         "rooms.feature.kitchen": "Cocina privada",
         "btn.inquire": "Consultar",
+        "btn.seeBaths": "Ver baños",
+        "rooms.baths.title": "Baños Compartidos",
 
         // Services
         "services.title": "Servicios & Amenities",
@@ -267,6 +269,8 @@ const translations = {
         "rooms.feature.sharedBath": "Shared bathroom",
         "rooms.feature.kitchen": "Private kitchen",
         "btn.inquire": "Inquire",
+        "btn.seeBaths": "See bathrooms",
+        "rooms.baths.title": "Shared Bathrooms",
 
         // Services
         "services.title": "Services & Amenities",

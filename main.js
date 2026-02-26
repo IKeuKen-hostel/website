@@ -512,3 +512,60 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
 sections.forEach(section => sectionObserver.observe(section));
+
+// Bathroom Gallery Modal
+const banosPhotos = [
+    'image_webp/banos/Pasillo Banos.webp',
+    'image_webp/banos/Entrada Bano Hombres.webp',
+    'image_webp/banos/Entrada Banos Mujeres.webp',
+    'image_webp/banos/Ducha Hombres.webp',
+    'image_webp/banos/Ducha mujeres.webp',
+    'image_webp/banos/Cortina Duchas.webp',
+    'image_webp/banos/Cortina bano hombres.webp',
+    'image_webp/banos/Espejo Bacha.webp',
+    'image_webp/banos/Espejo bacha hombres.webp',
+    'image_webp/banos/Espejo Bacha mujeres.webp',
+    'image_webp/banos/Espejo bacha Mujeres 2.webp',
+    'image_webp/banos/Caricaturas Mujeres.webp',
+];
+
+const banosModal = document.getElementById('banosModal');
+const banosImg = document.getElementById('banosImg');
+const banosCounter = document.getElementById('banosCounter');
+let banosIndex = 0;
+
+function showBanosPhoto(index) {
+    banosIndex = (index + banosPhotos.length) % banosPhotos.length;
+    banosImg.src = banosPhotos[banosIndex];
+    banosImg.alt = 'Baños compartidos - foto ' + (banosIndex + 1) + ' de ' + banosPhotos.length;
+    banosCounter.textContent = (banosIndex + 1) + ' / ' + banosPhotos.length;
+}
+
+function openBanosModal() {
+    banosModal.classList.add('active');
+    banosModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    showBanosPhoto(0);
+}
+
+function closeBanosModal() {
+    banosModal.classList.remove('active');
+    banosModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.btn-banos').forEach(btn => {
+    btn.addEventListener('click', openBanosModal);
+});
+
+document.getElementById('closeBanosModal').addEventListener('click', closeBanosModal);
+document.querySelector('.banos-modal-backdrop').addEventListener('click', closeBanosModal);
+document.getElementById('banosPrev').addEventListener('click', () => showBanosPhoto(banosIndex - 1));
+document.getElementById('banosNext').addEventListener('click', () => showBanosPhoto(banosIndex + 1));
+
+document.addEventListener('keydown', e => {
+    if (!banosModal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeBanosModal();
+    if (e.key === 'ArrowLeft') showBanosPhoto(banosIndex - 1);
+    if (e.key === 'ArrowRight') showBanosPhoto(banosIndex + 1);
+});

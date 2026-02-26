@@ -260,6 +260,7 @@
                         </div>
                         <div class="room-cta">
                             <a href="#booking" class="btn-ver" data-room="private" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <button class="btn-banos" id="openBanosModal" data-i18n-html="btn.seeBaths"><i class="fas fa-bath"></i> Ver baños</button>
                         </div>
                     </div>
                 </div>
@@ -286,6 +287,7 @@
                         </div>
                         <div class="room-cta">
                             <a href="#booking" class="btn-ver" data-room="triple" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <button class="btn-banos" data-i18n-html="btn.seeBaths"><i class="fas fa-bath"></i> Ver baños</button>
                         </div>
                     </div>
                 </div>
@@ -315,6 +317,7 @@
                         </div>
                         <div class="room-cta">
                             <a href="#booking" class="btn-ver" data-room="shared" data-i18n-html="btn.inquire"><i class="fab fa-whatsapp"></i> Consultar</a>
+                            <button class="btn-banos" data-i18n-html="btn.seeBaths"><i class="fas fa-bath"></i> Ver baños</button>
                         </div>
                     </div>
                 </div>
@@ -978,6 +981,21 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bathroom Gallery Modal -->
+    <div class="banos-modal" id="banosModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="banos-modal-backdrop"></div>
+        <div class="banos-modal-content">
+            <button class="banos-modal-close" id="closeBanosModal" aria-label="Cerrar">&times;</button>
+            <h3 class="banos-modal-title" data-i18n="rooms.baths.title">Baños Compartidos</h3>
+            <div class="banos-modal-viewer">
+                <button class="banos-nav prev" id="banosPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                <img class="banos-modal-img" id="banosImg" src="" alt="">
+                <button class="banos-nav next" id="banosNext" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p class="banos-modal-counter" id="banosCounter"></p>
+        </div>
+    </div>
 
     <script src="i18n.js"></script>
     <script src="main.js"></script>
