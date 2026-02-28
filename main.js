@@ -247,17 +247,31 @@ document.querySelectorAll('.room-card').forEach(card => {
     }, { passive: true });
 });
 
-// "Consultar" buttons - scroll to booking and pre-select room
-document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const roomKey = this.getAttribute('data-room');
-        document.getElementById('roomType').value = roomKey;
-        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-    });
-});
+// Booking Button + "Consultar" room buttons - HotelPMS Redirect
+(function() {
+    const base = 'https://frame2.hotelpms.io/BookingFrameClient/hotel/60572BA1BBC7C28F300B73BE2F1211F3/e2d8af9e-82cf-4b24-ba19-fc7b08142f0e/book/rooms';
 
-// Custom Datepicker
+    function getBookingUrl() {
+        const lang = currentLang === 'en' ? 'en-US' : 'es-ES';
+        return `${base}?currency=ARS&language=${lang}`;
+    }
+
+    function updateUrls() {
+        const url = getBookingUrl();
+        const mainBtn = document.getElementById('btnReservar');
+        if (mainBtn) mainBtn.href = url;
+        document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
+            btn.href = url;
+            btn.target = '_blank';
+            btn.rel = 'noopener noreferrer';
+        });
+    }
+
+    updateUrls();
+    document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', updateUrls));
+})();
+
+// (Datepicker eliminado — reemplazado por redirección directa a HotelPMS)
 (function() {
     const overlay = document.getElementById('datepickerOverlay');
     const daysContainer = document.getElementById('dpDays');
@@ -383,66 +397,6 @@ document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
     document.getElementById('checkin').addEventListener('click', function() { this.classList.remove('input-error'); openDatepicker('checkin'); });
     document.getElementById('checkout').addEventListener('click', function() { this.classList.remove('input-error'); openDatepicker('checkout'); });
 })();
-
-// Booking Form - WhatsApp Redirect
-const bookingForm = document.getElementById('bookingForm');
-const whatsappNumber = '5492966266581';
-
-bookingForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const checkinInput = document.getElementById('checkin');
-    const checkoutInput = document.getElementById('checkout');
-    const checkin = document.getElementById('checkin-value').value;
-    const checkout = document.getElementById('checkout-value').value;
-
-    // Clear previous errors
-    checkinInput.classList.remove('input-error');
-    checkoutInput.classList.remove('input-error');
-
-    // Validate dates
-    let hasError = false;
-    if (!checkin) {
-        checkinInput.classList.add('input-error');
-        hasError = true;
-    }
-    if (!checkout) {
-        checkoutInput.classList.add('input-error');
-        hasError = true;
-    }
-    if (hasError) return;
-
-    const guests = document.getElementById('guests').value;
-    const roomSelect = document.getElementById('roomType');
-    const roomType = roomSelect.options[roomSelect.selectedIndex].text;
-
-    // Formatear fechas para mejor lectura
-    const locale = t('wa.locale');
-    const formatDate = (dateStr) => {
-        if (!dateStr) return '';
-        const date = new Date(dateStr + 'T00:00:00');
-        return date.toLocaleDateString(locale, {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
-    };
-
-    // Construir mensaje
-    let message = `${t('wa.greeting')}\n\n`;
-    message += `Check-in: ${formatDate(checkin)}\n`;
-    message += `Check-out: ${formatDate(checkout)}\n`;
-    message += `${t('wa.guests')}: ${guests}\n`;
-    message += `${t('wa.roomType')}: ${roomType}\n\n`;
-    message += t('wa.thanks');
-
-    // Codificar mensaje para URL
-    const encodedMessage = encodeURIComponent(message);
-
-    // Abrir WhatsApp
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
-});
 
 // Accordion
 document.querySelectorAll('.accordion-trigger').forEach(btn => {
