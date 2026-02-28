@@ -1825,7 +1825,27 @@ nav > .container > .btn-reservar {
     font-size: 1.1rem;
     color: var(--color-dark);
     opacity: 0.8;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.btn-reservar-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-green);
+    color: var(--color-white);
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-reservar-cta:hover {
+    background: var(--color-orange);
+    transform: translateY(-2px);
 }
 
 /* Footer */
