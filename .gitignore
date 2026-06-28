@@ -1,0 +1,13 @@
+# Tooling local de Claude Code
+.claude/
+.shots/
+
+# Artefacto de Windows (redirección a 'nul')
+nul
+
+# Material de trabajo / comercial interno (no publicar en el repo del cliente)
+PROYECTO.md
+seguimiento-comercial.md
+auditoria-tecnica.md
+propuesta-mantenimiento*.html
+reporte-muestra.html
