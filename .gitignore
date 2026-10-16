@@ -9,5 +9,14 @@ nul
 PROYECTO.md
 seguimiento-comercial.md
 auditoria-tecnica.md
-propuesta-mantenimiento*.html
-reporte-muestra.html
+/propuesta-mantenimiento*.html
+/reporte-muestra.html
+
+# La carpeta mantenimiento/ SI se publica (ikeuken.com.ar/mantenimiento/).
+# Por eso los dos patrones de arriba van anclados a la raiz con '/'.
+reunion-*.md
+
+# La carpeta mantenimiento/ se publica, PERO estos dos son internos:
+# INSTRUCCIONES.md tiene el token, el flujo de cobro y lo que falta cumplir del plan.
+mantenimiento/INSTRUCCIONES.md
+mantenimiento/propuesta-mantenimiento-dark.html

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reportes de Mantenimiento — I Keu Ken Hostel</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Reportes mensuales del plan de mantenimiento web de I Keu Ken Hostel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Paleta del sitio de I Keu Ken */
+    --hielo:#7CB9E8;        /* celeste del logo */
+    --hielo-hondo:#3D6B91;  /* capas profundas */
+    --musgo:#5B7744;
+    --arena:#C4A57B;
+    --fuego:#D2691E;
+    --roca:#2C3E2D;
+    --roca-suave:#6B7A6C;
+    --nieve:#F8F6F3;
+    --blanco:#FFFFFF;
+    --borde:rgba(44,62,45,.10);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    font-weight:300;
+    background:var(--nieve);
+    color:var(--roca);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:780px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Encabezado ---------- */
+  .top{padding:64px 0 40px}
+  .eyebrow{
+    font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--hielo-hondo);margin-bottom:14px;
+  }
+  h1{
+    font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:clamp(2rem,6vw,2.9rem);line-height:1.1;letter-spacing:-.02em;
+    margin-bottom:14px;
+  }
+  .lede{font-size:1.05rem;color:var(--roca-suave);max-width:46ch}
+
+  /* ---------- Testigo de hielo: la línea de tiempo ----------
+     Cada reporte es una capa. Arriba la más reciente, abajo las
+     más antiguas y más profundas — como los estratos de un glaciar. */
+  .core{position:relative;padding:8px 0 24px 46px}
+  .core::before{
+    content:"";position:absolute;left:13px;top:0;bottom:46px;width:3px;
+    background:linear-gradient(to bottom,var(--hielo),var(--hielo-hondo) 70%,rgba(61,107,145,.15));
+    border-radius:2px;
+  }
+
+  .layer{position:relative;margin-bottom:18px}
+  .layer::before{
+    content:"";position:absolute;left:-39px;top:26px;
+    width:15px;height:15px;border-radius:50%;
+    background:var(--blanco);border:3px solid var(--hielo-hondo);
+  }
+  .layer.latest::before{
+    background:var(--hielo);border-color:var(--hielo);
+    box-shadow:0 0 0 5px rgba(124,185,232,.25);
+  }
+
+  .card{
+    background:var(--blanco);border:1px solid var(--borde);
+    border-left:4px solid var(--hielo-hondo);
+    border-radius:4px 12px 12px 4px;
+    padding:26px 28px;
+    transition:border-color .25s,transform .25s,box-shadow .25s;
+  }
+  .layer.latest .card{
+    border-left-color:var(--hielo);
+    box-shadow:0 6px 28px rgba(44,62,45,.07);
+  }
+  .card:hover{transform:translateX(3px);box-shadow:0 8px 30px rgba(44,62,45,.10)}
+
+  .when{
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+    font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--hielo-hondo);margin-bottom:9px;
+  }
+  .tag{
+    background:rgba(124,185,232,.16);color:var(--hielo-hondo);
+    padding:2px 9px;border-radius:20px;letter-spacing:.06em;
+  }
+  .tag.now{background:var(--hielo);color:var(--blanco)}
+
+  .card h2{
+    font-family:'Montserrat',sans-serif;font-weight:700;
+    font-size:1.3rem;line-height:1.25;margin-bottom:10px;
+  }
+  .card p{color:var(--roca-suave);font-size:.95rem;margin-bottom:18px}
+
+  .go{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Poppins',sans-serif;font-weight:500;font-size:.9rem;
+    color:var(--blanco);background:var(--musgo);
+    padding:10px 20px;border-radius:50px;text-decoration:none;
+    transition:background .25s,transform .2s;
+  }
+  .go:hover{background:var(--roca);transform:translateY(-1px)}
+  .go:focus-visible{outline:3px solid var(--hielo);outline-offset:3px}
+  .go .arrow{transition:transform .2s}
+  .go:hover .arrow{transform:translateX(3px)}
+
+  /* ---------- Vacío ---------- */
+  .empty{
+    background:var(--blanco);border:1px dashed rgba(44,62,45,.22);
+    border-radius:12px;padding:48px 28px;text-align:center;color:var(--roca-suave);
+  }
+  .empty strong{display:block;font-family:'Montserrat',sans-serif;color:var(--roca);
+    font-size:1.05rem;margin-bottom:6px}
+
+  /* ---------- Nota al pie ---------- */
+  .note{
+    margin:10px 0 0 46px;padding:20px 24px;
+    background:rgba(196,165,123,.13);border-radius:10px;
+    font-size:.88rem;color:var(--roca-suave);
+  }
+  .note strong{color:var(--roca);font-weight:600}
+
+  footer{
+    margin-top:56px;padding:28px 0 48px;
+    border-top:1px solid var(--borde);
+    font-size:.84rem;color:var(--roca-suave);
+  }
+  footer a{color:var(--musgo);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(91,119,68,.3)}
+  footer a:hover{color:var(--fuego);border-bottom-color:var(--fuego)}
+  .sig{margin-top:8px}
+
+  @media (max-width:560px){
+    .top{padding:44px 0 30px}
+    .core{padding-left:34px}
+    .core::before{left:8px}
+    .layer::before{left:-33px;width:13px;height:13px}
+    .card{padding:22px 20px}
+    .note{margin-left:34px;padding:18px 20px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+
+  @media print{
+    body{background:#fff}
+    .card{box-shadow:none;break-inside:avoid}
+    .go{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">I Keu Ken Hostel · El Calafate</div>
+    <h1>Reportes de mantenimiento</h1>
+    <p class="lede">Todos los meses dejo acá el informe del sitio: cuánta gente entró,
+      de dónde llegó, cuántos consultaron y qué se hizo.</p>
+  </header>
+
+  <main class="core" id="core"></main>
+
+  <div class="note">
+    <strong>¿Falta el mes que estás buscando?</strong> El informe de cada mes se publica
+    durante los primeros días del mes siguiente, una vez cerrados los datos.
+  </div>
+
+  <footer>
+    <p>I Keu Ken Hostel — Plan de Mantenimiento Web · <span id="y"></span></p>
+    <p class="sig">Sitio y reportes por
+      <a href="https://teocicciari.com.ar" target="_blank" rel="noopener">Teo Cicciari</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  /* ───────────────────────────────────────────────────────────────
+     LISTA DE REPORTES — el más reciente va PRIMERO.
+     Para agregar uno nuevo, copiá un bloque y cambiá los datos.
+     Ver INSTRUCCIONES.md
+     ─────────────────────────────────────────────────────────────── */
+  const reportes = [
+    // Cuando el reporte del mes esté COMPLETO (sin cuadros amarillos), agregalo acá.
+    // El más reciente va primero. Ver INSTRUCCIONES.md
+    //
+    // {
+    //   titulo: 'Octubre 2026',
+    //   periodo: 'octubre 2026',
+    //   etiqueta: 'Mes 1',
+    //   resumen: 'Arranque del plan...',
+    //   archivo: 'reporte-octubre2026.html'
+    // }
+  ];
+
+  const core = document.getElementById('core');
+
+  if (reportes.length) {
+    core.innerHTML = reportes.map((r, i) => `
+      <article class="layer${i === 0 ? ' latest' : ''}">
+        <div class="card">
+          <div class="when">
+            <span>${r.periodo}</span>
+            ${r.etiqueta ? `<span class="tag${i === 0 ? ' now' : ''}">${r.etiqueta}</span>` : ''}
+          </div>
+          <h2>${r.titulo}</h2>
+          <p>${r.resumen}</p>
+          <a class="go" href="${r.archivo}">Ver el informe <span class="arrow">→</span></a>
+        </div>
+      </article>
+    `).join('');
+  } else {
+    core.innerHTML = `
+      <div class="empty">
+        <strong>Todavía no hay informes publicados.</strong>
+        El primero llega en los próximos días.
+      </div>`;
+  }
+
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
