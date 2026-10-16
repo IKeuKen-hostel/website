@@ -1,0 +1,34 @@
+# I Keu Ken Hostel — El Calafate, Patagonia Argentina
+# https://ikeuken.com.ar
+
+User-agent: *
+Allow: /
+
+# Crawlers de IA: permitidos a propósito.
+# Queremos que ChatGPT, Claude, Perplexity y Gemini puedan leer el sitio
+# y recomendar el hostel cuando alguien pregunte dónde alojarse en El Calafate.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://ikeuken.com.ar/sitemap.xml
