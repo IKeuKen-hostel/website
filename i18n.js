@@ -13,7 +13,7 @@ const translations = {
         "nav.book": "Reservar",
 
         // Hero
-        "hero.subtitle": "Comodidad, calidez y experiencias únicas en la Patagonia",
+        "hero.subtitle": "Un hostel de verdad: espacios compartidos, gente de todo el mundo y la Patagonia a la puerta",
         "hero.bookNow": "Reservar Ahora",
         "hero.learnMore": "Conocer Más",
 
@@ -221,7 +221,7 @@ const translations = {
         "aria.goToReview": "Ir a reseña",
 
         // Meta
-        "meta.description": "Descubrí nuestro hostel en El Calafate. Comodidad, calidez y experiencias únicas en la Patagonia Argentina.",
+        "meta.description": "Hostel en El Calafate con habitaciones y baños compartidos. Comodidad, calidez y gente de todo el mundo en la Patagonia Argentina.",
         "meta.ogLocale": "es_AR"
     },
     en: {
@@ -237,7 +237,7 @@ const translations = {
         "nav.book": "Book Now",
 
         // Hero
-        "hero.subtitle": "Comfort, warmth and unique experiences in Patagonia",
+        "hero.subtitle": "A real hostel: shared spaces, travellers from everywhere and Patagonia at the door",
         "hero.bookNow": "Book Now",
         "hero.learnMore": "Learn More",
 
@@ -445,7 +445,7 @@ const translations = {
         "aria.goToReview": "Go to review",
 
         // Meta
-        "meta.description": "Discover our hostel in El Calafate. Comfort, warmth and unique experiences in Patagonia, Argentina.",
+        "meta.description": "Hostel in El Calafate with shared rooms and shared bathrooms. Comfort, warmth and travellers from all over the world in Patagonia, Argentina.",
         "meta.ogLocale": "en_US"
     }
 };
