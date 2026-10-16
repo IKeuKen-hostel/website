@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte Octubre 2026 — I Keu Ken Hostel</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --hielo:#7CB9E8; --hielo-hondo:#3D6B91;
+    --musgo:#5B7744; --arena:#C4A57B; --fuego:#D2691E;
+    --roca:#2C3E2D; --roca-suave:#6B7A6C;
+    --nieve:#F8F6F3; --blanco:#FFFFFF;
+    --borde:rgba(44,62,45,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Poppins',system-ui,sans-serif;font-weight:300;
+    background:var(--nieve);color:var(--roca);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:740px;margin:0 auto;padding:0 20px}
+
+  .back{display:inline-flex;align-items:center;gap:7px;margin-top:28px;
+    font-size:.86rem;font-weight:500;color:var(--musgo);text-decoration:none}
+  .back:hover{color:var(--fuego)}
+  .back:focus-visible{outline:3px solid var(--hielo);outline-offset:3px}
+
+  header.top{padding:30px 0 34px;border-bottom:3px solid var(--hielo)}
+  .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--hielo-hondo);margin-bottom:12px}
+  h1{font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.1;letter-spacing:-.02em}
+  .who{display:flex;gap:28px;flex-wrap:wrap;margin-top:20px;font-size:.88rem;color:var(--roca-suave)}
+  .who b{display:block;font-size:.68rem;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--hielo-hondo);margin-bottom:1px}
+
+  section{padding:38px 0;border-bottom:1px solid var(--borde)}
+  section:last-of-type{border-bottom:none}
+  h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.32rem;margin-bottom:8px}
+  .sub{color:var(--roca-suave);font-size:.93rem;margin-bottom:22px}
+  p+p{margin-top:12px}
+
+  .items{list-style:none;display:grid;gap:14px}
+  .item{background:var(--blanco);border:1px solid var(--borde);
+    border-left:4px solid var(--musgo);border-radius:4px 10px 10px 4px;padding:18px 22px}
+  .item.alert{border-left-color:var(--fuego)}
+  .item h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:5px}
+  .item p{font-size:.92rem;color:var(--roca-suave)}
+  .why{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed var(--borde);
+    font-size:.87rem;color:var(--roca)}
+  .why b{color:var(--fuego);font-weight:600}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+  .kpi{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;
+    padding:20px;text-align:center}
+  .kpi .lab{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--hielo-hondo);margin-bottom:7px}
+  .kpi .val{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;line-height:1}
+
+  /* Marcador de dato pendiente — imposible de pasar por alto */
+  .falta{background:#FFF3CD;color:#7A5B00;border:2px dashed #D9A400;
+    border-radius:6px;padding:1px 9px;font-family:'Montserrat',sans-serif;
+    font-weight:700;font-size:.95rem;letter-spacing:.02em}
+  .aviso{background:#FFF3CD;border:2px dashed #D9A400;border-radius:10px;
+    padding:18px 22px;margin-bottom:24px;font-size:.9rem;color:#7A5B00}
+  .aviso b{font-weight:600}
+
+  .reco{background:rgba(124,185,232,.13);border-radius:12px;padding:24px 26px}
+  .reco h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:8px}
+  .reco ul{margin:0;padding-left:20px}
+  .reco li{margin-bottom:9px;font-size:.93rem;color:var(--roca)}
+  .reco li:last-child{margin-bottom:0}
+
+  footer{margin-top:20px;padding:28px 0 48px;border-top:1px solid var(--borde);
+    font-size:.84rem;color:var(--roca-suave)}
+  footer a{color:var(--musgo);font-weight:500;text-decoration:none;
+    border-bottom:1px solid rgba(91,119,68,.3)}
+  footer a:hover{color:var(--fuego);border-bottom-color:var(--fuego)}
+
+  @media (max-width:560px){
+    section{padding:30px 0}
+    .item{padding:16px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media print{
+    body{background:#fff}
+    .back{display:none}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a class="back" href="./">← Todos los reportes</a>
+
+  <header class="top">
+    <div class="eyebrow">Mes 1 · Plan Plus</div>
+    <h1>Octubre 2026</h1>
+    <div class="who">
+      <div><b>Para</b> I Keu Ken Hostel</div>
+      <div><b>De</b> Teo Cicciari</div>
+      <div><b>Período</b> 1 al 31 de octubre</div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Qué se hizo este mes</h2>
+    <p class="sub">El arranque del plan se fue en dos cosas: resolver un problema serio
+      de visibilidad en Google y dejar las herramientas de medición funcionando, que era
+      el paso necesario para poder darles datos reales de acá en adelante.</p>
+
+    <ul class="items">
+      <li class="item alert">
+        <h3>Se corrigió una dirección mal cargada en el código</h3>
+        <p>El sitio tenía escrito en su código que su dirección "oficial" era
+          <em>www.ikeuken.com</em> — un dominio que no existe. La dirección real es
+          <em>ikeuken.com.ar</em>.</p>
+        <span class="why"><b>Por qué importa:</b> era como tener el cartel del hostel
+          con la dirección de otra calle. Google leía eso y entendía que la versión
+          buena de la página estaba en otro lado, y ese otro lado estaba vacío. Esto
+          puede haber estado frenando que el sitio aparezca en las búsquedas.</span>
+      </li>
+
+      <li class="item alert">
+        <h3>El sitio ahora está dado de alta en Google</h3>
+        <p>Se registró el sitio en Google Search Console, se le envió el mapa del sitio
+          y se pidió la reindexación de la página.</p>
+        <span class="why"><b>Por qué importa:</b> es lo que le avisa a Google que la
+          página existe y que la vuelva a mirar ahora que está corregida. Sin esto, el
+          arreglo de arriba podía tardar meses en notarse.</span>
+      </li>
+
+      <li class="item">
+        <h3>Se agregó la ficha que leen los asistentes de IA</h3>
+        <p>El sitio no tenía los archivos que los buscadores y las inteligencias
+          artificiales usan para entender de qué se trata. Se crearon los tres.</p>
+        <span class="why"><b>Por qué importa:</b> cuando alguien le pregunta a ChatGPT
+          "dónde me quedo barato en El Calafate", ahora hay un archivo que le explica
+          que son habitaciones compartidas, dónde quedan, qué incluyen y cuánto se
+          tarda hasta el glaciar. Antes lo tenía que adivinar.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Por qué todavía no hay números</h2>
+    <p class="sub">Y cuándo los van a tener.</p>
+
+    <p>El sistema que cuenta las visitas del sitio <strong>no estaba funcionando</strong>:
+      tenía mal cargado un dato de configuración y, aunque parecía instalado, no
+      registraba nada. Se detectó y se corrigió este mes.</p>
+
+    <p>Eso quiere decir que <strong>recién ahora el sitio empezó a medir de verdad</strong>.
+      Cualquier número de los meses anteriores sería inventado, así que prefiero no
+      mostrarles ninguno.</p>
+
+    <p>También se dejó andando algo que antes no existía: <strong>la medición de cuánta
+      gente toca el botón de reservar</strong>. Hasta ahora se podía saber cuántos entraban
+      al sitio, pero no cuántos llegaban a dar el paso de consultar disponibilidad.</p>
+
+    <div class="reco" style="margin-top:24px">
+      <h3>Los primeros números llegan a principios del mes que viene</h3>
+      <ul>
+        <li>Cuántas personas entraron al sitio</li>
+        <li>De dónde llegaron: Google, Instagram o directo</li>
+        <li>Qué secciones miraron más</li>
+        <li>Cuántos tocaron el botón de reservar</li>
+        <li>Qué escribió la gente en Google antes de encontrarlos</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Qué conviene hacer</h2>
+
+    <div class="reco">
+      <h3>Para el mes que viene</h3>
+      <ul>
+        <li><strong>El primer informe con datos.</strong> A principios de noviembre les
+          mando el primero con números reales del sitio.</li>
+        <li><strong>Ver si el arreglo de Google dio resultado.</strong> Ya se pidió la
+          reindexación; en las próximas semanas deberíamos empezar a ver movimiento.</li>
+        <li><strong>Mandarme el reporte de Hostelworld.</strong> Con eso puedo cruzar las
+          visitas al sitio con las reservas reales y dejar de procesarlo a mano en Excel.</li>
+        <li><strong>Arranca la temporada.</strong> Noviembre es el primer mes fuerte: es
+          cuando más sentido tiene tener todo afinado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Reporte de octubre 2026 · I Keu Ken Hostel · Plan de Mantenimiento Plus</p>
+    <p style="margin-top:8px">Cualquier duda me escribís.
+      <a href="https://teocicciari.com.ar" target="_blank" rel="noopener">Teo Cicciari</a>
+      · generado el <span id="hoy"></span></p>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('hoy').textContent =
+    new Date().toLocaleDateString('es-AR', { day:'numeric', month:'long', year:'numeric' });
+</script>
+
+</body>
+</html>
