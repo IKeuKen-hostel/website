@@ -93,6 +93,7 @@ nav .container {
 
 .logo img {
     height: 70px;
+    width: auto;
     transition: height 0.3s ease;
 }
 
