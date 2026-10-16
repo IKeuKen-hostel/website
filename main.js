@@ -247,28 +247,20 @@ document.querySelectorAll('.room-card').forEach(card => {
     }, { passive: true });
 });
 
-// Booking Button + "Consultar" room buttons - HotelPMS Redirect
+// Booking Button + "Consultar" room buttons -> reservar.html -> HotelPMS
+// Pasan por reservar.html para que Cloudflare pueda contar los intentos de
+// reserva. Esa pagina resuelve el idioma sola y redirige al motor.
 (function() {
-    const base = 'https://frame2.hotelpms.io/BookingFrameClient/hotel/60572BA1BBC7C28F300B73BE2F1211F3/e2d8af9e-82cf-4b24-ba19-fc7b08142f0e/book/rooms';
+    const PUENTE = 'reservar.html';
 
-    function getBookingUrl() {
-        const lang = currentLang === 'en' ? 'en-US' : 'es-ES';
-        return `${base}?currency=ARS&language=${lang}`;
-    }
+    const mainBtn = document.getElementById('btnReservar');
+    if (mainBtn) mainBtn.href = PUENTE;
 
-    function updateUrls() {
-        const url = getBookingUrl();
-        const mainBtn = document.getElementById('btnReservar');
-        if (mainBtn) mainBtn.href = url;
-        document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
-            btn.href = url;
-            btn.target = '_blank';
-            btn.rel = 'noopener noreferrer';
-        });
-    }
-
-    updateUrls();
-    document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', updateUrls));
+    document.querySelectorAll('.btn-ver[data-room]').forEach(btn => {
+        btn.href = PUENTE;
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+    });
 })();
 
 

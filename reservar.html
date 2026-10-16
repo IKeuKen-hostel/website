@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Te llevamos a la reserva — I Keu Ken Hostel</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Respaldo: si el JavaScript falla, el navegador redirige igual a los 3 segundos -->
+<noscript><meta http-equiv="refresh" content="0; url=https://frame2.hotelpms.io/BookingFrameClient/hotel/60572BA1BBC7C28F300B73BE2F1211F3/e2d8af9e-82cf-4b24-ba19-fc7b08142f0e/book/rooms?currency=ARS&language=es-ES"></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://frame2.hotelpms.io">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --hielo:#7CB9E8; --hielo-hondo:#3D6B91; --musgo:#5B7744;
+    --roca:#2C3E2D; --roca-suave:#6B7A6C; --nieve:#F8F6F3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;font-weight:300;
+    background:var(--nieve);color:var(--roca);
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:24px;text-align:center;-webkit-font-smoothing:antialiased;
+  }
+  .box{max-width:420px}
+  img.logo{width:120px;height:auto;margin-bottom:28px}
+  h1{
+    font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:1.5rem;line-height:1.25;margin-bottom:10px;letter-spacing:-.01em;
+  }
+  p{color:var(--roca-suave);font-size:.98rem;margin-bottom:26px}
+
+  /* Barra de progreso: da el tiempo que el beacon necesita para registrar la visita */
+  .barra{height:4px;background:rgba(124,185,232,.25);border-radius:4px;overflow:hidden;margin-bottom:26px}
+  .barra span{
+    display:block;height:100%;width:0;background:var(--hielo);border-radius:4px;
+    animation:avanzar 1.1s ease-out forwards;
+  }
+  @keyframes avanzar{to{width:100%}}
+
+  a.manual{
+    display:inline-block;font-size:.88rem;color:var(--musgo);font-weight:500;
+    text-decoration:none;border-bottom:1px solid rgba(91,119,68,.35);
+  }
+  a.manual:hover{color:var(--hielo-hondo);border-bottom-color:var(--hielo-hondo)}
+  a.manual:focus-visible{outline:3px solid var(--hielo);outline-offset:3px}
+
+  @media (prefers-reduced-motion:reduce){
+    .barra span{animation:none;width:100%}
+  }
+</style>
+</head>
+<body>
+
+  <div class="box">
+    <img class="logo" src="image_webp/logo.webp" alt="I Keu Ken Hostel">
+    <h1 id="titulo">Te llevamos a la reserva</h1>
+    <p id="bajada">Un segundo, estamos abriendo el calendario de disponibilidad.</p>
+    <div class="barra"><span></span></div>
+    <a class="manual" id="manual" href="#">Si no pasa nada, tocá acá</a>
+  </div>
+
+<!-- Cloudflare Web Analytics: va ANTES del redirect para que alcance a registrar la visita -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "cff742ed7e494fb3b0ecef4d83917256"}'></script>
+
+<script>
+  (function () {
+    var BASE = 'https://frame2.hotelpms.io/BookingFrameClient/hotel/' +
+               '60572BA1BBC7C28F300B73BE2F1211F3/e2d8af9e-82cf-4b24-ba19-fc7b08142f0e/book/rooms';
+
+    // Mismo idioma que venía usando el visitante en el sitio
+    var lang = 'es';
+    try { lang = localStorage.getItem('lang') || 'es'; } catch (e) {}
+
+    var destino = BASE + '?currency=ARS&language=' + (lang === 'en' ? 'en-US' : 'es-ES');
+
+    if (lang === 'en') {
+      document.documentElement.lang = 'en';
+      document.title = 'Taking you to booking — I Keu Ken Hostel';
+      document.getElementById('titulo').textContent = 'Taking you to booking';
+      document.getElementById('bajada').textContent = 'One moment, we are opening the availability calendar.';
+      document.getElementById('manual').textContent = 'Nothing happening? Tap here';
+    }
+
+    document.getElementById('manual').href = destino;
+
+    // 1,1 s: lo que tarda el beacon en registrar la visita. Sin esta pausa,
+    // el redirect se lleva la página antes de que la consulta quede contada.
+    setTimeout(function () { window.location.replace(destino); }, 1100);
+  })();
+</script>
+
+</body>
+</html>
