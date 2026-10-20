@@ -24,7 +24,7 @@ público es mayormente internacional.
 | Habitación Privada Doble | 2 personas | Compartido | Para parejas o quien busque privacidad |
 | Habitación Triple | 3 personas | Compartido | Amigos o familias chicas |
 | Habitación Compartida | hasta 4 personas | Compartido | Lockers, enchufes y repisas |
-| Suite Familiar | hasta 4 personas | **Privado** | Cocina privada |
+| Cabaña Privada | hasta 4 personas | **Privado** | Cocina privada, cama matrimonial + cucheta |
 | Habitación Compartida con Baño Privado | 4 personas, mixta | **Privado** | 2 camas simples + 1 cucheta, cocina privada, pava eléctrica, enchufe, repisa y velador por cama |
 
 ## Servicios incluidos
