@@ -21,3 +21,9 @@ reunion-*.md
 # INSTRUCCIONES.md tiene el token, el flujo de cobro y lo que falta cumplir del plan.
 mantenimiento/INSTRUCCIONES.md
 mantenimiento/propuesta-mantenimiento-dark.html
+
+# Los reportes de mercado de Hostelworld y su analisis son material de la
+# cuenta del cliente: viven dentro de mantenimiento/ (que SI se publica),
+# asi que se excluyen explicitamente.
+mantenimiento/REPORTES HOSTEL WORLD/
+mantenimiento/analisis-mercado-hostelworld.md
