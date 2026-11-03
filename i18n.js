@@ -113,9 +113,6 @@ const translations = {
         "promo.1.name": "Residentes Nacionales",
         "promo.1.text": "20% de descuento para residentes nacionales durante todo el año. Pagando con transferencia o efectivo.",
         "promo.1.price": "Todo el año",
-        "promo.2.name": "Reserva Anticipada",
-        "promo.2.text": "Pagá 3 noches y quedate 4. Abonando con transferencia o tarjeta en garantía.",
-        "promo.2.price": "1 noche gratis",
         "promo.3.name": "Referidos",
         "promo.3.text": "¿Te recomendó un viajero que ya estuvo acá? Llevás 10% de descuento. Para huéspedes extranjeros, abonando en efectivo.",
         "promo.3.price": "10% de descuento",
@@ -204,7 +201,7 @@ const translations = {
         "wa.exc5": "Hola! Quiero reservar la excursión a Laguna de los Tres (Fitz Roy)",
         "wa.transfers": "Hola! Quiero consultar por traslados",
         "wa.promo1": "Hola! Me interesa la promo para Residentes Nacionales (20% de descuento)",
-        "wa.promo2": "Hola! Me interesa la promo 4x3 Reserva Anticipada",
+        "wa.promo3": "Hola! Vengo recomendado y quiero consultar por la promo de referidos",
 
         // Footer
         "footer.brand": "Tu hogar en la Patagonia. Comodidad, calidez y experiencias únicas en El Calafate.",
@@ -346,9 +343,6 @@ const translations = {
         "promo.1.name": "National Residents",
         "promo.1.text": "20% discount for national residents all year round. Paying by bank transfer or cash.",
         "promo.1.price": "All year",
-        "promo.2.name": "Early Booking",
-        "promo.2.text": "Pay for 3 nights and stay 4. Paying by bank transfer or credit card as guarantee.",
-        "promo.2.price": "1 free night",
         "promo.3.name": "Referrals",
         "promo.3.text": "Did a traveller who stayed with us send you our way? You get 10% off. For international guests paying in cash.",
         "promo.3.price": "10% off",
@@ -437,7 +431,7 @@ const translations = {
         "wa.exc5": "Hi! I'd like to book the Laguna de los Tres (Fitz Roy) excursion",
         "wa.transfers": "Hi! I'd like to ask about transfers",
         "wa.promo1": "Hi! I'm interested in the National Residents promo (20% discount)",
-        "wa.promo2": "Hi! I'm interested in the 4x3 Early Booking promo",
+        "wa.promo3": "Hi! A traveller who stayed with you referred me and I'd like to ask about the referral discount",
 
         // Footer
         "footer.brand": "Your home in Patagonia. Comfort, warmth and unique experiences in El Calafate.",
