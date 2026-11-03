@@ -2483,3 +2483,95 @@ footer {
     cursor: pointer !important;
     background: var(--color-white) !important;
 }
+
+/* ===== Voluntariado ===== */
+.voluntariado {
+    padding: 60px 0;
+    background: var(--color-light);
+}
+
+.vol-box {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: var(--color-white);
+    border-left: 5px solid var(--color-sky);
+    border-radius: 4px 14px 14px 4px;
+    padding: 38px 40px;
+    box-shadow: 0 6px 28px rgba(44, 62, 45, 0.07);
+}
+
+.vol-icon {
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: rgba(124, 185, 232, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vol-icon i {
+    font-size: 1.9rem;
+    color: var(--color-sky);
+}
+
+.vol-eyebrow {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-sky);
+    margin-bottom: 8px;
+}
+
+.vol-text h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--color-dark);
+}
+
+.vol-text p {
+    color: #555;
+    font-size: 0.97rem;
+    margin-bottom: 20px;
+    max-width: 62ch;
+}
+
+.vol-btn {
+    display: inline-block;
+    background: var(--color-green);
+    color: var(--color-white);
+    padding: 12px 26px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.93rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.vol-btn:hover {
+    background: var(--color-dark);
+    transform: translateY(-2px);
+}
+
+.vol-btn:focus-visible {
+    outline: 3px solid var(--color-sky);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .vol-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        padding: 30px 24px;
+    }
+
+    .vol-text h2 {
+        font-size: 1.35rem;
+    }
+}

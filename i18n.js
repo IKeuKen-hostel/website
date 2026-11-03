@@ -116,6 +116,13 @@ const translations = {
         "promo.2.name": "Reserva Anticipada",
         "promo.2.text": "Pagá 3 noches y quedate 4. Abonando con transferencia o tarjeta en garantía.",
         "promo.2.price": "1 noche gratis",
+        "promo.3.name": "Referidos",
+        "promo.3.text": "¿Te recomendó un viajero que ya estuvo acá? Llevás 10% de descuento. Para huéspedes extranjeros, abonando en efectivo.",
+        "promo.3.price": "10% de descuento",
+        "vol.eyebrow": "Voluntariado",
+        "vol.title": "Quedate más tiempo, sumate al equipo",
+        "vol.text": "Buscamos viajeros que quieran dar una mano en el hostel a cambio de alojamiento. Es la forma de quedarse unas semanas en El Calafate, conocer gente de todo el mundo y vivir la Patagonia desde adentro.",
+        "vol.cta": "Ver la posición en Worldpackers",
 
         // Gallery
         "gallery.title": "Galería",
@@ -342,6 +349,13 @@ const translations = {
         "promo.2.name": "Early Booking",
         "promo.2.text": "Pay for 3 nights and stay 4. Paying by bank transfer or credit card as guarantee.",
         "promo.2.price": "1 free night",
+        "promo.3.name": "Referrals",
+        "promo.3.text": "Did a traveller who stayed with us send you our way? You get 10% off. For international guests paying in cash.",
+        "promo.3.price": "10% off",
+        "vol.eyebrow": "Volunteering",
+        "vol.title": "Stay longer, join the team",
+        "vol.text": "We are looking for travellers who want to lend a hand at the hostel in exchange for accommodation. It is the way to spend a few weeks in El Calafate, meet people from all over the world and live Patagonia from the inside.",
+        "vol.cta": "See the position on Worldpackers",
 
         // Gallery
         "gallery.title": "Gallery",
