@@ -121,6 +121,31 @@
   .empty strong{display:block;font-family:'Montserrat',sans-serif;color:var(--roca);
     font-size:1.05rem;margin-bottom:6px}
 
+  /* ---------- Material extra ----------
+     No es un reporte mensual, así que vive fuera del testigo de hielo:
+     sin punto en la línea de tiempo y con el acento arena en lugar del celeste. */
+  .extras{margin:34px 0 0 46px}
+  .extras-tit{
+    font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--arena);margin-bottom:14px;
+  }
+  .extra{
+    background:var(--blanco);border:1px solid var(--borde);
+    border-left:4px solid var(--arena);
+    border-radius:4px 12px 12px 4px;
+    padding:22px 26px;margin-bottom:14px;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .extra:last-child{margin-bottom:0}
+  .extra:hover{transform:translateX(3px);box-shadow:0 8px 30px rgba(44,62,45,.10)}
+  .extra h3{
+    font-family:'Montserrat',sans-serif;font-weight:700;
+    font-size:1.18rem;line-height:1.25;margin-bottom:8px;
+  }
+  .extra p{color:var(--roca-suave);font-size:.93rem;margin-bottom:16px}
+  .extra .go{background:var(--arena);color:var(--roca)}
+  .extra .go:hover{background:var(--fuego);color:var(--blanco)}
+
   /* ---------- Nota al pie ---------- */
   .note{
     margin:10px 0 0 46px;padding:20px 24px;
@@ -171,6 +196,8 @@
 
   <main class="core" id="core"></main>
 
+  <section class="extras" id="extras" hidden></section>
+
   <div class="note">
     <strong>¿Falta el mes que estás buscando?</strong> El informe de cada mes se publica
     durante los primeros días del mes siguiente, una vez cerrados los datos.
@@ -202,6 +229,18 @@
     // Los próximos reportes van ACÁ ARRIBA, no abajo.
   ];
 
+  /* ───────────────────────────────────────────────────────────────
+     MATERIAL EXTRA — informes que no son del mes, van aparte.
+     Si queda vacío, el bloque entero no se muestra.
+     ─────────────────────────────────────────────────────────────── */
+  const extras = [
+    {
+      titulo: 'El mercado de El Calafate',
+      resumen: 'Once meses de datos de Hostelworld leídos de punta a punta: qué habitación está comprando el viajero, de dónde viene, con cuánta anticipación reserva y qué conviene hacer con eso.',
+      archivo: 'mercado-elcalafate-2026.html'
+    }
+  ];
+
   const core = document.getElementById('core');
 
   if (reportes.length) {
@@ -224,6 +263,21 @@
         <strong>Todavía no hay informes publicados.</strong>
         El primero llega en los próximos días.
       </div>`;
+  }
+
+  const extrasBox = document.getElementById('extras');
+
+  if (extras.length) {
+    extrasBox.hidden = false;
+    extrasBox.innerHTML =
+      '<h2 class="extras-tit">Material extra</h2>' +
+      extras.map(e => `
+        <article class="extra">
+          <h3>${e.titulo}</h3>
+          <p>${e.resumen}</p>
+          <a class="go" href="${e.archivo}">Ver el informe <span class="arrow">→</span></a>
+        </article>
+      `).join('');
   }
 
   document.getElementById('y').textContent = new Date().getFullYear();

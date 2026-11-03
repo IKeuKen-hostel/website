@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El mercado de El Calafate — I Keu Ken Hostel</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Qué está haciendo el mercado de hosteles de El Calafate, según once meses de datos de Hostelworld.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Paleta del sitio de I Keu Ken (igual que los otros reportes) */
+    --hielo:#7CB9E8; --hielo-hondo:#3D6B91;
+    --musgo:#5B7744; --arena:#C4A57B; --fuego:#D2691E;
+    --roca:#2C3E2D; --roca-suave:#6B7A6C;
+    --nieve:#F8F6F3; --blanco:#FFFFFF;
+    --borde:rgba(44,62,45,.10);
+
+    /* --- Paleta de los gráficos ---
+       Divergente (crece / cae): validada para daltonismo.
+       El par verde-naranja de la marca NO servía: en protanopia
+       los dos colores quedan a ΔE 5,2, o sea indistinguibles. */
+    --crece:#2E6FA8;
+    --cae:#D2691E;
+
+    /* Secuencial de un solo tono, claro -> oscuro, para tramos ordenados.
+       Los tres pasos estan elegidos para que las etiquetas que van ADENTRO
+       del segmento pasen 4,5:1 de contraste: 6,8 / 5,7 / 12,0. */
+    --seq-1:#AFD0EA;
+    --seq-2:#2F6B99;
+    --seq-3:#0E3A55;
+
+    --grid:rgba(44,62,45,.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Poppins',system-ui,sans-serif;font-weight:300;
+    background:var(--nieve);color:var(--roca);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:740px;margin:0 auto;padding:0 20px}
+
+  .back{display:inline-flex;align-items:center;gap:7px;margin-top:28px;
+    font-size:.86rem;font-weight:500;color:var(--musgo);text-decoration:none}
+  .back:hover{color:var(--fuego)}
+  .back:focus-visible{outline:3px solid var(--hielo);outline-offset:3px}
+
+  header.top{padding:30px 0 34px;border-bottom:3px solid var(--arena)}
+  .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--hielo-hondo);margin-bottom:12px}
+  h1{font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.1;letter-spacing:-.02em}
+  .bajada{margin-top:14px;font-size:1.02rem;color:var(--roca-suave);max-width:52ch}
+  .who{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;font-size:.88rem;color:var(--roca-suave)}
+  .who b{display:block;font-size:.68rem;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--hielo-hondo);margin-bottom:1px}
+
+  section{padding:38px 0;border-bottom:1px solid var(--borde)}
+  section:last-of-type{border-bottom:none}
+  h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.32rem;margin-bottom:8px}
+  .sub{color:var(--roca-suave);font-size:.93rem;margin-bottom:22px}
+  p+p{margin-top:12px}
+  strong{font-weight:600}
+
+  .nota{background:rgba(196,165,123,.15);border-radius:12px;padding:20px 24px;
+    font-size:.9rem;color:var(--roca)}
+  .nota b{font-weight:600}
+
+  /* ---------- KPIs ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:24px}
+  .kpi{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;
+    padding:20px;text-align:center}
+  .kpi .lab{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--hielo-hondo);margin-bottom:7px}
+  .kpi .val{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.95rem;line-height:1}
+  .kpi .pie{font-size:.78rem;color:var(--roca-suave);margin-top:7px;line-height:1.4}
+
+  /* ---------- Chasis común de los gráficos ---------- */
+  figure{background:var(--blanco);border:1px solid var(--borde);border-radius:14px;
+    padding:24px 22px;margin:0 0 16px}
+  figcaption{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;
+    margin-bottom:4px}
+  .fig-sub{font-size:.84rem;color:var(--roca-suave);margin-bottom:18px}
+
+  .leyenda{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;
+    font-size:.82rem;color:var(--roca)}
+  .leyenda span{display:inline-flex;align-items:center;gap:7px}
+  .sw{width:11px;height:11px;border-radius:3px;flex:none}
+
+  /* ---------- Gráfico divergente (crece / cae) ---------- */
+  .dv{display:grid;gap:9px}
+  .dv-row{display:grid;grid-template-columns:52px 54px 1fr 1fr 54px;align-items:center;gap:6px}
+  .dv-mes{font-size:.78rem;font-weight:500;color:var(--roca-suave)}
+  .dv-val{font-size:.78rem;font-weight:600;font-variant-numeric:tabular-nums}
+  .dv-val.l{text-align:right;color:var(--cae)}
+  .dv-val.r{text-align:left;color:var(--crece)}
+  .dv-half{height:17px;position:relative;display:flex}
+  .dv-half.l{justify-content:flex-end;border-right:2px solid var(--grid)}
+  .dv-half.r{justify-content:flex-start}
+  .dv-bar{height:100%;width:var(--w);transition:filter .15s}
+  .dv-half.l .dv-bar{background:var(--cae);border-radius:4px 0 0 4px}
+  .dv-half.r .dv-bar{background:var(--crece);border-radius:0 4px 4px 0}
+  .dv-row:hover .dv-bar{filter:brightness(1.12)}
+  .dv-nd{font-size:.72rem;color:var(--roca-suave);align-self:center;padding-right:4px}
+  .dv-eje{display:grid;grid-template-columns:52px 54px 1fr 1fr 54px;gap:6px;
+    margin-top:10px;font-size:.72rem;color:var(--roca-suave)}
+  .dv-eje .c{grid-column:3/5;text-align:center}
+
+  /* ---------- Gráfico apilado al 100% ---------- */
+  .st{display:grid;gap:7px}
+  .st-row{display:grid;grid-template-columns:48px 1fr;align-items:center;gap:10px}
+  .st-mes{font-size:.78rem;font-weight:500;color:var(--roca-suave)}
+  .st-bar{display:flex;gap:2px;height:21px}
+  .st-seg{display:flex;align-items:center;justify-content:center;
+    font-size:.68rem;font-weight:600;font-variant-numeric:tabular-nums;
+    overflow:hidden;transition:filter .15s}
+  .st-row:hover .st-seg{filter:brightness(1.07)}
+  .st-seg:first-child{border-radius:4px 0 0 4px}
+  .st-seg:last-child{border-radius:0 4px 4px 0}
+  .s1{background:var(--seq-1);color:#0F3F63}
+  .s2{background:var(--seq-2);color:#fff}
+  .s3{background:var(--seq-3);color:#fff}
+  .st-corte{height:1px;background:var(--grid);margin:3px 0 3px 58px}
+
+  /* ---------- Barras simples ---------- */
+  .bh{display:grid;gap:10px}
+  .bh-row{display:grid;grid-template-columns:106px 1fr 44px;align-items:center;gap:10px}
+  .bh-lab{font-size:.82rem;font-weight:500}
+  .bh-track{height:18px;background:rgba(44,62,45,.05);border-radius:4px}
+  .bh-bar{height:100%;width:var(--w);background:var(--crece);border-radius:4px;
+    transition:filter .15s}
+  .bh-row:hover .bh-bar{filter:brightness(1.12)}
+  .bh-val{font-size:.8rem;font-weight:600;color:var(--roca-suave);font-variant-numeric:tabular-nums}
+
+  /* ---------- Tabla de respaldo ---------- */
+  details{margin-top:4px;font-size:.84rem}
+  summary{cursor:pointer;font-weight:500;color:var(--musgo);padding:6px 0}
+  summary:hover{color:var(--fuego)}
+  summary:focus-visible{outline:3px solid var(--hielo);outline-offset:3px}
+  table{border-collapse:collapse;width:100%;margin-top:10px;font-size:.8rem}
+  th,td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--borde)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-weight:600;color:var(--hielo-hondo);font-size:.72rem;
+    letter-spacing:.06em;text-transform:uppercase}
+
+  /* ---------- Bloques destacados ---------- */
+  .clave{background:var(--blanco);border:1px solid var(--borde);
+    border-left:5px solid var(--arena);border-radius:4px 12px 12px 4px;
+    padding:22px 26px;margin:22px 0}
+  .clave h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;
+    margin-bottom:7px}
+  .clave p{font-size:.94rem}
+
+  .items{list-style:none;display:grid;gap:14px}
+  .item{background:var(--blanco);border:1px solid var(--borde);
+    border-left:4px solid var(--musgo);border-radius:4px 10px 10px 4px;padding:18px 22px}
+  .item h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:5px}
+  .item p{font-size:.92rem;color:var(--roca-suave)}
+  .why{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed var(--borde);
+    font-size:.87rem;color:var(--roca)}
+  .why b{color:var(--fuego);font-weight:600}
+
+  .reco{background:rgba(124,185,232,.13);border-radius:12px;padding:24px 26px}
+  .reco h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:8px}
+  .reco ol{margin:0;padding-left:20px}
+  .reco li{margin-bottom:10px;font-size:.93rem}
+  .reco li:last-child{margin-bottom:0}
+
+  footer{margin-top:20px;padding:28px 0 48px;border-top:1px solid var(--borde);
+    font-size:.84rem;color:var(--roca-suave)}
+  footer a{color:var(--musgo);font-weight:500;text-decoration:none;
+    border-bottom:1px solid rgba(91,119,68,.3)}
+  footer a:hover{color:var(--fuego);border-bottom-color:var(--fuego)}
+
+  @media (max-width:560px){
+    section{padding:30px 0}
+    figure{padding:20px 16px}
+    .dv-row{grid-template-columns:44px 46px 1fr 1fr 46px;gap:4px}
+    .dv-eje{grid-template-columns:44px 46px 1fr 1fr 46px;gap:4px}
+    .dv-val,.dv-mes{font-size:.72rem}
+    .bh-row{grid-template-columns:76px 1fr 38px}
+    .st-row{grid-template-columns:40px 1fr}
+    .st-seg{font-size:.62rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media print{
+    body{background:#fff}
+    .back{display:none}
+    section,figure{break-inside:avoid}
+    details{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a class="back" href="./">← Todos los reportes</a>
+
+  <header class="top">
+    <div class="eyebrow">Material extra · Plan Plus</div>
+    <h1>El mercado de El Calafate</h1>
+    <p class="bajada">Once meses de datos de Hostelworld, leídos para contestar una
+      sola pregunta: qué está comprando el viajero que llega a El Calafate, y qué
+      conviene hacer con eso.</p>
+    <div class="who">
+      <div><b>Para</b> I Keu Ken Hostel</div>
+      <div><b>De</b> Teo Cicciari</div>
+      <div><b>Datos</b> nov 2025 — sep 2026</div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Antes de empezar: qué miden estos datos</h2>
+    <p class="sub">Para que las conclusiones se lean con la medida justa.</p>
+
+    <div class="nota">
+      <p>Los reportes que me mandaron son los <b>City Spotlight</b> de Hostelworld para
+        El Calafate. Miden <b>todo el mercado de hosteles de la ciudad</b> dentro de
+        Hostelworld: la suma de ustedes y de todos los demás.</p>
+      <p style="margin-top:10px">Eso los hace muy buenos para decidir —muestran hacia
+        dónde va la demanda, de dónde viene la gente y qué habitaciones se venden— pero
+        <b>no dicen cómo le fue al hostel</b>. Para eso hace falta el reporte de la
+        propiedad, el que sale del panel de ustedes. Si me lo mandan, puedo comparar una
+        cosa con la otra y recién ahí decir si I Keu Ken le gana o le pierde al mercado.</p>
+      <p style="margin-top:10px">Son once meses seguidos, de noviembre de 2025 a
+        septiembre de 2026. Hostelworld publica cada mes con unos dos meses de demora,
+        así que octubre va a llegar más adelante.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>El hallazgo más importante</h2>
+    <p class="sub">Se repite en los once meses y tiene que ver directamente con la
+      habitación que acabamos de publicar.</p>
+
+    <div class="clave">
+      <h3>La habitación que más crece en El Calafate es la compartida con baño privado</h3>
+      <p>El ranking de habitaciones más vendidas del mercado está dominado, mes tras mes,
+        por el <strong>dormitorio de 4 camas con baño propio</strong>. Es el único formato
+        que aparece en el top 5 los <strong>once meses, sin faltar uno</strong>, y casi
+        siempre creciendo. En marzo creció un <strong>79,7%</strong> contra el mismo mes
+        del año anterior.</p>
+      <p style="margin-top:10px">En el mismo período, la <strong>habitación privada doble
+        con baño se está cayendo</strong>: perdió 68% en junio, 61% en julio y 61% en
+        septiembre.</p>
+    </div>
+
+    <figure id="g-formatos">
+      <figcaption>Cómo le fue a cada formato en el mercado</figcaption>
+      <p class="fig-sub">Variación contra el mismo mes del año anterior, 2026.
+        Se muestran los cinco meses en que los dos formatos entraron al top 5.</p>
+
+      <div class="leyenda">
+        <span><i class="sw" style="background:var(--crece)"></i> Dormi de 4 camas con baño privado</span>
+        <span><i class="sw" style="background:var(--cae)"></i> Privada doble con baño</span>
+      </div>
+
+      <div class="dv">
+        <div class="dv-row">
+          <span class="dv-mes">may 26</span>
+          <span class="dv-val l">−11,1%</span>
+          <div class="dv-half l"><div class="dv-bar" style="--w:15.9%"></div></div>
+          <div class="dv-half r"><div class="dv-bar" style="--w:82.6%"></div></div>
+          <span class="dv-val r">+57,8%</span>
+        </div>
+        <div class="dv-row">
+          <span class="dv-mes">jun 26</span>
+          <span class="dv-val l">−68,0%</span>
+          <div class="dv-half l"><div class="dv-bar" style="--w:97.1%"></div></div>
+          <div class="dv-half r"><div class="dv-bar" style="--w:19.7%"></div></div>
+          <span class="dv-val r">+13,8%</span>
+        </div>
+        <div class="dv-row">
+          <span class="dv-mes">jul 26</span>
+          <span class="dv-val l">−60,6%</span>
+          <div class="dv-half l"><div class="dv-bar" style="--w:86.6%"></div></div>
+          <div class="dv-half r"><div class="dv-bar" style="--w:45.9%"></div></div>
+          <span class="dv-val r">+32,1%</span>
+        </div>
+        <div class="dv-row">
+          <span class="dv-mes">ago 26</span>
+          <span class="dv-val l">−10,8%</span>
+          <div class="dv-half l"><div class="dv-bar" style="--w:15.4%"></div></div>
+          <div class="dv-half r"><div class="dv-bar" style="--w:20.4%"></div></div>
+          <span class="dv-val r">+14,3%</span>
+        </div>
+        <div class="dv-row">
+          <span class="dv-mes">sep 26</span>
+          <span class="dv-val l">−61,0%</span>
+          <div class="dv-half l"><div class="dv-bar" style="--w:87.1%"></div></div>
+          <div class="dv-half r"><div class="dv-bar" style="--w:4.4%"></div></div>
+          <span class="dv-val r">+3,1%</span>
+        </div>
+      </div>
+      <div class="dv-eje"><span></span><span></span><span class="c">← cae · crece →</span></div>
+    </figure>
+
+    <p>Visto de más lejos, la tendencia es la misma: las habitaciones compartidas son
+      entre el <strong>72% y el 90% de todo lo que se vende</strong> en la ciudad, y
+      vienen creciendo. Las privadas pierden terreno.</p>
+
+    <div class="clave" style="border-left-color:var(--musgo)">
+      <h3>Qué significa para el hostel</h3>
+      <p>La habitación nueva —4 camas, mixta, con baño y cocina propios— es
+        <strong>exactamente el formato que el mercado está comprando</strong>. No fue
+        una corazonada: es el producto correcto en el momento correcto.</p>
+      <p style="margin-top:10px">Hoy en el sitio es la quinta tarjeta de la sección de
+        habitaciones. <strong>Merece estar primera o segunda</strong>, y conviene
+        revisar que en Hostelworld esté cargada como <em>dormitorio con baño privado</em>
+        y no como habitación privada: es la categoría en la que el buscador la va a
+        mostrar creciendo.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>De dónde viene la gente</h2>
+    <p class="sub">Y por qué el inglés dejó de ser un idioma secundario del sitio.</p>
+
+    <figure id="g-paises">
+      <figcaption>Países que entraron al top 5 del mercado</figcaption>
+      <p class="fig-sub">Cantidad de meses, sobre los 11 medidos, en que el país estuvo
+        entre los cinco primeros por volumen.</p>
+
+      <div class="bh">
+        <div class="bh-row">
+          <span class="bh-lab">Inglaterra</span>
+          <div class="bh-track"><div class="bh-bar" style="--w:100%"></div></div>
+          <span class="bh-val">11</span>
+        </div>
+        <div class="bh-row">
+          <span class="bh-lab">Estados Unidos</span>
+          <div class="bh-track"><div class="bh-bar" style="--w:100%"></div></div>
+          <span class="bh-val">11</span>
+        </div>
+        <div class="bh-row">
+          <span class="bh-lab">Francia</span>
+          <div class="bh-track"><div class="bh-bar" style="--w:100%"></div></div>
+          <span class="bh-val">11</span>
+        </div>
+        <div class="bh-row">
+          <span class="bh-lab">Australia</span>
+          <div class="bh-track"><div class="bh-bar" style="--w:90.9%"></div></div>
+          <span class="bh-val">10</span>
+        </div>
+        <div class="bh-row">
+          <span class="bh-lab">Alemania</span>
+          <div class="bh-track"><div class="bh-bar" style="--w:72.7%"></div></div>
+          <span class="bh-val">8</span>
+        </div>
+      </div>
+      <p class="fig-sub" style="margin:16px 0 0">Canadá, Países Bajos e Irlanda rotan
+        detrás, siempre dentro del top 10.</p>
+    </figure>
+
+    <p><strong>Inglaterra y Estados Unidos son el primero y el segundo mercado los once
+      meses, sin una sola excepción.</strong> Si a eso le sumamos Australia, Canadá,
+      Irlanda y Nueva Zelanda, el visitante de El Calafate es mayoritariamente
+      angloparlante. Los países de habla hispana casi no aparecen: México asoma en cuatro
+      meses y Argentina en dos.</p>
+
+    <p>El argentino sí pesa en temporada: es entre el <strong>15% y el 32% del mercado en
+      verano</strong>, pero baja al <strong>4–12% en invierno</strong>. Por eso la promo
+      del 20% para residentes tiene sentido de diciembre a marzo y casi ninguno el resto
+      del año.</p>
+
+    <div class="clave" style="border-left-color:var(--musgo)">
+      <h3>Qué significa para el hostel</h3>
+      <p>La versión en inglés del sitio <strong>no es un extra: es la versión
+        principal</strong>. Ya está hecha y funcionando, y de ahora en más todo lo que
+        sumemos sale en los dos idiomas el mismo día.</p>
+      <p style="margin-top:10px">También explica por qué las dos cosas que acabamos de
+        agregar apuntan bien: la <strong>promo de referidos para huéspedes
+        extranjeros</strong> y el <strong>bloque de voluntariado por Worldpackers</strong>,
+        que es el canal que usa justamente este público.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cuándo reservan: hay dos temporadas opuestas</h2>
+    <p class="sub">Esta es la conclusión más útil para los próximos meses.</p>
+
+    <figure id="g-anticipacion">
+      <figcaption>Con cuánta anticipación se reserva</figcaption>
+      <p class="fig-sub">Porcentaje de las reservas del mercado según cuánto antes del
+        viaje se hicieron.</p>
+
+      <div class="leyenda">
+        <span><i class="sw" style="background:var(--seq-1)"></i> Menos de una semana</span>
+        <span><i class="sw" style="background:var(--seq-2)"></i> De una semana a dos meses</span>
+        <span><i class="sw" style="background:var(--seq-3)"></i> Más de dos meses</span>
+      </div>
+
+      <div class="st">
+        <div class="st-row"><span class="st-mes">nov 25</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:43%">43%</div>
+            <div class="st-seg s2" style="width:46%">46%</div>
+            <div class="st-seg s3" style="width:11%">11%</div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">dic 25</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:51%">51%</div>
+            <div class="st-seg s2" style="width:41%">41%</div>
+            <div class="st-seg s3" style="width:8%"></div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">ene 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:48%">48%</div>
+            <div class="st-seg s2" style="width:46%">46%</div>
+            <div class="st-seg s3" style="width:6%"></div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">feb 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:51%">51%</div>
+            <div class="st-seg s2" style="width:47%">47%</div>
+            <div class="st-seg s3" style="width:2%"></div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">mar 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:72%">72%</div>
+            <div class="st-seg s2" style="width:26%">26%</div>
+            <div class="st-seg s3" style="width:2%"></div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">abr 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:78%">78%</div>
+            <div class="st-seg s2" style="width:16%">16%</div>
+            <div class="st-seg s3" style="width:6%"></div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">may 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:51%">51%</div>
+            <div class="st-seg s2" style="width:26%">26%</div>
+            <div class="st-seg s3" style="width:23%">23%</div>
+          </div></div>
+        <div class="st-corte"></div>
+        <div class="st-row"><span class="st-mes">jun 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:29%">29%</div>
+            <div class="st-seg s2" style="width:16%">16%</div>
+            <div class="st-seg s3" style="width:55%">55%</div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">jul 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:18%">18%</div>
+            <div class="st-seg s2" style="width:14%">14%</div>
+            <div class="st-seg s3" style="width:68%">68%</div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">ago 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:14%">14%</div>
+            <div class="st-seg s2" style="width:25%">25%</div>
+            <div class="st-seg s3" style="width:61%">61%</div>
+          </div></div>
+        <div class="st-row"><span class="st-mes">sep 26</span>
+          <div class="st-bar">
+            <div class="st-seg s1" style="width:17%">17%</div>
+            <div class="st-seg s2" style="width:36%">36%</div>
+            <div class="st-seg s3" style="width:47%">47%</div>
+          </div></div>
+      </div>
+
+      <details>
+        <summary>Ver los datos en tabla</summary>
+        <table>
+          <thead><tr><th>Mes</th><th>&lt; 1 semana</th><th>1 sem – 2 meses</th><th>&gt; 2 meses</th></tr></thead>
+          <tbody>
+            <tr><td>nov 2025</td><td>43%</td><td>46%</td><td>11%</td></tr>
+            <tr><td>dic 2025</td><td>51%</td><td>41%</td><td>8%</td></tr>
+            <tr><td>ene 2026</td><td>48%</td><td>46%</td><td>6%</td></tr>
+            <tr><td>feb 2026</td><td>51%</td><td>47%</td><td>2%</td></tr>
+            <tr><td>mar 2026</td><td>72%</td><td>26%</td><td>2%</td></tr>
+            <tr><td>abr 2026</td><td>78%</td><td>16%</td><td>6%</td></tr>
+            <tr><td>may 2026</td><td>51%</td><td>26%</td><td>23%</td></tr>
+            <tr><td>jun 2026</td><td>29%</td><td>16%</td><td>55%</td></tr>
+            <tr><td>jul 2026</td><td>18%</td><td>14%</td><td>68%</td></tr>
+            <tr><td>ago 2026</td><td>14%</td><td>25%</td><td>61%</td></tr>
+            <tr><td>sep 2026</td><td>17%</td><td>36%</td><td>47%</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </figure>
+
+    <p>El corte del gráfico separa dos comportamientos que no se parecen en nada:</p>
+
+    <ul class="items">
+      <li class="item">
+        <h3>Verano: se reserva sobre la marcha</h3>
+        <p>En abril, el <strong>61% reservó con menos de tres días</strong> de
+          anticipación, y el 27% el mismo día. Es gente que ya está en la Patagonia
+          buscando cama desde el celular.</p>
+      </li>
+      <li class="item">
+        <h3>Invierno: se planifica con meses</h3>
+        <p>En julio, el <strong>62% reservó con más de tres meses</strong> de
+          anticipación. Son los que están armando el verano que viene. En invierno,
+          además, entre el 70% y el 82% reserva desde el exterior.</p>
+      </li>
+    </ul>
+
+    <div class="clave" style="border-left-color:var(--musgo)">
+      <h3>Qué significa para el hostel, ahora mismo</h3>
+      <p><strong>En noviembre el sitio está recibiendo a la gente que planifica enero,
+        febrero y marzo.</strong> Es el momento de que el precio, la disponibilidad y las
+        promos estén claros y en inglés.</p>
+      <p style="margin-top:10px">A partir de enero el tránsito se da vuelta y pasa a ser
+        de último momento y desde el celular. Ahí lo que importa es otra cosa: que el
+        WhatsApp conteste rápido y que reservar sea cuestión de segundos.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cuánto se quedan</h2>
+    <p class="sub">El Calafate es una escala, no un destino para quedarse.</p>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="lab">Estadías de 1 o 2 noches</div>
+        <div class="val">65–84%</div>
+        <div class="pie">según el mes, sobre el total del mercado</div>
+      </div>
+      <div class="kpi">
+        <div class="lab">Viajan solos</div>
+        <div class="val">52–66%</div>
+        <div class="pie">la mitad o más de las reservas</div>
+      </div>
+      <div class="kpi">
+        <div class="lab">Grupos de 6 o más</div>
+        <div class="val">0–2%</div>
+        <div class="pie">prácticamente no existen</div>
+      </div>
+    </div>
+
+    <p>Entre <strong>dos tercios y ocho de cada diez estadías son de una o dos
+      noches</strong>. El visitante viene por el glaciar y sigue viaje. Y en la mayoría
+      de los meses, <strong>más de la mitad viaja solo</strong>.</p>
+
+    <div class="clave" style="border-left-color:var(--musgo)">
+      <h3>Qué significa para el hostel</h3>
+      <p>El sitio tiene que contestar rápido y arriba: cuánto cuesta, si hay lugar, cómo
+        se llega al glaciar. La decisión se toma en minutos.</p>
+      <p style="margin-top:10px">Y el <strong>voluntariado es la única jugada que alarga
+        una estadía de verdad</strong>: pasa de dos noches a varias semanas. Por eso vale
+        la pena que no quede escondido al final de la página.</p>
+      <p style="margin-top:10px">Del otro lado: no conviene armar producto ni promos para
+        grupos grandes, porque el mercado no los tiene. La promo 4x3 pedía cuatro noches
+        en un mercado donde ocho de cada diez se quedan una o dos; por eso la saqué.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>El precio es donde se está jugando</h2>
+    <p class="sub">El volumen está plancha, pero la tarifa se mueve mucho.</p>
+
+    <p>En once meses el mercado tuvo <strong>seis meses en alza y cinco en baja</strong>,
+      sin ninguna tendencia clara. No va a venir más gente sola: crecer es ganarle
+      participación a los demás.</p>
+
+    <p>Lo que sí se mueve es el precio por cama. En <strong>abril y mayo cayó a unos 18
+      dólares</strong> —todos liquidando— y en <strong>agosto llegó a 29 dólares, un 21%
+      más que el año anterior</strong>, lo que convirtió a agosto en el mejor mes del año
+      en facturación del mercado, con un 28% de crecimiento.</p>
+
+    <div class="clave">
+      <h3>La tarifa no reembolsable duplicó su volumen</h3>
+      <p>La reserva <strong>no reembolsable creció 132% en julio y 115% en agosto</strong>,
+        mientras la reserva flexible cae entre 20% y 30% todos los meses. El viajero está
+        resignando flexibilidad para pagar menos.</p>
+      <p style="margin-top:10px">Si el hostel no tiene una <strong>tarifa no reembolsable
+        con descuento</strong>, claramente diferenciada de la flexible, está dejando pasar
+        reservas que el mercado sí está tomando.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Qué conviene hacer</h2>
+
+    <div class="reco">
+      <h3>En orden de impacto</h3>
+      <ol>
+        <li><strong>Subir la habitación compartida con baño privado</strong> al primer o
+          segundo lugar de la sección, y nombrarla arriba en la página. Es el formato que
+          más crece en la ciudad. <em>Lo puedo hacer yo este mes.</em></li>
+        <li><strong>Revisar que esté bien categorizada en Hostelworld</strong>, como
+          dormitorio con baño privado. Eso lo hacen ustedes desde el panel.</li>
+        <li><strong>Definir una tarifa no reembolsable con descuento.</strong> Es la
+          palanca de precio que el mercado está premiando. Decisión de ustedes; yo la
+          muestro en el sitio cuando la tengan.</li>
+        <li><strong>Dejar precio y disponibilidad bien claros antes de enero</strong>,
+          mientras el tránsito todavía es gente planificando el verano.</li>
+        <li><strong>Darle más aire al bloque de voluntariado</strong>, que es lo único
+          que estira la estadía. <em>Lo puedo hacer yo este mes.</em></li>
+        <li><strong>Mandarme el reporte de la propiedad de Hostelworld</strong>, el del
+          panel de ustedes. Con eso puedo decirles si le están ganando al mercado o no, y
+          ese es el dato que falta para cerrar todo esto.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p>Material extra · I Keu Ken Hostel · Plan de Mantenimiento Plus</p>
+    <p style="margin-top:8px">Elaborado sobre los once reportes City Spotlight de
+      Hostelworld para El Calafate que me compartieron.</p>
+    <p style="margin-top:8px">Cualquier duda me escribís.
+      <a href="https://teocicciari.com.ar" target="_blank" rel="noopener">Teo Cicciari</a>
+      · generado el <span id="hoy"></span></p>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('hoy').textContent =
+    new Date().toLocaleDateString('es-AR', { day:'numeric', month:'long', year:'numeric' });
+</script>
+
+</body>
+</html>
