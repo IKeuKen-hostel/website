@@ -30,3 +30,9 @@ mantenimiento/analisis-mercado-hostelworld.md
 
 # Fotos originales que manda el cliente (pesadas). Se suben solo las .webp procesadas.
 nuevas/
+
+# En image_webp/ solo van las .webp que usa el sitio. Los JPG originales viven en nuevas/.
+image_webp/**/*.jpg
+image_webp/**/*.jpeg
+image_webp/**/*.JPG
+image_webp/**/*.JPEG
