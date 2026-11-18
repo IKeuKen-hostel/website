@@ -607,7 +607,6 @@ nav > .container > .btn-reservar {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s;
-    height: 350px;
 }
 
 .room-card:hover {
@@ -624,13 +623,19 @@ nav > .container > .btn-reservar {
 
 .room-carousel {
     position: relative;
-    height: 350px;
+    /* 4:3 sobre la columna de 580px: las fotos verticales del celular pierden
+       mucho menos alto que con el marco apaisado de antes (350px). Es un minimo:
+       si el texto de al lado es mas largo, la foto acompana y nada se corta. */
+    min-height: 435px;
     overflow: hidden;
 }
 
 .room-slide {
     display: none;
-    height: 100%;
+    /* fuera del flujo: la foto llena el marco pero no decide su alto
+       (si no, una vertical estira la tarjeta a su tamano natural) */
+    position: absolute;
+    inset: 0;
 }
 
 .room-slide.active {
@@ -642,6 +647,7 @@ nav > .container > .btn-reservar {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center var(--foco, 40%); /* fotos de ambientes: sobra piso, no techo */
 }
 
 .room-carousel-btn {
@@ -2104,7 +2110,10 @@ footer {
 
     .room-card {
         grid-template-columns: 1fr 1fr;
-        height: 300px;
+    }
+
+    .room-carousel {
+        min-height: 360px;
     }
 
     .room-content h3 {
@@ -2214,7 +2223,9 @@ footer {
     }
 
     .room-carousel {
-        height: 250px;
+        min-height: 0;
+        width: 100%;
+        aspect-ratio: 4 / 3;
     }
 
     .room-content {
